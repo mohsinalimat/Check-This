@@ -21,8 +21,9 @@ class ToDoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
+        navigationItem.title = selectedCategory?.name
+        }
+    
     // MARK: - TableView Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
