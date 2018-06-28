@@ -63,7 +63,7 @@ class CategoryViewController: UITableViewController {
         alert.addAction(cancelAction)
         alert.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField.placeholder = "Category Name"
+            alertTextField .placeholder = "Category Name"
         }
         present(alert, animated: true)
     }
