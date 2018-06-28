@@ -28,7 +28,7 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         let category = categories?[indexPath.row]
-        cell.textLabel?.text = category?.name ?? "Add your first category."
+        cell.textLabel?.text = category?.name
         return cell
     }
     
