@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 class CategoryViewController: UITableViewController {
     
@@ -17,6 +18,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories()
+        tableView.rowHeight = 80
     }
     
     // MARK: - TableView Data Source Methods
@@ -26,7 +28,8 @@ class CategoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast line_length
+        cell.delegate = self
         let category = categories?[indexPath.row]
         cell.textLabel?.text = category?.name
         return cell
@@ -85,4 +88,36 @@ class CategoryViewController: UITableViewController {
         tableView.reloadData()
     }
     
+}
+
+// MARK: - Swipe Cell Delegate Methods
+
+extension CategoryViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { _, indexPath in
+            if let categoryToBeDeleted = self.categories?[indexPath.row] {
+                do {
+                    try self.realm.write {
+                        self.realm.delete(categoryToBeDeleted.items)
+                        self.realm.delete(categoryToBeDeleted)
+                    }
+                } catch {
+                    print("Error deleting category \(error)")
+                }
+            }
+        }
+        deleteAction.image = UIImage(named: "delete-icon")
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions { // swiftlint:disable:this line_length
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
+    }
+
 }
