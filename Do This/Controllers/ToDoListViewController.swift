@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ToDoListViewController: UITableViewController {
+class ToDoListViewController: SwipeTableViewController {
 
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try
@@ -30,7 +30,7 @@ class ToDoListViewController: UITableViewController {
         return items?.count ?? 1    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = items?[indexPath.row] {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done ? .checkmark : .none
@@ -98,6 +98,18 @@ class ToDoListViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func deleteFromModel(at indexPath: IndexPath) {
+        if let item = selectedCategory?.items[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                print("Error deleting item \(error)")
+            }
+        }
+    }
+
 }
 
 // MARK: - SearchBar Delegate Methods
