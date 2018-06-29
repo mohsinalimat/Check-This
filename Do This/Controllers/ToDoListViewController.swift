@@ -12,7 +12,7 @@ import RealmSwift
 class ToDoListViewController: UITableViewController {
 
     var items: Results<Item>?
-    let realm = try! Realm()
+    let realm = try! Realm() // swiftlint:disable:this force_try
     var selectedCategory: Category? {
         didSet {
             loadItems()
@@ -61,7 +61,7 @@ class ToDoListViewController: UITableViewController {
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add Item To List", message: "", preferredStyle: .alert)
-        let addItemAction = UIAlertAction(title: "Add", style: .default) { (action) in
+        let addItemAction = UIAlertAction(title: "Add", style: .default) { _ in
             if textField.text! != "" {
                 let newItem = Item()
                 newItem.title = textField.text!

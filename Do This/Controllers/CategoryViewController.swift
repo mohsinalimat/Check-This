@@ -11,7 +11,7 @@ import RealmSwift
 
 class CategoryViewController: UITableViewController {
     
-    let realm = try! Realm()
+    let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
     
     override func viewDidLoad() {
@@ -39,9 +39,9 @@ class CategoryViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ToDoListViewController
+        let destinationVC = segue.destination as? ToDoListViewController
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories?[indexPath.row] 
+            destinationVC?.selectedCategory = categories?[indexPath.row]
         }
     }
     
@@ -50,7 +50,7 @@ class CategoryViewController: UITableViewController {
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-        let addCategoryAction = UIAlertAction(title: "Add", style: .default) { (action) in
+        let addCategoryAction = UIAlertAction(title: "Add", style: .default) { _ in
             if textField.text! != "" {
                 let newCategory = Category()
                 newCategory.name = textField.text!

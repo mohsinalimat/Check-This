@@ -136,6 +136,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21941B3D20D084EA00041A37 /* Build configuration list for PBXNativeTarget "Do This" */;
 			buildPhases = (
+				21C1568120E5A78700553925 /* ShellScript */,
 				6FBAE8C4A77C0023BD23F751 /* [CP] Check Pods Manifest.lock */,
 				21941B2720D084E900041A37 /* Sources */,
 				21941B2820D084E900041A37 /* Frameworks */,
@@ -198,6 +199,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		21C1568120E5A78700553925 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
 		6FBAE8C4A77C0023BD23F751 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
