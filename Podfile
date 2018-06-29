@@ -8,4 +8,5 @@ target 'Do This' do
   # Pods for Do This
   pod 'RealmSwift'
   pod 'SwiftLint'
+  pod 'SwipeCellKit'
 end
