@@ -18,6 +18,7 @@ class CategoryViewController: SwipeTableViewController {
         super.viewDidLoad()
         loadCategories()
         tableView.rowHeight = 80
+        swipeToDeleteTextDescription = "Delete"
     }
     
     // MARK: - TableView Data Source Methods

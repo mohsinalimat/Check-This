@@ -10,6 +10,8 @@ import UIKit
 import SwipeCellKit
 
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+    
+    var swipeToDeleteTextDescription: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { _, indexPath in
+        let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteTextDescription) { _, indexPath in
             self.deleteFromModel(at: indexPath)
         }
         deleteAction.image = UIImage(named: "delete-icon")
@@ -41,6 +43,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     }
     
     func deleteFromModel(at indexPath: IndexPath) {
-        // This method is meant to be overriden by subclasses to delete from Model
+        // This method is meant to be overriden by subclasses.
     }
+    
 }
