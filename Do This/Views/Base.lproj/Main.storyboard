@@ -34,7 +34,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Categories" id="kOy-1f-68Q">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UHT-u1-jxn">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addNewCategory:" destination="GuX-RV-t3l" id="dFu-Od-IPz"/>
                             </connections>
@@ -85,7 +84,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="otq-F7-xfA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r0V-Tk-qeh">
-                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addNewItem:" destination="xue-aK-VTX" id="vnV-wP-TeN"/>
                             </connections>
@@ -106,7 +104,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -119,5 +118,5 @@
             <point key="canvasLocation" x="463" y="115"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" red="0.78256042367973522" green="0.93490840334235337" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
