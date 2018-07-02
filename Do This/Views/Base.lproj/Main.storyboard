@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="GuX-RV-t3l" id="Nej-Fn-bnB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="kOy-1f-68Q">
+                    <navigationItem key="navigationItem" title="Categories" largeTitleDisplayMode="never" id="kOy-1f-68Q">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UHT-u1-jxn">
                             <connections>
                                 <action selector="addNewCategory:" destination="GuX-RV-t3l" id="dFu-Od-IPz"/>
@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="1318" y="115"/>
         </scene>
-        <!--Items-->
+        <!--Category Name-->
         <scene sceneID="viX-vr-qvB">
             <objects>
                 <tableViewController id="xue-aK-VTX" customClass="ToDoListViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="xue-aK-VTX" id="E0J-qD-7tx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Items" id="otq-F7-xfA">
+                    <navigationItem key="navigationItem" title="Category Name" largeTitleDisplayMode="always" id="otq-F7-xfA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r0V-Tk-qeh">
                             <connections>
                                 <action selector="addNewItem:" destination="xue-aK-VTX" id="vnV-wP-TeN"/>
@@ -100,12 +100,16 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XJb-V4-yeo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2tt-e9-3kp">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2tt-e9-3kp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
