@@ -75,7 +75,7 @@ class ToDoListViewController: SwipeTableViewController {
         alert.addAction(cancelAction)
         alert.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField.placeholder = "Create New Item"
+            alertTextField.placeholder = "New Item"
         }
         present(alert, animated: true)
     }
