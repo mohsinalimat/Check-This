@@ -65,6 +65,7 @@ class ToDoListViewController: SwipeTableViewController {
             if textField.text! != "" {
                 let newItem = Item()
                 newItem.title = textField.text!
+                newItem.timeCreated = Date()
                 self.save(item: newItem)
                 self.tableView.reloadData()
             }
@@ -94,7 +95,7 @@ class ToDoListViewController: SwipeTableViewController {
     }
     
     func loadItems() {
-        items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
+        items = selectedCategory?.items.sorted(byKeyPath: "timeCreated", ascending: true)
         tableView.reloadData()
     }
     
