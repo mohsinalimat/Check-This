@@ -20,13 +20,9 @@ class ToDoListViewController: SwipeTableViewController {
         }
     }
     var categoryColor: UIColor {
-        if let selectedCategory = selectedCategory, let color = UIColor(hexString: selectedCategory.colorHexValue) {
-            return color
-        } else {
-            return FlatSkyBlue()
-        }
+        return UIColor(hexString: selectedCategory!.colorHexValue) ?? FlatSkyBlue()
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         }
