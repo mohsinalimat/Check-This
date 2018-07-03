@@ -52,7 +52,7 @@ class ToDoListViewController: SwipeTableViewController {
         if let item = items?[indexPath.row] {
             cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
             cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
-            cell.accessoryType = item.done ? .checkmark : .none
+            cell.imageView?.image = item.done ? UIImage(named: "Checkbox-Checked48x48") : UIImage(named: "Checkbox-NotChecked48x48")
             cell.textLabel?.text = item.title
         }
         return cell
