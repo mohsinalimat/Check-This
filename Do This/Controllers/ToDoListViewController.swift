@@ -31,11 +31,15 @@ class ToDoListViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         title = selectedCategory?.name
-        if let navBar = navigationController?.navigationBar {
-            navBar.barTintColor = categoryColor
-            navBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
-        }
+        navigationController?.navigationBar.barTintColor = categoryColor
+        navigationController?.navigationBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
         searchBar.barTintColor = categoryColor
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let originalColor = UIColor(hexString: "0096FF")!
+        navigationController?.navigationBar.barTintColor = originalColor
+        navigationController?.navigationBar.tintColor = ContrastColorOf(originalColor, returnFlat: true)
     }
     
     // MARK: - TableView Data Source Methods
