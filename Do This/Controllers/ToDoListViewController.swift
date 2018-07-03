@@ -29,8 +29,12 @@ class ToDoListViewController: SwipeTableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = selectedCategory?.name
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        title = selectedCategory?.name
+        navigationController?.navigationBar.barTintColor = categoryColor
+    }
     
     // MARK: - TableView Data Source Methods
     
