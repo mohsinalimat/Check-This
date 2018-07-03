@@ -19,7 +19,14 @@ class ToDoListViewController: SwipeTableViewController {
             loadItems()
         }
     }
-    
+    var categoryColor: UIColor {
+        if let selectedCategory = selectedCategory, let color = UIColor(hexString: selectedCategory.colorHexValue) {
+            return color
+        } else {
+            return FlatSkyBlue()
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = selectedCategory?.name
@@ -33,10 +40,8 @@ class ToDoListViewController: SwipeTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = items?[indexPath.row] {
-            if let categoryColor = UIColor(hexString: selectedCategory!.colorHexValue) {
-                cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
-                cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
-            }
+            cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
+            cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
             cell.accessoryType = item.done ? .checkmark : .none
             cell.textLabel?.text = item.title
         }
