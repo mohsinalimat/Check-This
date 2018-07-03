@@ -31,7 +31,10 @@ class ToDoListViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         title = selectedCategory?.name
-        navigationController?.navigationBar.barTintColor = categoryColor
+        if let navBar = navigationController?.navigationBar {
+            navBar.barTintColor = categoryColor
+            navBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
+        }
         searchBar.barTintColor = categoryColor
     }
     
