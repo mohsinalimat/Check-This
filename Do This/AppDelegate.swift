@@ -16,9 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        Prints Realm database location
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
         do {
             _ = try Realm()
         } catch {
