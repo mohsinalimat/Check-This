@@ -23,6 +23,8 @@ class ToDoListViewController: SwipeTableViewController {
         return UIColor(hexString: selectedCategory!.colorHexValue) ?? FlatSkyBlue()
     }
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         }
@@ -30,6 +32,7 @@ class ToDoListViewController: SwipeTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         title = selectedCategory?.name
         navigationController?.navigationBar.barTintColor = categoryColor
+        searchBar.barTintColor = categoryColor
     }
     
     // MARK: - TableView Data Source Methods
