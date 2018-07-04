@@ -23,10 +23,12 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
         if let navBar = navigationController?.navigationBar {
             navBar.barTintColor = UIColor(hexString: "0096FF")!
             navBar.tintColor = UIColor.white
-            navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            navBar.largeTitleTextAttributes = whiteAttribute
+            navBar.titleTextAttributes = whiteAttribute
         }
     }
     

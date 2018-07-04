@@ -31,13 +31,15 @@ class ToDoListViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         title = selectedCategory?.name
+        searchBar.barTintColor = categoryColor
         let contrastingColor = ContrastColorOf(categoryColor, returnFlat: true)
+        let contrastingColorAttribute = [NSAttributedStringKey.foregroundColor: contrastingColor]
         if let navBar = navigationController?.navigationBar {
             navBar.barTintColor = categoryColor
             navBar.tintColor = contrastingColor
-            navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: contrastingColor]
+            navBar.largeTitleTextAttributes = contrastingColorAttribute
+            navBar.titleTextAttributes = contrastingColorAttribute
         }
-        searchBar.barTintColor = categoryColor
     }
     
     // MARK: - TableView Data Source Methods
