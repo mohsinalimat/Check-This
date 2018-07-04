@@ -22,6 +22,10 @@ class CategoryViewController: SwipeTableViewController {
         swipeToDeleteTextDescription = "Delete"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
     // MARK: - TableView Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
