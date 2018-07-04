@@ -43,9 +43,11 @@ class CategoryViewController: SwipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         guard let category = categories?[indexPath.row] else { fatalError() }
         guard let categoryColor = UIColor(hexString: category.colorHexValue) else { fatalError() }
+        let contrastingCategoryColor = ContrastColorOf(categoryColor, returnFlat: true)
         cell.textLabel?.text = category.name
         cell.backgroundColor = categoryColor
-        cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+        cell.textLabel?.textColor = contrastingCategoryColor
+        cell.accessoryView = chevronIconMatching(contrastingCategoryColor)
         return cell
     }
     
@@ -115,6 +117,18 @@ class CategoryViewController: SwipeTableViewController {
                 print("Error deleting category \(error)")
             }
         }
+    }
+    
+    func chevronIconMatching(_ contrastingCategoryColor: UIColor) -> UIImageView {
+        let darkChevron = UIImageView(image: UIImage(named: "Dark_Chevron"))
+        let lightChevron = UIImageView(image: UIImage(named: "Light_Chevron"))
+        // The ContrastColorOf method from the ChameleonFramework returns a
+        // color with a hexValue of either #EDF1F2 or #262626
+        if contrastingCategoryColor.hexValue() == "#EDF1F2" {
+            return lightChevron
+        } else if contrastingCategoryColor.hexValue() == "#262626" {
+            return darkChevron
+        } else { fatalError() }
     }
     
 }
