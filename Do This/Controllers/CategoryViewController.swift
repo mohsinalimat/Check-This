@@ -20,6 +20,7 @@ class CategoryViewController: SwipeTableViewController {
         loadCategories()
         tableView.rowHeight = 80
         swipeToDeleteTextDescription = "Delete"
+        swipeMoreTextDescription = "More"
     }
     
     override func viewWillAppear(_ animated: Bool) {

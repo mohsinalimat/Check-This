@@ -12,6 +12,7 @@ import SwipeCellKit
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     var swipeToDeleteTextDescription: String?
+    var swipeMoreTextDescription: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +29,26 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
+        var actions = [SwipeAction]()
         
         let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteTextDescription) { _, indexPath in
             self.deleteFromModel(at: indexPath)
         }
         deleteAction.image = UIImage(named: "delete-icon")
+        actions.append(deleteAction)
         
-        return [deleteAction]
+        let editAction = SwipeAction(style: .default, title: swipeMoreTextDescription) { (swipeAction, indexPath) in
+            // TODO: - Implement editing when user clicks on more after swiping cell
+        }
+        editAction.image = UIImage(named: "more48x48")
+        actions.append(editAction)
+        
+        return actions
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions { // swiftlint:disable:this line_length
         var options = SwipeOptions()
+        options.transitionStyle = .border
         options.expansionStyle = .destructive
         return options
     }
