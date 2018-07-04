@@ -49,18 +49,17 @@ class ToDoListViewController: SwipeTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        if let item = items?[indexPath.row] {
-            cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
-            let cellTitle = NSMutableAttributedString(string: item.title)
-            if item.done {
-                cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.title.count))
-                cell.imageView?.image = UIImage(named: "Checkbox-Checked48x48")
-            } else {
-                cell.imageView?.image = UIImage(named: "Checkbox-NotChecked48x48")
-            }
-            cell.textLabel?.attributedText = cellTitle
-            cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
+        guard let item = items?[indexPath.row] else { fatalError("Index out of range of items container") }
+        let cellTitle = NSMutableAttributedString(string: item.title)
+        if item.done {
+            cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.title.count))
+            cell.imageView?.image = UIImage(named: "Checkbox-Checked48x48")
+        } else {
+            cell.imageView?.image = UIImage(named: "Checkbox-NotChecked48x48")
         }
+        cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
+        cell.textLabel?.attributedText = cellTitle
+        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
         return cell
     }
     
