@@ -45,11 +45,12 @@ class ToDoListViewController: SwipeTableViewController {
     // MARK: - TableView Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items?.count ?? 1    }
+        return items?.count ?? 1
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        guard let item = items?[indexPath.row] else { fatalError("Index out of range of items container") }
+        guard let item = items?[indexPath.row] else { fatalError() }
         let cellTitle = NSMutableAttributedString(string: item.title)
         if item.done {
             cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.title.count))
