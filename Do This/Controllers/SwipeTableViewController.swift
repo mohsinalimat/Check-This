@@ -19,6 +19,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        setupTableViewLongPressGesture()
     }
 
     // MARK: - TableView Datasource Methods
@@ -72,5 +73,26 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     func deleteFromModel(at indexPath: IndexPath) {}
     func editName(at indexPath: IndexPath) {}
+    
+}
+
+// MARK: - Long Press Gesture Methods
+
+extension SwipeTableViewController: UIGestureRecognizerDelegate {
+    
+    func setupTableViewLongPressGesture() {
+        let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGesture.delegate = self
+        tableView.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
+            let touchPoint = gestureRecognizer.location(in: self.tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                presentEditAlert(for: indexPath)
+            }
+        }
+    }
     
 }
