@@ -54,9 +54,9 @@ class ItemViewController: SwipeTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         guard let item = items?[indexPath.row] else { fatalError() }
-        let cellTitle = NSMutableAttributedString(string: item.title)
+        let cellTitle = NSMutableAttributedString(string: item.name)
         if item.done {
-            cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.title.count))
+            cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.name.count))
             cell.imageView?.image = UIImage(named: "Checked_Checkbox_Icon")
         } else {
             cell.imageView?.image = UIImage(named: "Unchecked_Checkbox_Icon")
@@ -91,7 +91,7 @@ class ItemViewController: SwipeTableViewController {
         let addItemAction = UIAlertAction(title: "Add", style: .default) { _ in
             if textField.text! != "" {
                 let newItem = Item()
-                newItem.title = textField.text!
+                newItem.name = textField.text!
                 newItem.timeCreated = Date()
                 self.save(item: newItem)
                 self.tableView.reloadData()
@@ -130,7 +130,7 @@ class ItemViewController: SwipeTableViewController {
         do {
             try realm.write {
                 if let newName = newName {
-                    item.title = newName
+                    item.name = newName
                 }
                 realm.add(item)
             }
