@@ -40,8 +40,8 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
             self.presentEditAlert(for: indexPath)
         }
         
-        deleteAction.image = UIImage(named: "delete-icon")
-        editAction.image = UIImage(named: "more48x48")
+        deleteAction.image = UIImage(named: "Delete_Icon")
+        editAction.image = UIImage(named: "More_Icon")
         actions.append(deleteAction)
         actions.append(editAction)
         

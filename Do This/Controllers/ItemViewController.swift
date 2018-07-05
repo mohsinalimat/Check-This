@@ -57,9 +57,9 @@ class ItemViewController: SwipeTableViewController {
         let cellTitle = NSMutableAttributedString(string: item.title)
         if item.done {
             cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.title.count))
-            cell.imageView?.image = UIImage(named: "Checkbox-Checked48x48")
+            cell.imageView?.image = UIImage(named: "Checked_Checkbox_Icon")
         } else {
-            cell.imageView?.image = UIImage(named: "Checkbox-NotChecked48x48")
+            cell.imageView?.image = UIImage(named: "Unchecked_Checkbox_Icon")
         }
         cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
         cell.textLabel?.attributedText = cellTitle
