@@ -49,7 +49,7 @@ class CategoryViewController: SwipeTableViewController {
         cell.textLabel?.text = category.name
         cell.backgroundColor = categoryColor
         cell.textLabel?.textColor = contrastingCategoryColor
-        cell.accessoryView = chevronIconMatching(contrastingCategoryColor)
+        cell.accessoryView = matchChevronIconTo(contrastingCategoryColor)
         return cell
     }
     
@@ -166,7 +166,7 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - Category Cell Accesory Setup
     
-    func chevronIconMatching(_ contrastingCategoryColor: UIColor) -> UIImageView {
+    func matchChevronIconTo(_ contrastingCategoryColor: UIColor) -> UIImageView {
         let darkChevron = UIImageView(image: UIImage(named: "Dark_Chevron_Icon"))
         let lightChevron = UIImageView(image: UIImage(named: "Light_Chevron_Icon"))
         // The ContrastColorOf method from the ChameleonFramework returns a
