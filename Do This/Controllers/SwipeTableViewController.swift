@@ -14,6 +14,8 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     var swipeToDeleteTextDescription: String?
     var swipeToEditTextDescription: String?
 
+    // MARK: - View Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
@@ -53,6 +55,8 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         return options
     }
     
+    // MARK: - Edit Alert Methods
+    
     func presentEditAlert(for indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -64,12 +68,9 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         present(alert, animated: true)
     }
     
-    func deleteFromModel(at indexPath: IndexPath) {
-        // This method is meant to be overriden by subclasses.
-    }
+    // MARK: - Methods to be overwritten by sublassesAdd functionality to edit category name
     
-    func editName(at indexPath: IndexPath) {
-        // This method is meant to be overriden by subclasses.
-    }
+    func deleteFromModel(at indexPath: IndexPath) {}
+    func editName(at indexPath: IndexPath) {}
     
 }
