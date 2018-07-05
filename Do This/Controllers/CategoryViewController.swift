@@ -16,6 +16,8 @@ class CategoryViewController: SwipeTableViewController {
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
     
+    // MARK: - View Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategories()
@@ -66,7 +68,7 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
-    // MARK: - Add New Items
+    // MARK: - Add New Categories
 
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
         var textField = UITextField()

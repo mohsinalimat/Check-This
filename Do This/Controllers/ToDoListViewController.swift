@@ -25,6 +25,8 @@ class ToDoListViewController: SwipeTableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // MARK: - View Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         }
