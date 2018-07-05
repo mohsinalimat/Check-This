@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import ChameleonFramework
+import SwipeCellKit
 
 class CategoryViewController: SwipeTableViewController {
     
@@ -106,6 +107,22 @@ class CategoryViewController: SwipeTableViewController {
         tableView.reloadData()
     }
     
+    func edit(category: Category, newName: String? = nil, newColor: UIColor? = nil) {
+        do {
+            try realm.write {
+                if let newName = newName {
+                    category.name = newName
+                }
+                if let newColor = newColor {
+                    category.colorHexValue = newColor.hexValue()
+                }
+                realm.add(category)
+            }
+        } catch {
+            print("Error editing category \(error)")
+        }
+    }
+    
     override func deleteFromModel(at indexPath: IndexPath) {
         if let categoryToBeDeleted = self.categories?[indexPath.row] {
             do {
@@ -118,6 +135,35 @@ class CategoryViewController: SwipeTableViewController {
             }
         }
     }
+    
+    // MARK: - Editing Category Methods
+    
+    override func editName(at indexPath: IndexPath) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "New Category Name:", message: nil, preferredStyle: .alert)
+        let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { _ in
+            if textField.text! != "" {
+                guard let category = self.categories?[indexPath.row] else { fatalError() }
+                self.edit(category: category, newName: textField.text!)
+                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
+                cell.hideSwipe(animated: true)
+                // Wait to reload tableView so hiding swipe is visible
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(editCategoryNameAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (alertTextField) in
+            textField = alertTextField
+            alertTextField.placeholder = "New Name"
+        }
+        present(alert, animated: true)
+    }
+    
+    // MARK: - Category Cell Accesory Setup
     
     func chevronIconMatching(_ contrastingCategoryColor: UIColor) -> UIImageView {
         let darkChevron = UIImageView(image: UIImage(named: "Dark_Chevron"))

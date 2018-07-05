@@ -34,13 +34,13 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteTextDescription) { _, indexPath in
             self.deleteFromModel(at: indexPath)
         }
-        deleteAction.image = UIImage(named: "delete-icon")
-        actions.append(deleteAction)
-        
-        let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { (swipeAction, indexPath) in
-            // TODO: - Implement editing when user clicks on more after swiping cell
+        let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
+            self.presentEditAlert(for: indexPath)
         }
+        
+        deleteAction.image = UIImage(named: "delete-icon")
         editAction.image = UIImage(named: "more48x48")
+        actions.append(deleteAction)
         actions.append(editAction)
         
         return actions
@@ -53,7 +53,22 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         return options
     }
     
+    func presentEditAlert(for indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let editNameAction = UIAlertAction(title: "Change Name", style: .default) { _ in
+            self.editName(at: indexPath)
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(editNameAction)
+        present(alert, animated: true)
+    }
+    
     func deleteFromModel(at indexPath: IndexPath) {
+        // This method is meant to be overriden by subclasses.
+    }
+    
+    func editName(at indexPath: IndexPath) {
         // This method is meant to be overriden by subclasses.
     }
     

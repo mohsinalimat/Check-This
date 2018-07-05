@@ -134,6 +134,10 @@ class ToDoListViewController: SwipeTableViewController {
             }
         }
     }
+    
+    override func editName(at indexPath: IndexPath) {
+        // TODO: - Implement edit item name here
+    }
 
 }
 
