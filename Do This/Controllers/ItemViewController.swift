@@ -1,5 +1,5 @@
 //
-//  ToDoListViewController.swift
+//  ItemViewController.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 6/12/18.
@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import ChameleonFramework
 
-class ToDoListViewController: SwipeTableViewController {
+class ItemViewController: SwipeTableViewController {
 
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try
@@ -145,7 +145,7 @@ class ToDoListViewController: SwipeTableViewController {
 
 // MARK: - SearchBar Delegate Methods
 
-extension ToDoListViewController: UISearchBarDelegate {
+extension ItemViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {

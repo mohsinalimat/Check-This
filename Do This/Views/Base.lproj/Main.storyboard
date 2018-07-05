@@ -40,7 +40,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="xue-aK-VTX" kind="show" identifier="goToToDoListViewController" id="WLj-xM-PLY"/>
+                        <segue destination="xue-aK-VTX" kind="show" identifier="goToItemsViewController" id="sad-7T-yAE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecs-83-uY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,7 +50,7 @@
         <!--Items-->
         <scene sceneID="viX-vr-qvB">
             <objects>
-                <tableViewController id="xue-aK-VTX" customClass="ToDoListViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xue-aK-VTX" customClass="ItemViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfb-5M-O4W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
