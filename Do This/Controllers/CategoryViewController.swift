@@ -20,13 +20,12 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCategories()
         tableView.rowHeight = 80
-        swipeToDeleteTextDescription = "Delete"
-        swipeToEditTextDescription = "Edit"
+        setSwipeButtonsTextDescription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadCategories()
         let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
         if let navBar = navigationController?.navigationBar {
             navBar.barTintColor = UIColor(hexString: "0096FF")!
@@ -177,6 +176,11 @@ class CategoryViewController: SwipeTableViewController {
         } else if contrastingCategoryColor.hexValue() == "#262626" {
             return darkChevron
         } else { fatalError() }
+    }
+    
+    func setSwipeButtonsTextDescription() {
+        swipeToDeleteTextDescription = "Delete"
+        swipeToEditTextDescription = "Edit"
     }
     
 }
