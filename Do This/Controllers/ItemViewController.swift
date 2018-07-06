@@ -33,16 +33,8 @@ class ItemViewController: SwipeTableViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = selectedCategory?.name
         searchBar.barTintColor = categoryColor
-        let contrastingColor = ContrastColorOf(categoryColor, returnFlat: true)
-        let contrastingColorAttribute = [NSAttributedStringKey.foregroundColor: contrastingColor]
-        if let navBar = navigationController?.navigationBar {
-            navBar.barTintColor = categoryColor
-            navBar.tintColor = contrastingColor
-            navBar.largeTitleTextAttributes = contrastingColorAttribute
-            navBar.titleTextAttributes = contrastingColorAttribute
-        }
+        setupNavigationController()
     }
     
     // MARK: - TableView Data Source Methods
@@ -107,6 +99,33 @@ class ItemViewController: SwipeTableViewController {
         present(alert, animated: true)
     }
     
+    // MARK: - Edit Item Name
+    
+    override func editName(at indexPath: IndexPath) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "New Item Name:", message: nil, preferredStyle: .alert)
+        let editItemNameAction = UIAlertAction(title: "Save", style: .default) { _ in
+            if textField.text! != "" {
+                guard let item = self.items?[indexPath.row] else { fatalError() }
+                self.edit(item: item, newName: textField.text!)
+                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
+                cell.hideSwipe(animated: true)
+                // Wait to reload tableView so hiding swipe is visible
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(editItemNameAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (alertTextField) in
+            textField = alertTextField
+            alertTextField.placeholder = "New Name"
+        }
+        present(alert, animated: true)
+    }
+    
     // MARK: - Data Manipulation Methods
     
     func save(item: Item) {
@@ -151,31 +170,18 @@ class ItemViewController: SwipeTableViewController {
         }
     }
     
-    // MARK: - Editing Item Methods
+    // MARK: - Navigation Controller Setup
     
-    override func editName(at indexPath: IndexPath) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "New Item Name:", message: nil, preferredStyle: .alert)
-        let editItemNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-            if textField.text! != "" {
-                guard let item = self.items?[indexPath.row] else { fatalError() }
-                self.edit(item: item, newName: textField.text!)
-                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
-                cell.hideSwipe(animated: true)
-                // Wait to reload tableView so hiding swipe is visible
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    self.tableView.reloadData()
-                }
-            }
+    func setupNavigationController() {
+        title = selectedCategory?.name
+        let contrastingColor = ContrastColorOf(categoryColor, returnFlat: true)
+        let contrastingColorAttribute = [NSAttributedStringKey.foregroundColor: contrastingColor]
+        if let navBar = navigationController?.navigationBar {
+            navBar.barTintColor = categoryColor
+            navBar.tintColor = contrastingColor
+            navBar.largeTitleTextAttributes = contrastingColorAttribute
+            navBar.titleTextAttributes = contrastingColorAttribute
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(editItemNameAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { (alertTextField) in
-            textField = alertTextField
-            alertTextField.placeholder = "New Name"
-        }
-        present(alert, animated: true)
     }
 
 }

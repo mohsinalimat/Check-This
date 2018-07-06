@@ -26,13 +26,7 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadCategories()
-        let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        if let navBar = navigationController?.navigationBar {
-            navBar.barTintColor = UIColor(hexString: "0096FF")!
-            navBar.tintColor = UIColor.white
-            navBar.largeTitleTextAttributes = whiteAttribute
-            navBar.titleTextAttributes = whiteAttribute
-        }
+        setupNavigationController()
     }
     
     // MARK: - TableView Data Source Methods
@@ -67,7 +61,7 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
-    // MARK: - Add New Categories
+    // MARK: - Add New Categories Methods
 
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
         var textField = UITextField()
@@ -87,6 +81,33 @@ class CategoryViewController: SwipeTableViewController {
         alert.addTextField { (alertTextField) in
             textField = alertTextField
             alertTextField .placeholder = "Category Name"
+        }
+        present(alert, animated: true)
+    }
+    
+    // MARK: - Editing Category Methods
+    
+    override func editName(at indexPath: IndexPath) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "New Category Name:", message: nil, preferredStyle: .alert)
+        let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { _ in
+            if textField.text! != "" {
+                guard let category = self.categories?[indexPath.row] else { fatalError() }
+                self.edit(category: category, newName: textField.text!)
+                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
+                cell.hideSwipe(animated: true)
+                // Wait to reload tableView so hiding swipe is visible
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(editCategoryNameAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (alertTextField) in
+            textField = alertTextField
+            alertTextField.placeholder = "New Name"
         }
         present(alert, animated: true)
     }
@@ -137,31 +158,16 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
-    // MARK: - Editing Category Methods
+    // MARK: - Navigation Controller Setup
     
-    override func editName(at indexPath: IndexPath) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "New Category Name:", message: nil, preferredStyle: .alert)
-        let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-            if textField.text! != "" {
-                guard let category = self.categories?[indexPath.row] else { fatalError() }
-                self.edit(category: category, newName: textField.text!)
-                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
-                cell.hideSwipe(animated: true)
-                // Wait to reload tableView so hiding swipe is visible
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    self.tableView.reloadData()
-                }
-            }
+    func setupNavigationController() {
+        let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        if let navBar = navigationController?.navigationBar {
+            navBar.barTintColor = UIColor(hexString: "0096FF")!
+            navBar.tintColor = UIColor.white
+            navBar.largeTitleTextAttributes = whiteAttribute
+            navBar.titleTextAttributes = whiteAttribute
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(editCategoryNameAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { (alertTextField) in
-            textField = alertTextField
-            alertTextField.placeholder = "New Name"
-        }
-        present(alert, animated: true)
     }
     
     // MARK: - Category Cell Accesory Setup

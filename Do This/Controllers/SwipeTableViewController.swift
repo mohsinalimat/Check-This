@@ -11,6 +11,7 @@ import SwipeCellKit
 
 class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
+    // Text descriptions for swipe options to be set by subclasses
     var swipeToDeleteTextDescription: String?
     var swipeToEditTextDescription: String?
 
@@ -56,7 +57,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         return options
     }
     
-    // MARK: - Edit Alert Methods
+    // MARK: - Alert Methods for Editing
     
     func presentEditAlert(for indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
