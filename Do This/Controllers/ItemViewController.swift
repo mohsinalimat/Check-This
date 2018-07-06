@@ -79,7 +79,7 @@ class ItemViewController: SwipeTableViewController {
     
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         var textField = UITextField()
-        let alert = UIAlertController(title: "Add Item To List", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         let addItemAction = UIAlertAction(title: "Add", style: .default) { _ in
             if textField.text! != "" {
                 let newItem = Item()
