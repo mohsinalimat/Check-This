@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories-->
+        <!--Do This-->
         <scene sceneID="Njw-xZ-sY5">
             <objects>
                 <tableViewController id="GuX-RV-t3l" customClass="CategoryViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="GuX-RV-t3l" id="Nej-Fn-bnB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Categories" id="kOy-1f-68Q">
+                    <navigationItem key="navigationItem" title="Do This" id="kOy-1f-68Q">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UHT-u1-jxn">
                             <connections>
                                 <action selector="addNewCategory:" destination="GuX-RV-t3l" id="dFu-Od-IPz"/>
