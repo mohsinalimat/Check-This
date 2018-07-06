@@ -77,7 +77,7 @@ class ItemViewController: SwipeTableViewController {
                     item.done = !item.done
                 }
             } catch {
-                print("Error changing item done property \(error)")
+                fatalError("Error changing item done property \(error)")
             }
         }
         tableView.reloadData()
@@ -116,7 +116,7 @@ class ItemViewController: SwipeTableViewController {
                 selectedCategory?.items.append(item)
             }
         } catch {
-            print("Error saving item \(error)")
+            fatalError("Error saving item \(error)")
         }
 
     }
@@ -135,7 +135,7 @@ class ItemViewController: SwipeTableViewController {
                 realm.add(item)
             }
         } catch {
-            print("Error editing item \(error)")
+            fatalError("Error editing item \(error)")
         }
     }
     
@@ -146,7 +146,7 @@ class ItemViewController: SwipeTableViewController {
                     realm.delete(item)
                 }
             } catch {
-                print("Error deleting item \(error)")
+                fatalError("Error deleting item \(error)")
             }
         }
     }

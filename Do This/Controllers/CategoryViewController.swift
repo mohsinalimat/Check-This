@@ -99,7 +99,7 @@ class CategoryViewController: SwipeTableViewController {
                 realm.add(category)
             }
         } catch {
-            print("Error saving category \(error)")
+            fatalError("Error saving category \(error)")
         }
     }
     
@@ -120,7 +120,7 @@ class CategoryViewController: SwipeTableViewController {
                 realm.add(category)
             }
         } catch {
-            print("Error editing category \(error)")
+            fatalError("Error editing category \(error)")
         }
     }
     
@@ -132,7 +132,7 @@ class CategoryViewController: SwipeTableViewController {
                     self.realm.delete(categoryToBeDeleted)
                 }
             } catch {
-                print("Error deleting category \(error)")
+                fatalError("Error deleting category \(error)")
             }
         }
     }

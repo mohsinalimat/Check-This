@@ -69,10 +69,15 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         present(alert, animated: true)
     }
     
-    // MARK: - Methods to be overwritten by sublassesAdd functionality to edit category name
+    // MARK: - Methods to be overwritten by sublasses
     
-    func deleteFromModel(at indexPath: IndexPath) {}
-    func editName(at indexPath: IndexPath) {}
+    func deleteFromModel(at indexPath: IndexPath) {
+        fatalError("Subclass must override this method")
+    }
+    
+    func editName(at indexPath: IndexPath) {
+        fatalError("Subclass must override this method")
+    }
     
 }
 
