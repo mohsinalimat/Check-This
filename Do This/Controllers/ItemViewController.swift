@@ -35,6 +35,7 @@ class ItemViewController: SwipeTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         searchBar.barTintColor = categoryColor
         setUpNavigationController()
+        setTableViewBackgroundImageIfEmpty()
     }
     
     // MARK: - TableView Data Source Methods
@@ -181,6 +182,16 @@ class ItemViewController: SwipeTableViewController {
             navBar.tintColor = contrastingColor
             navBar.largeTitleTextAttributes = contrastingColorAttribute
             navBar.titleTextAttributes = contrastingColorAttribute
+        }
+    }
+    
+    // MARK: - Set up Table View Appearance
+    
+    override func setTableViewBackgroundImageIfEmpty() {
+        if let numberOfItems = items?.count {
+            if numberOfItems == 0 {
+                tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Item_Background"))
+            }
         }
     }
 

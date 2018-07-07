@@ -20,12 +20,12 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80
+        loadCategories()
+        setUpTableViewAppearance()
         setSwipeButtonsTextDescription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadCategories()
         setUpNavigationController()
     }
     
@@ -187,6 +187,21 @@ class CategoryViewController: SwipeTableViewController {
     func setSwipeButtonsTextDescription() {
         swipeToDeleteTextDescription = "Delete"
         swipeToEditTextDescription = "Edit"
+    }
+    
+    // MARK: - Set up Table View Appearance
+    
+    func setUpTableViewAppearance() {
+        tableView.rowHeight = 80
+        setTableViewBackgroundImageIfEmpty()
+    }
+    
+    override func setTableViewBackgroundImageIfEmpty() {
+        if let numberOfCategories = categories?.count {
+            if numberOfCategories == 0 {
+                tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Category_Background"))
+            }
+        }
     }
     
 }
