@@ -87,6 +87,7 @@ class ItemViewController: SwipeTableViewController {
                 newItem.name = textField.text!
                 newItem.timeCreated = Date()
                 self.save(item: newItem)
+                self.setTableViewBackground()
                 self.tableView.reloadData()
             }
         }
@@ -191,6 +192,8 @@ class ItemViewController: SwipeTableViewController {
         if let numberOfItems = items?.count {
             if numberOfItems == 0 {
                 tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Item_Background"))
+            } else {
+                tableView.backgroundView = nil
             }
         }
     }

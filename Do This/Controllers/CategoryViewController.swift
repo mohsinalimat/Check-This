@@ -73,6 +73,7 @@ class CategoryViewController: SwipeTableViewController {
                 newCategory.name = textField.text!
                 newCategory.colorHexValue = self.differentColorHexFromDefaultColors()
                 self.save(category: newCategory)
+                self.setTableViewBackground()
                 self.tableView.reloadData()
             }
         }
@@ -201,6 +202,8 @@ class CategoryViewController: SwipeTableViewController {
         if let numberOfCategories = categories?.count {
             if numberOfCategories == 0 {
                 tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Category_Background"))
+            } else {
+                tableView.backgroundView = nil
             }
         }
     }
