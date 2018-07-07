@@ -35,7 +35,7 @@ class ItemViewController: SwipeTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         searchBar.barTintColor = categoryColor
         setUpNavigationController()
-        setTableViewBackgroundImageIfEmpty()
+        setTableViewBackground()
     }
     
     // MARK: - TableView Data Source Methods
@@ -187,7 +187,7 @@ class ItemViewController: SwipeTableViewController {
     
     // MARK: - Set up Table View Appearance
     
-    override func setTableViewBackgroundImageIfEmpty() {
+    override func setTableViewBackground() {
         if let numberOfItems = items?.count {
             if numberOfItems == 0 {
                 tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Item_Background"))

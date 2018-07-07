@@ -37,7 +37,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         
         let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteTextDescription) { _, indexPath in
             self.deleteFromModel(at: indexPath)
-            self.setTableViewBackgroundImageIfEmpty()
+            self.setTableViewBackground()
         }
         let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
             self.presentEditAlert(for: indexPath)
@@ -81,7 +81,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         fatalError("Subclass must override this method")
     }
     
-    func setTableViewBackgroundImageIfEmpty() {
+    func setTableViewBackground() {
         fatalError("Subclass must override this method")
     }
     

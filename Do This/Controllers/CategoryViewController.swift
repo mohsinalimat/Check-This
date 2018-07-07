@@ -195,10 +195,10 @@ class CategoryViewController: SwipeTableViewController {
     
     func setUpTableViewAppearance() {
         tableView.rowHeight = 80
-        setTableViewBackgroundImageIfEmpty()
+        setTableViewBackground()
     }
     
-    override func setTableViewBackgroundImageIfEmpty() {
+    override func setTableViewBackground() {
         if let numberOfCategories = categories?.count {
             if numberOfCategories == 0 {
                 tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Category_Background"))
