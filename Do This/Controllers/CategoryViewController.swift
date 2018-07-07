@@ -15,6 +15,7 @@ class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
+    let defaultColors = [FlatRed(), FlatOrange(), FlatYellow(), FlatSand(), FlatMagenta(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatPurple(), FlatWatermelon(), FlatLime(), FlatPink(), FlatCoffee()] // swiftlint:disable:this line_length
     
     // MARK: - View Lifecycle Methods
     
@@ -70,7 +71,8 @@ class CategoryViewController: SwipeTableViewController {
             if textField.text! != "" {
                 let newCategory = Category()
                 newCategory.name = textField.text!
-                newCategory.colorHexValue = UIColor.randomFlat.hexValue()
+                // Sets the hex value of a random color from the defaultColors array to the new category
+                newCategory.colorHexValue = self.defaultColors[Int(arc4random_uniform(UInt32(self.defaultColors.count)))].hexValue()
                 self.save(category: newCategory)
                 self.tableView.reloadData()
             }
