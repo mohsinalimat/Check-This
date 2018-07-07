@@ -34,7 +34,7 @@ class ItemViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         searchBar.barTintColor = categoryColor
-        setupNavigationController()
+        setUpNavigationController()
     }
     
     // MARK: - TableView Data Source Methods
@@ -172,7 +172,7 @@ class ItemViewController: SwipeTableViewController {
     
     // MARK: - Navigation Controller Setup
     
-    func setupNavigationController() {
+    func setUpNavigationController() {
         title = selectedCategory?.name
         let contrastingColor = ContrastColorOf(categoryColor, returnFlat: true)
         let contrastingColorAttribute = [NSAttributedStringKey.foregroundColor: contrastingColor]

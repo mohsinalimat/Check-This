@@ -26,7 +26,7 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadCategories()
-        setupNavigationController()
+        setUpNavigationController()
     }
     
     // MARK: - TableView Data Source Methods
@@ -160,7 +160,7 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - Navigation Controller Setup
     
-    func setupNavigationController() {
+    func setUpNavigationController() {
         let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
         if let navBar = navigationController?.navigationBar {
             navBar.barTintColor = UIColor(hexString: "0096FF")!

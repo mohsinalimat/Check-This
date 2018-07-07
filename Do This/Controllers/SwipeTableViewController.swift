@@ -20,7 +20,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
-        setupTableViewLongPressGesture()
+        setUpTableViewLongPressGesture()
     }
 
     // MARK: - TableView Datasource Methods
