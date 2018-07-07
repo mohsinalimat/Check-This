@@ -15,7 +15,7 @@ class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
-    let defaultColors = [FlatRed(), FlatOrange(), FlatYellow(), FlatSand(), FlatMagenta(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatPurple(), FlatWatermelon(), FlatLime(), FlatPink(), FlatCoffee()] // swiftlint:disable:this line_length
+    let defaultRandomColorOptions = [FlatRed(), FlatOrange(), FlatYellow(), FlatSand(), FlatMagenta(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatPurple(), FlatWatermelon(), FlatLime(), FlatPink(), FlatCoffee()] // swiftlint:disable:this line_length
     
     // MARK: - View Lifecycle Methods
     
@@ -214,12 +214,12 @@ class CategoryViewController: SwipeTableViewController {
     // that differs from the previos category color
     func differentColorHexFromDefaultColors() -> String {
         guard let numberOfCategories = categories?.count else { fatalError() }
-        var randomHex = defaultColors[Int(arc4random_uniform(UInt32(self.defaultColors.count)))].hexValue()
+        var randomHex = defaultRandomColorOptions[Int(arc4random_uniform(UInt32(self.defaultRandomColorOptions.count)))].hexValue()
         if numberOfCategories == 0 {
             return randomHex
         } else {
             while categories?.last?.colorHexValue == randomHex {
-                randomHex = defaultColors[Int(arc4random_uniform(UInt32(self.defaultColors.count)))].hexValue()
+                randomHex = defaultRandomColorOptions[Int(arc4random_uniform(UInt32(self.defaultRandomColorOptions.count)))].hexValue()
             }
             return randomHex
         }
