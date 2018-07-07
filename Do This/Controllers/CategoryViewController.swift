@@ -15,7 +15,7 @@ class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
-    let defaultRandomColorOptions = [FlatRed(), FlatOrange(), FlatYellow(), FlatSand(), FlatMagenta(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatPurple(), FlatWatermelon(), FlatLime(), FlatPink(), FlatCoffee()] // swiftlint:disable:this line_length
+    let defaultRandomColorOptions = [FlatRed(), FlatOrange(), FlatYellow(), FlatSand(), FlatMagenta(), FlatSkyBlue(), FlatGreen(), FlatMint(), FlatPurple(), FlatWatermelon(), FlatLime(), FlatPink()] // swiftlint:disable:this line_length
     
     // MARK: - View Lifecycle Methods
     
