@@ -207,12 +207,13 @@ extension ItemViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
-            // Hide keyboard if user clicks on the searchBar "x"
+            // Hiding keyboard if user clicks on the searchBar "x" only happens
+            // if done on the main thread.
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
         } else {
-            items = items?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
+            items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
             tableView.reloadData()
         }
     }
