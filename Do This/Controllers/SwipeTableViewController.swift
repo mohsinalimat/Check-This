@@ -40,7 +40,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
             self.setTableViewBackground()
         }
         let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
-            self.presentEditAlert(for: indexPath)
+            self.present(self.editAlertController(for: indexPath), animated: true)
         }
         
         deleteAction.image = UIImage(named: "Delete_Icon")
@@ -60,15 +60,15 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     // MARK: - Alert Methods for Editing
     
-    func presentEditAlert(for indexPath: IndexPath) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    func editAlertController(for indexPath: IndexPath) -> UIAlertController {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let editNameAction = UIAlertAction(title: "Rename", style: .default) { _ in
-            self.editName(at: indexPath)
+            self.present(self.editNameAlertController(at: indexPath), animated: true)
         }
-        alert.addAction(cancelAction)
-        alert.addAction(editNameAction)
-        present(alert, animated: true)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(editNameAction)
+        alertController.addAction(cancelAction)
+        return alertController
     }
     
     // MARK: - Methods to be overwritten by sublasses
@@ -77,7 +77,7 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         fatalError("Subclass must override this method")
     }
     
-    func editName(at indexPath: IndexPath) {
+    func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
         fatalError("Subclass must override this method")
     }
     

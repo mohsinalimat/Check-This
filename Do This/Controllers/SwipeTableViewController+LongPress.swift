@@ -21,7 +21,7 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
         if gestureRecognizer.state == .ended {
             let touchPoint = gestureRecognizer.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-                presentEditAlert(for: indexPath)
+                present(editAlertController(for: indexPath), animated: true)
             }
         }
     }

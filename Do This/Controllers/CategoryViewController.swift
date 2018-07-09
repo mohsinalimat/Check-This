@@ -89,9 +89,18 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - Editing Category Methods
     
-    override func editName(at indexPath: IndexPath) {
+    override func editAlertController(for indexPath: IndexPath) -> UIAlertController {
+        let alertController = super.editAlertController(for: indexPath)
+        let actionToEditColor = UIAlertAction(title: "Change Color", style: .default) { _ in
+            // What happens when user presses edit color in this editAlertController
+        }
+        alertController.addAction(actionToEditColor)
+        return alertController
+    }
+    
+    override func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
         var textField = UITextField()
-        let alert = UIAlertController(title: "New Category Name:", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "New Category Name:", message: nil, preferredStyle: .alert)
         let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { _ in
             if textField.text! != "" {
                 guard let category = self.categories?[indexPath.row] else { fatalError() }
@@ -104,14 +113,12 @@ class CategoryViewController: SwipeTableViewController {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(editCategoryNameAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { (alertTextField) in
+        alertController.addAction(editCategoryNameAction)
+        alertController.addTextField { (alertTextField) in
             textField = alertTextField
             alertTextField.placeholder = "New Name"
         }
-        present(alert, animated: true)
+        return alertController
     }
     
     // MARK: - Data Manipulation Methods
