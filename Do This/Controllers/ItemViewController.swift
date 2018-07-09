@@ -101,32 +101,32 @@ class ItemViewController: SwipeTableViewController {
         present(alert, animated: true)
     }
     
-    // MARK: - Edit Item Name
+    // MARK: - Edit Item Methods
     
-//    override func editName(at indexPath: IndexPath) {
-//        var textField = UITextField()
-//        let alert = UIAlertController(title: "New Item Name:", message: nil, preferredStyle: .alert)
-//        let editItemNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-//            if textField.text! != "" {
-//                guard let item = self.items?[indexPath.row] else { fatalError() }
-//                self.edit(item: item, newName: textField.text!)
-//                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell
-//                cell.hideSwipe(animated: true)
-//                // Wait to reload tableView so hiding swipe is visible
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-//        alert.addAction(editItemNameAction)
-//        alert.addAction(cancelAction)
-//        alert.addTextField { (alertTextField) in
-//            textField = alertTextField
-//            alertTextField.placeholder = "Name"
-//        }
-//        present(alert, animated: true)
-//    }
+    override func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
+        var textField = UITextField()
+        let alertController = UIAlertController(title: "New Item Name:", message: nil, preferredStyle: .alert)
+        let editItemNameAction = UIAlertAction(title: "Save", style: .default) { _ in
+            if textField.text! != "" {
+                guard let item = self.items?[indexPath.row] else { fatalError() }
+                self.edit(item: item, newName: textField.text!)
+                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
+                cell.hideSwipe(animated: true)
+                // Wait to reload tableView so hiding swipe is visible
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(editItemNameAction)
+        alertController.addAction(cancelAction)
+        alertController.addTextField { (alertTextField) in
+            textField = alertTextField
+            alertTextField.placeholder = "New Name"
+        }
+        return alertController
+    }
     
     // MARK: - Data Manipulation Methods
     

@@ -113,7 +113,9 @@ class CategoryViewController: SwipeTableViewController {
                 }
             }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(editCategoryNameAction)
+        alertController.addAction(cancelAction)
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
             alertTextField.placeholder = "New Name"
