@@ -24,8 +24,6 @@ class ItemViewController: SwipeTableViewController {
         return UIColor(hexString: selectedCategory!.colorHexValue) ?? FlatSkyBlue()
     }
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     // MARK: - View Lifecycle Methods
     
     override func viewDidLoad() {
@@ -33,9 +31,9 @@ class ItemViewController: SwipeTableViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        searchBar.barTintColor = categoryColor
         setUpNavigationController()
         setTableViewBackground()
+        setUpSearchBar()
     }
     
     // MARK: - TableView Data Source Methods
@@ -197,25 +195,22 @@ class ItemViewController: SwipeTableViewController {
             }
         }
     }
-
-}
-
-// MARK: - SearchBar Delegate Methods
-
-extension ItemViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0 {
-            loadItems()
-            // Hiding keyboard if user clicks on the searchBar "x" only happens
-            // if done on the main thread.
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
+    // MARK: - Set Up Search Bar
+    
+    func setUpSearchBar() {
+        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50))
+        self.tableView.tableHeaderView = searchBar
+        searchBar.barTintColor = categoryColor
+        searchBar.delegate = self
+        searchBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
+        searchBar.placeholder = "Search"
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            if let backgroundview = textfield.subviews.first {
+                backgroundview.backgroundColor = UIColor.white
+                backgroundview.layer.cornerRadius = 10
             }
-        } else {
-            items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
-            tableView.reloadData()
         }
     }
-    
+
 }
