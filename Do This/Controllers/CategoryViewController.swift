@@ -219,8 +219,8 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - Random Color Method For New Categories
     
-    // Returns the hex value of a random color from the defaultColors array
-    // that differs from the previos category color
+    /// Returns the hex value of a random color from the defaultColors array
+    /// that differs from the previos category color
     func differentColorHexFromDefaultColors() -> String {
         guard let numberOfCategories = categories?.count else { fatalError() }
         var randomHex = defaultRandomColorOptions[Int(arc4random_uniform(UInt32(self.defaultRandomColorOptions.count)))].hexValue()
