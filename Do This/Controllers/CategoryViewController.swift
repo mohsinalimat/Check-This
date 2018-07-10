@@ -105,8 +105,8 @@ class CategoryViewController: SwipeTableViewController {
             if textField.text! != "" {
                 guard let category = self.categories?[indexPath.row] else { fatalError() }
                 self.edit(category: category, newName: textField.text!)
-                let cell = self.tableView.cellForRow(at: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
-                cell.hideSwipe(animated: true)
+                let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell
+                cell?.hideSwipe(animated: true)
                 // Wait to reload tableView so hiding swipe is visible
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                     self.tableView.reloadData()
