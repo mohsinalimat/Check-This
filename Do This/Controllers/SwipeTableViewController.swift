@@ -9,7 +9,7 @@
 import UIKit
 import SwipeCellKit
 
-class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+class SwipeTableViewController: UITableViewController {
     
     // Text descriptions for swipe options to be set by subclasses
     var swipeToDeleteTextDescription: String?
@@ -29,33 +29,6 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell // swiftlint:disable:this force_cast
         cell.delegate = self
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        var actions = [SwipeAction]()
-        
-        let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteTextDescription) { _, indexPath in
-            self.deleteFromModel(at: indexPath)
-            self.setTableViewBackground()
-        }
-        let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
-            self.present(self.editAlertController(for: indexPath), animated: true)
-        }
-        
-        deleteAction.image = UIImage(named: "Delete_Icon")
-        editAction.image = UIImage(named: "More_Icon")
-        actions.append(deleteAction)
-        actions.append(editAction)
-        
-        return actions
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions { // swiftlint:disable:this line_length
-        var options = SwipeOptions()
-        options.transitionStyle = .border
-        options.expansionStyle = .destructive
-        return options
     }
     
     // MARK: - Alert Methods for Editing
@@ -83,6 +56,39 @@ class SwipeTableViewController: UITableViewController, SwipeTableViewCellDelegat
     
     func setTableViewBackground() {
         fatalError("Subclass must override this method")
+    }
+    
+}
+
+// MARK: - SwipeTableViewCell Delegate Methods
+
+extension SwipeTableViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        var actions = [SwipeAction]()
+        
+        let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteTextDescription) { _, indexPath in
+            self.deleteFromModel(at: indexPath)
+            self.setTableViewBackground()
+        }
+        let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
+            self.present(self.editAlertController(for: indexPath), animated: true)
+        }
+        
+        deleteAction.image = UIImage(named: "Delete_Icon")
+        editAction.image = UIImage(named: "More_Icon")
+        actions.append(deleteAction)
+        actions.append(editAction)
+        
+        return actions
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions { // swiftlint:disable:this line_length
+        var options = SwipeOptions()
+        options.transitionStyle = .border
+        options.expansionStyle = .destructive
+        return options
     }
     
 }
