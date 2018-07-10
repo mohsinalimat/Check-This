@@ -184,7 +184,7 @@ class ItemViewController: SwipeTableViewController {
         }
     }
     
-    // MARK: - Set up Table View Appearance
+    // MARK: - Set Up Table View Appearance
     
     override func setTableViewBackground() {
         if let numberOfItems = items?.count {
