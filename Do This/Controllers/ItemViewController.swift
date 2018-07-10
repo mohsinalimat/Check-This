@@ -15,6 +15,8 @@ class ItemViewController: SwipeTableViewController {
 
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try
+    var searchController: UISearchController?
+//    var searchResultsTableViewController: SearchResultsViewController?
     var selectedCategory: Category? {
         didSet {
             loadItems()
@@ -28,6 +30,8 @@ class ItemViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TODO: Move this somewhere else, like a computed property or something
+//        searchResultsTableViewController = storyboard?.instantiateViewController(withIdentifier: "Search_Results_TableVC") as? SearchResultsViewController //swiftlint:disable:this line_length
         }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -199,9 +203,11 @@ class ItemViewController: SwipeTableViewController {
     // MARK: - Set Up Search Bar
     
     func setUpSearchBar() {
-        let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50))
-        self.tableView.tableHeaderView = searchBar
-        searchBar.barTintColor = categoryColor
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        let searchBar = searchController.searchBar
         searchBar.delegate = self
         searchBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
         searchBar.placeholder = "Search"
