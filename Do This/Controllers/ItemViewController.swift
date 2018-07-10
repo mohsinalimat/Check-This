@@ -121,7 +121,7 @@ class ItemViewController: SwipeTableViewController {
         alertController.addAction(cancelAction)
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField.placeholder = "New Name"
+            alertTextField.placeholder = self.items?[indexPath.row].name
         }
         return alertController
     }

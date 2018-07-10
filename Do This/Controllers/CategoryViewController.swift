@@ -118,7 +118,7 @@ class CategoryViewController: SwipeTableViewController {
         alertController.addAction(cancelAction)
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField.placeholder = "New Name"
+            alertTextField.placeholder = self.categories?[indexPath.row].name
         }
         return alertController
     }
