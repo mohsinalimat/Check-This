@@ -11,7 +11,7 @@ import SwipeCellKit
 
 class SwipeTableViewController: UITableViewController {
     
-    // Text descriptions for swipe options to be set by subclasses
+    // Text descriptions for swipe options to be set by subclasses if needed
     var swipeToDeleteTextDescription: String?
     var swipeToEditTextDescription: String?
 
