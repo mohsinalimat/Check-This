@@ -188,9 +188,9 @@ class CategoryViewController: SwipeTableViewController {
     override func deleteFromModel(at indexPath: IndexPath) {
         if let categoryToBeDeleted = self.categories?[indexPath.row] {
             do {
-                try self.realm.write {
-                    self.realm.delete(categoryToBeDeleted.items)
-                    self.realm.delete(categoryToBeDeleted)
+                try realm.write {
+                    realm.delete(categoryToBeDeleted.items)
+                    realm.delete(categoryToBeDeleted)
                 }
             } catch {
                 fatalError("Error deleting category \(error)")
