@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		210EC58020F016B80000FD85 /* SwipeTableViewController+LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */; };
 		2148875B20D9A0A9000132F0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148875A20D9A0A9000132F0 /* CategoryViewController.swift */; };
+		2149B33520F5B5190014AFEF /* CategoryViewController+LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2149B33420F5B5190014AFEF /* CategoryViewController+LongPress.swift */; };
 		21902BBE20F4585E00E09741 /* ItemViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBD20F4585E00E09741 /* ItemViewController+SearchBar.swift */; };
 		21902BC020F4762600E09741 /* SwipeTableViewController+Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */; };
 		21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21941B2E20D084E900041A37 /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeTableViewController+LongPress.swift"; sourceTree = "<group>"; };
 		2148875A20D9A0A9000132F0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		2149B33420F5B5190014AFEF /* CategoryViewController+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryViewController+LongPress.swift"; sourceTree = "<group>"; };
 		21902BBD20F4585E00E09741 /* ItemViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeTableViewController+Swipe.swift"; sourceTree = "<group>"; };
 		21941B2B20D084E900041A37 /* Do This.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do This.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				2148875A20D9A0A9000132F0 /* CategoryViewController.swift */,
+				2149B33420F5B5190014AFEF /* CategoryViewController+LongPress.swift */,
 				21941B3020D084E900041A37 /* ItemViewController.swift */,
 				21902BBD20F4585E00E09741 /* ItemViewController+SearchBar.swift */,
 				21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */,
@@ -279,6 +282,7 @@
 				21941B3120D084E900041A37 /* ItemViewController.swift in Sources */,
 				21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */,
 				21902BBE20F4585E00E09741 /* ItemViewController+SearchBar.swift in Sources */,
+				2149B33520F5B5190014AFEF /* CategoryViewController+LongPress.swift in Sources */,
 				21AA217020E6AA400080EDC2 /* SwipeTableViewController.swift in Sources */,
 				21A4331C20DB1393004120E1 /* Category.swift in Sources */,
 				21902BC020F4762600E09741 /* SwipeTableViewController+Swipe.swift in Sources */,

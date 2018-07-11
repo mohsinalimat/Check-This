@@ -24,6 +24,7 @@ class CategoryViewController: SwipeTableViewController {
         loadCategories()
         setUpTableViewAppearance()
         setSwipeButtonsTextDescription()
+        setUpTableViewLongPressGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,33 +50,7 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        do {
-            try realm.write {
-                let sourceCategory = categories?[sourceIndexPath.row]
-                let destinationCategory = categories?[destinationIndexPath.row]
-                
-                let destinationCategoryOrder = destinationCategory?.indexForSorting
-                
-                if sourceIndexPath.row < destinationIndexPath.row {
-                    // Updates the indexForSorting for the categories when
-                    // moving a category down in the tableView
-                    for index in sourceIndexPath.row...destinationIndexPath.row {
-                        let category = categories?[index]
-                        category?.indexForSorting -= 1
-                    }
-                } else {
-                    // Updates the indexForSorting for the categories when
-                    // moving a category up in the tableView
-                    for index in (destinationIndexPath.row..<sourceIndexPath.row).reversed() {
-                        let category = categories?[index]
-                        category?.indexForSorting += 1
-                    }
-                }
-                sourceCategory?.indexForSorting = destinationCategoryOrder!
-            }
-        } catch {
-            fatalError("Error moving category to new indexPath \(error)")
-        }
+        moveCategory(from: sourceIndexPath, to: destinationIndexPath)
     }
     
     // MARK: - TableView Delegate Methods
@@ -168,8 +143,29 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
+    func moveCategory(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        do {
+            try realm.write {
+                let categoryBeingMoved = categories?[sourceIndexPath.row]
+                if sourceIndexPath.row < destinationIndexPath.row { // If item is moving down in the tableView
+                    for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
+                        let category = categories?[index]
+                        category?.indexForSorting -= 1
+                    }
+                } else if sourceIndexPath.row > destinationIndexPath.row { // If item is moving up in the tableView
+                    for index in destinationIndexPath.row..<sourceIndexPath.row {
+                        categories?[index].indexForSorting += 1
+                    }
+                }
+                categoryBeingMoved?.indexForSorting = destinationIndexPath.row
+            }
+        } catch {
+            fatalError("Error moving category to new indexPath \(error)")
+        }
+    }
+    
     func loadCategories() {
-        categories = realm.objects(Category.self)
+        categories = realm.objects(Category.self).sorted(byKeyPath: "indexForSorting", ascending: true)
         tableView.reloadData()
     }
     

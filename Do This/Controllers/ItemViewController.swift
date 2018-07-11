@@ -65,10 +65,29 @@ class ItemViewController: SwipeTableViewController {
                 let sourceItem = items?[sourceIndexPath.row]
                 let destinationItem = items?[destinationIndexPath.row]
                 
+                if sourceIndexPath.row < destinationIndexPath.row {
+                    // Updates the indexForSorting for the items when
+                    // moving an item down in the tableView
+                    for index in sourceIndexPath.row...destinationIndexPath.row {
+                        let item = items![index]
+                        item.indexForSorting -= 1
+                    }
+                } else {
+                    // Updates the indexForSorting for the items when
+                    // moving an item up in the tableView
+                    for index in (destinationIndexPath.row..<sourceIndexPath.row).reversed() {
+                        let item = items![index]
+                        item.indexForSorting += 1
+                    }
+                }
+                
+                sourceItem?.indexForSorting = destinationItem!.indexForSorting
             }
         } catch {
             fatalError("Error moving item to new indexPath \(error)")
         }
+        resetItemsIndexForSorting()
+        tableView.reloadData()
     }
     
     // MARK: - TableView Delegate Methods
