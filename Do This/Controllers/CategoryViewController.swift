@@ -27,7 +27,6 @@ class CategoryViewController: SwipeTableViewController {
         loadCategories()
         setUpNavigationController()
         setUpTableViewAppearance()
-        setUpTableViewLongPressGesture()
         setSwipeButtonsTextDescription()
     }
     

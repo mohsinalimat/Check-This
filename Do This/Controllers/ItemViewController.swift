@@ -34,7 +34,6 @@ class ItemViewController: SwipeTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         setUpNavigationController()
         setTableViewBackground()
-        setUpTableViewLongPressGesture()
         setUpSearchBar()
     }
     
