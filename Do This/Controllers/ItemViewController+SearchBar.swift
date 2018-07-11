@@ -16,14 +16,13 @@ extension ItemViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             loadItems()
         } else {
-            items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchBar.text!)
+            items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchText)
             tableView.reloadData()
         }
     }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.becomeFirstResponder()
-        print("\nsearchBarSearchButtonClicked called")
+        
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        loadItems()
     }
     
 }
