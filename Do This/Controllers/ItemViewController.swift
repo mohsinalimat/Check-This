@@ -136,6 +136,9 @@ class ItemViewController: SwipeTableViewController {
         do {
             try realm.write {
                 realm.add(item)
+                if let items = items {
+                    item.indexForSorting = items.count
+                }
                 selectedCategory?.items.append(item)
             }
         } catch {

@@ -31,6 +31,20 @@ class SwipeTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - TableView Delegate Methods
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     // MARK: - Alert Methods for Editing
     
     func editAlertController(for indexPath: IndexPath) -> UIAlertController {

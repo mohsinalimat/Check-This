@@ -18,6 +18,8 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
     }
     
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        tableView.isEditing = true
+        
         if gestureRecognizer.state == .ended {
             let touchPoint = gestureRecognizer.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {

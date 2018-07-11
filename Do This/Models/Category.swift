@@ -12,5 +12,6 @@ import RealmSwift
 class Category: Object {
     @objc dynamic var name = ""
     @objc dynamic var colorHexValue = ""
+    @objc dynamic var indexForSorting = 0
     let items = List<Item>()
 }

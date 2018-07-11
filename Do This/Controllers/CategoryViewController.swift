@@ -48,6 +48,36 @@ class CategoryViewController: SwipeTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        do {
+            try realm.write {
+                let sourceCategory = categories?[sourceIndexPath.row]
+                let destinationCategory = categories?[destinationIndexPath.row]
+                
+                let destinationCategoryOrder = destinationCategory?.indexForSorting
+                
+                if sourceIndexPath.row < destinationIndexPath.row {
+                    // Updates the indexForSorting for the categories when
+                    // moving a category down in the tableView
+                    for index in sourceIndexPath.row...destinationIndexPath.row {
+                        let category = categories?[index]
+                        category?.indexForSorting -= 1
+                    }
+                } else {
+                    // Updates the indexForSorting for the categories when
+                    // moving a category up in the tableView
+                    for index in (destinationIndexPath.row..<sourceIndexPath.row).reversed() {
+                        let category = categories?[index]
+                        category?.indexForSorting += 1
+                    }
+                }
+                sourceCategory?.indexForSorting = destinationCategoryOrder!
+            }
+        } catch {
+            fatalError("Error moving category to new indexPath \(error)")
+        }
+    }
+    
     // MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -129,6 +159,9 @@ class CategoryViewController: SwipeTableViewController {
         do {
             try realm.write {
                 realm.add(category)
+                if let categories = categories {
+                    category.indexForSorting = categories.count - 1
+                }
             }
         } catch {
             fatalError("Error saving category \(error)")
