@@ -200,6 +200,24 @@ class CategoryViewController: SwipeTableViewController {
                 fatalError("Error deleting category \(error)")
             }
         }
+        resetCategoriesIndexForSorting()
+    }
+    
+    func resetCategoriesIndexForSorting() {
+        if let categories = categories {
+            var indexForSorting = 0
+            for category in categories {
+                do {
+                    try realm.write {
+                        category.indexForSorting = indexForSorting
+                        
+                    }
+                } catch {
+                    fatalError("Error resetting category indexForSorting \(error)")
+                }
+                indexForSorting += 1
+            }
+        }
     }
     
     // MARK: - Navigation Controller Setup

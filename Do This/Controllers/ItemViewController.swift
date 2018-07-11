@@ -62,6 +62,18 @@ class ItemViewController: SwipeTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        do {
+            try realm.write {
+                let sourceItem = items?[sourceIndexPath.row]
+                let destinationItem = items?[destinationIndexPath.row]
+                
+            }
+        } catch {
+            fatalError("Error moving item to new indexPath \(error)")
+        }
+    }
+    
     // MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
