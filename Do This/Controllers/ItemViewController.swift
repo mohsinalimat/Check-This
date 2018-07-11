@@ -60,7 +60,7 @@ class ItemViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        moveItem(from: sourceIndexPath, to: destinationIndexPath)
+        move(from: sourceIndexPath, to: destinationIndexPath)
     }
     
     // MARK: - TableView Delegate Methods
@@ -153,7 +153,7 @@ class ItemViewController: SwipeTableViewController {
         tableView.reloadData()
     }
     
-    func moveItem(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    override func move(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         do {
             try realm.write {
                 let itemBeingMoved = items?[sourceIndexPath.row]

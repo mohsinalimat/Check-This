@@ -64,6 +64,10 @@ class SwipeTableViewController: UITableViewController {
         fatalError("Subclass must override this method")
     }
     
+    func move(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        fatalError("Subclass must override this method")
+    }
+    
     func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
         fatalError("Subclass must override this method")
     }

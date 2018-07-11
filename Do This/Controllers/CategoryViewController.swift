@@ -49,7 +49,7 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        moveCategory(from: sourceIndexPath, to: destinationIndexPath)
+        move(from: sourceIndexPath, to: destinationIndexPath)
     }
     
     // MARK: - TableView Delegate Methods
@@ -142,7 +142,7 @@ class CategoryViewController: SwipeTableViewController {
         }
     }
     
-    func moveCategory(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    override func move(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         do {
             try realm.write {
                 let categoryBeingMoved = categories?[sourceIndexPath.row]
