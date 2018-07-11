@@ -21,14 +21,14 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCategories()
-        setUpTableViewAppearance()
-        setSwipeButtonsTextDescription()
-        setUpTableViewLongPressGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadCategories()
         setUpNavigationController()
+        setUpTableViewAppearance()
+        setUpTableViewLongPressGesture()
+        setSwipeButtonsTextDescription()
     }
     
     // MARK: - TableView Data Source Methods
