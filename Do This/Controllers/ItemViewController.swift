@@ -234,11 +234,11 @@ class ItemViewController: SwipeTableViewController {
     // MARK: - Set Up Table View Appearance
     
     override func setTableViewBackground() {
+        tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
+        tableView.backgroundView?.backgroundColor = categoryColor.withAlphaComponent(0.1)
         if let numberOfItems = items?.count {
             if numberOfItems == 0 {
                 tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Item_Background"))
-            } else {
-                tableView.backgroundView = nil
             }
         }
     }
