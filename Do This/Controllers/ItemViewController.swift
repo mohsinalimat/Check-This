@@ -16,7 +16,6 @@ class ItemViewController: SwipeTableViewController {
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try
     var searchController: UISearchController?
-//    var searchResultsTableViewController: SearchResultsViewController?
     var selectedCategory: Category? {
         didSet {
             loadItems()
@@ -30,8 +29,6 @@ class ItemViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: Move this somewhere else, like a computed property or something
-//        searchResultsTableViewController = storyboard?.instantiateViewController(withIdentifier: "Search_Results_TableVC") as? SearchResultsViewController //swiftlint:disable:this line_length
         }
     
     override func viewWillAppear(_ animated: Bool) {
