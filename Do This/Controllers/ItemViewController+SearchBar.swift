@@ -18,11 +18,9 @@ extension ItemViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
-            print("searchText was empty. All items loaded.")
         } else {
             items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchBar.text!)
             tableView.reloadData()
-            print("\n searchText: ", searchText)
         }
     }
     
