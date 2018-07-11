@@ -9,25 +9,23 @@
 import UIKit
 
 // MARK: - Long Press Gesture
-extension SwipeTableViewController {
-//extension SwipeTableViewController: UIGestureRecognizerDelegate {
 
-//    func setUpTableViewLongPressGesture() {
-//        let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-//        longPressGesture.delegate = self
-//        tableView.addGestureRecognizer(longPressGesture)
-//    }
+extension SwipeTableViewController: UIGestureRecognizerDelegate {
+
+    func setUpTableViewLongPressGesture() {
+        let longPressGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGesture.delegate = self
+        tableView.addGestureRecognizer(longPressGesture)
+    }
     
-//    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
-//        tableView.isEditing = true
-//
-//        if gestureRecognizer.state == .ended {
-//            let touchPoint = gestureRecognizer.location(in: self.tableView)
-//            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-////                present(editAlertController(for: indexPath), animated: true)
-//
-//            }
-//        }
-//    }
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        if gestureRecognizer.state == .ended {
+            tableView.isEditing = !tableView.isEditing
+            let touchPoint = gestureRecognizer.location(in: self.tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                print("indexPath.row: ", indexPath.row)
+            }
+        }
+    }
     
 }
