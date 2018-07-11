@@ -160,7 +160,7 @@ class ItemViewController: SwipeTableViewController {
     }
     
     func loadItems() {
-        items = selectedCategory?.items.sorted(byKeyPath: "timeCreated", ascending: true)
+        items = selectedCategory?.items.sorted(byKeyPath: "indexForSorting", ascending: true)
         tableView.reloadData()
     }
     
@@ -185,6 +185,23 @@ class ItemViewController: SwipeTableViewController {
                 }
             } catch {
                 fatalError("Error deleting item \(error)")
+            }
+        }
+        resetItemsIndexForSorting()
+    }
+    
+    func resetItemsIndexForSorting() {
+        if let items = items {
+            var indexForSorting = 0
+            for item in items {
+                do {
+                    try realm.write {
+                        item.indexForSorting = indexForSorting
+                    }
+                } catch {
+                    fatalError("Error resetting item indexForSorting \(error)")
+                }
+                indexForSorting += 1
             }
         }
     }
