@@ -238,6 +238,7 @@ class ItemViewController: SwipeTableViewController {
         if let numberOfItems = items?.count {
             if numberOfItems == 0 {
                 tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Item_Background"))
+                tableView.backgroundView?.contentMode = .scaleAspectFill
             }
         }
     }
