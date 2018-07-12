@@ -48,7 +48,7 @@ class ItemViewController: SwipeTableViewController {
         guard let item = items?[indexPath.row] else { fatalError() }
         let cellTitle = NSMutableAttributedString(string: item.name)
         if item.done {
-            cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: item.name.count))
+            cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSRange(location: 0, length: cellTitle.length))
             cell.imageView?.image = UIImage(named: "Checked_Checkbox_Icon")
         } else {
             cell.imageView?.image = UIImage(named: "Unchecked_Checkbox_Icon")
