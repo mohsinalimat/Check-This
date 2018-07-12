@@ -155,12 +155,12 @@ class CategoryViewController: SwipeTableViewController {
         do {
             try realm.write {
                 let categoryBeingMoved = categories?[sourceIndexPath.row]
-                if sourceIndexPath.row < destinationIndexPath.row { // If category is moving down in the tableView
+                if sourceIndexPath.row < destinationIndexPath.row {
                     for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
                         let category = categories?[index]
                         category?.indexForSorting -= 1
                     }
-                } else if sourceIndexPath.row > destinationIndexPath.row { // If category is moving up in the tableView
+                } else if sourceIndexPath.row > destinationIndexPath.row {
                     for index in destinationIndexPath.row..<sourceIndexPath.row {
                         categories?[index].indexForSorting += 1
                     }
