@@ -237,8 +237,9 @@ class ItemViewController: SwipeTableViewController {
         tableView.backgroundView?.backgroundColor = categoryColor.withAlphaComponent(0.1)
         if let numberOfItems = items?.count {
             if numberOfItems == 0 {
-                tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Item_Background"))
-                tableView.backgroundView?.contentMode = .scaleAspectFill
+                let instructions = "Add a new item to\nyour to-do list using\nthe + button."
+                let instructionsLabel = labelWith(instructions)
+                tableView.backgroundView?.addSubview(instructionsLabel)
             }
         }
     }

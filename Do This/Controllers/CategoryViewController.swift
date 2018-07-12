@@ -263,12 +263,12 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func setTableViewBackground() {
+        tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
         if let numberOfCategories = categories?.count {
             if numberOfCategories == 0 {
-                tableView.backgroundView = UIImageView(image: UIImage(named: "Default_Category_Background"))
-                tableView.backgroundView?.contentMode = .scaleAspectFill
-            } else {
-                tableView.backgroundView = nil
+                let instructions = "Add a new category\nusing the + button."
+                let instructionsLabel = labelWith(instructions)
+                tableView.backgroundView?.addSubview(instructionsLabel)
             }
         }
     }

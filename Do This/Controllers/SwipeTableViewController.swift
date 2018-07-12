@@ -58,6 +58,31 @@ class SwipeTableViewController: UITableViewController {
         return alertController
     }
     
+    // MARK: - Label With Instructions Methods
+    
+    /// Returns a UILabel with instructions in the center of the tableView to
+    /// be used when user hasn't created a category nor an item.
+    /// - Parameters:
+    ///     - instructions: A string that includes the instructions to display.
+    ///                     Make sure to use line breaks (\n) for formatting.
+    func labelWith(_ instructions: String) -> UILabel {
+        let instructionsLabel = UILabel(frame: UIScreen.main.bounds)
+        instructionsLabel.textAlignment = .center
+        instructionsLabel.text = instructions
+        instructionsLabel.textColor = UIColor.black.withAlphaComponent(0.3)
+        instructionsLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        instructionsLabel.numberOfLines = numberOfLines(in: instructions)
+        return instructionsLabel
+    }
+    
+    func numberOfLines(in string: String) -> Int {
+        var numberOfLinesCount = 0
+        string.enumerateLines { (_, _) in
+            numberOfLinesCount += 1
+        }
+        return numberOfLinesCount
+    }
+    
     // MARK: - Methods to be overwritten by sublasses
     
     func deleteFromModel(at indexPath: IndexPath) {
