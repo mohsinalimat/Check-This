@@ -15,6 +15,7 @@ protocol ColorPickerDelegate: class {
 class ColorPickerViewController: UIViewController {
 
     weak var delegate: ColorPickerDelegate?
+    var colorPickedHex: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

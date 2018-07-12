@@ -63,16 +63,19 @@ class CategoryViewController: SwipeTableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as? ItemViewController
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC?.selectedCategory = categories?[indexPath.row]
+            switch segue.identifier {
+            case "goToItemsVC":
+                let itemsVC = segue.destination as? ItemViewController
+                itemsVC?.selectedCategory = categories?[indexPath.row]
+            case "goToColorPickerVC":
+                let colorPickerVC = segue.destination as? ColorPickerViewController
+                colorPickerVC?.delegate = self
+                colorPickerVC?.colorPickedHex = categories?[indexPath.row].colorHexValue
+            default:
+                fatalError("Error: No matching segue identifiers found.")
+            }
         }
-    }
-    
-    func presentColorPickerViewController() {
-        guard let colorPickerVC = storyboard?.instantiateViewController(withIdentifier: "ColorPickerVC") as? ColorPickerViewController else { fatalError() } //swiftlint:disable:this line_length
-        colorPickerVC.delegate = self
-        present(colorPickerVC, animated: true)
     }
     
     // MARK: - Add New Categories Methods
@@ -105,7 +108,7 @@ class CategoryViewController: SwipeTableViewController {
     override func editAlertController(for indexPath: IndexPath) -> UIAlertController {
         let alertController = super.editAlertController(for: indexPath)
         let actionToEditColor = UIAlertAction(title: "Change Color", style: .default) { _ in
-            self.presentColorPickerViewController()
+            self.performSegue(withIdentifier: "goToColorPickerVC", sender: self)
         }
         alertController.addAction(actionToEditColor)
         return alertController
@@ -157,8 +160,7 @@ class CategoryViewController: SwipeTableViewController {
                 let categoryBeingMoved = categories?[sourceIndexPath.row]
                 if sourceIndexPath.row < destinationIndexPath.row {
                     for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
-                        let category = categories?[index]
-                        category?.indexForSorting -= 1
+                        categories?[index].indexForSorting -= 1
                     }
                 } else if sourceIndexPath.row > destinationIndexPath.row {
                     for index in destinationIndexPath.row..<sourceIndexPath.row {

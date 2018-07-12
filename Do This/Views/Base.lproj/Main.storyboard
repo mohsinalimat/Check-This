@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Do This-->
+        <!--Categories-->
         <scene sceneID="Njw-xZ-sY5">
             <objects>
-                <tableViewController id="GuX-RV-t3l" customClass="CategoryViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="GuX-RV-t3l" userLabel="Categories" customClass="CategoryViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="15X-Bm-gaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,17 +41,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="xue-aK-VTX" kind="show" identifier="goToItemsViewController" id="sad-7T-yAE"/>
+                        <segue destination="xue-aK-VTX" kind="show" identifier="goToItemsVC" id="sad-7T-yAE"/>
+                        <segue destination="Fk3-VZ-k5l" kind="show" identifier="goToColorPickerVC" id="Evv-NO-yjF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecs-83-uY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1318" y="115"/>
         </scene>
-        <!--Color Picker View Controller-->
+        <!--Color Picker-->
         <scene sceneID="vQC-0P-nzl">
             <objects>
-                <viewController storyboardIdentifier="ColorPickerVC" id="Fk3-VZ-k5l" customClass="ColorPickerViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColorPickerVC" title="Category Color" id="Fk3-VZ-k5l" userLabel="Color Picker" customClass="ColorPickerViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5H-9H-nfT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +67,7 @@
         <!--Items-->
         <scene sceneID="viX-vr-qvB">
             <objects>
-                <tableViewController id="xue-aK-VTX" customClass="ItemViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xue-aK-VTX" userLabel="Items" customClass="ItemViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfb-5M-O4W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +88,7 @@
                             <outlet property="delegate" destination="xue-aK-VTX" id="E0J-qD-7tx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Items" largeTitleDisplayMode="always" id="otq-F7-xfA">
+                    <navigationItem key="navigationItem" title="Category Name" largeTitleDisplayMode="always" id="otq-F7-xfA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r0V-Tk-qeh">
                             <connections>
                                 <action selector="addNewItem:" destination="xue-aK-VTX" id="vnV-wP-TeN"/>
