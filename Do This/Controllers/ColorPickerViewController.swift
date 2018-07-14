@@ -21,6 +21,10 @@ class ColorPickerViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Utilities.setUpBlueNavBarFor(self)
+    }
+    
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

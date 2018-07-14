@@ -26,7 +26,7 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadCategories()
-        setUpNavigationController()
+        Utilities.setUpBlueNavBarFor(self)
         setUpTableViewAppearance()
         setSwipeButtonsTextDescription()
     }
@@ -223,18 +223,6 @@ class CategoryViewController: SwipeTableViewController {
                 }
                 indexForSorting += 1
             }
-        }
-    }
-    
-    // MARK: - Navigation Controller Setup
-    
-    func setUpNavigationController() {
-        let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        if let navBar = navigationController?.navigationBar {
-            navBar.barTintColor = UIColor(hexString: "0096FF")!
-            navBar.tintColor = UIColor.white
-            navBar.largeTitleTextAttributes = whiteAttribute
-            navBar.titleTextAttributes = whiteAttribute
         }
     }
     

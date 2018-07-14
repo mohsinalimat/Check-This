@@ -18,6 +18,7 @@
 		21941B3920D084EA00041A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21941B3720D084EA00041A37 /* LaunchScreen.storyboard */; };
 		21A4331A20DB1239004120E1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4331920DB1239004120E1 /* Item.swift */; };
 		21A4331C20DB1393004120E1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4331B20DB1393004120E1 /* Category.swift */; };
+		21A4F28620FA92BD00FDFB4D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4F28520FA92BD00FDFB4D /* Utilities.swift */; };
 		21AA217020E6AA400080EDC2 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */; };
 		21DB2E9020F68B94002BE4B6 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E8F20F68B94002BE4B6 /* ColorPickerViewController.swift */; };
 		21DB2E9220F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E9120F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift */; };
@@ -38,6 +39,7 @@
 		21941B3A20D084EA00041A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A4331920DB1239004120E1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		21A4331B20DB1393004120E1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		21A4F28520FA92BD00FDFB4D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		21DB2E8F20F68B94002BE4B6 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		21DB2E9120F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryViewController+ColorPicker.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				21941B2E20D084E900041A37 /* AppDelegate.swift */,
+				21A4F28520FA92BD00FDFB4D /* Utilities.swift */,
 				21941B3720D084EA00041A37 /* LaunchScreen.storyboard */,
 				21941B3520D084EA00041A37 /* Assets.xcassets */,
 				21941B3A20D084EA00041A37 /* Info.plist */,
@@ -285,6 +288,7 @@
 				21A4331A20DB1239004120E1 /* Item.swift in Sources */,
 				2148875B20D9A0A9000132F0 /* CategoryViewController.swift in Sources */,
 				21941B3120D084E900041A37 /* ItemViewController.swift in Sources */,
+				21A4F28620FA92BD00FDFB4D /* Utilities.swift in Sources */,
 				21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */,
 				21902BBE20F4585E00E09741 /* ItemViewController+SearchBar.swift in Sources */,
 				21AA217020E6AA400080EDC2 /* SwipeTableViewController.swift in Sources */,
