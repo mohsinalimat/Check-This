@@ -20,7 +20,11 @@ class ColorPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 //    @IBAction colorPressed(_ sender: AnyObject) {
 //        TODO: Create real @IBAction to pass on the colorPickedByUserForCategory
 //        to the CategoryViewController and dismiss the ColorPickerViewController
