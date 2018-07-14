@@ -9,6 +9,7 @@
 import UIKit
 
 class Utilities {
+    
     static func setUpBlueNavBarFor(_ viewController: UIViewController) {
         let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
         if let navBar = viewController.navigationController?.navigationBar {
@@ -18,4 +19,5 @@ class Utilities {
             navBar.titleTextAttributes = whiteAttribute
         }
     }
+    
 }
