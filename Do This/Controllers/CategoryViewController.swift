@@ -20,10 +20,6 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - View Lifecycle Methods
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         loadCategories()
         Utilities.setUpBlueNavBarFor(self)
