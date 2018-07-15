@@ -14,7 +14,7 @@
         <!--Categories-->
         <scene sceneID="Njw-xZ-sY5">
             <objects>
-                <tableViewController id="GuX-RV-t3l" userLabel="Categories" customClass="CategoryViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoriesVC" id="GuX-RV-t3l" userLabel="Categories" customClass="CategoryViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="15X-Bm-gaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="xue-aK-VTX" kind="show" identifier="goToItemsVC" id="sad-7T-yAE"/>
-                        <segue destination="DwT-1P-jkp" kind="show" identifier="goToColorPickerVC" id="Evv-NO-yjF"/>
+                        <segue destination="DwT-1P-jkp" kind="show" identifier="goToColorPickerVC" id="ks4-B6-i79"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecs-83-uY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -360,7 +360,7 @@
         <!--Items-->
         <scene sceneID="viX-vr-qvB">
             <objects>
-                <tableViewController id="xue-aK-VTX" userLabel="Items" customClass="ItemViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ItemsVC" id="xue-aK-VTX" userLabel="Items" customClass="ItemViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfb-5M-O4W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,7 +396,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YR9-PV-gab">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XJb-V4-yeo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="InitialNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="XJb-V4-yeo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2tt-e9-3kp">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -420,7 +420,7 @@
         <!--Navigation Controller-->
         <scene sceneID="K4Y-zw-kpE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DwT-1P-jkp" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ColorPickerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DwT-1P-jkp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J7f-uF-i3Y">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
