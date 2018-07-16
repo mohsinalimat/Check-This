@@ -83,7 +83,7 @@ class CategoryViewController: SwipeTableViewController {
             if textField.text! != "" {
                 let newCategory = Category()
                 newCategory.name = textField.text!
-                newCategory.colorHexValue = self.differentColorHexFromDefaultColors()
+                newCategory.colorHexValue = self.differentCategoryColorHex()
                 self.save(category: newCategory)
                 self.setTableViewBackground()
                 self.tableView.reloadData()
@@ -261,19 +261,14 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - Random Color Method For New Categories
     
-    /// Returns the hex value of a random color from the defaultColors array
+    /// Returns the hex value of a random color from the CategoryColor enum
     /// that differs from the previos category color
-    func differentColorHexFromDefaultColors() -> String {
-        guard let numberOfCategories = categories?.count else { fatalError() }
-        var randomHex = defaultRandomColorOptions[Int(arc4random_uniform(UInt32(self.defaultRandomColorOptions.count)))].hexValue()
-        if numberOfCategories == 0 {
-            return randomHex
-        } else {
-            while categories?.last?.colorHexValue == randomHex {
-                randomHex = defaultRandomColorOptions[Int(arc4random_uniform(UInt32(self.defaultRandomColorOptions.count)))].hexValue()
-            }
-            return randomHex
+    func differentCategoryColorHex() -> String {
+        var newColorHex = CategoryColor.random().rawValue
+        while categories?.last?.colorHexValue == newColorHex {
+            newColorHex = CategoryColor.random().rawValue
         }
+        return newColorHex
     }
     
 }
