@@ -19,7 +19,6 @@ class ColorPickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         Utilities.setUpBlueNavBarFor(self)
-        title = "Category Color"
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
