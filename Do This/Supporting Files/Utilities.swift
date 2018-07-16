@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Utilities {
+struct Utilities {
     
     static func setUpBlueNavBarFor(_ viewController: UIViewController) {
         let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
