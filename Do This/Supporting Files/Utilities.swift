@@ -10,6 +10,37 @@ import UIKit
 
 struct Utilities {
     
+    static let allColors: [CategoryColor] = [.normalRed,
+                                             .lightRed,
+                                             .pink,
+                                             .lightPink,
+                                             .purple,
+                                             .lightPurple,
+                                             .deepPurple,
+                                             .lightDeepPurple,
+                                             .blue,
+                                             .lightBlue,
+                                             .cyan,
+                                             .lightCyan,
+                                             .teal,
+                                             .lightTeal,
+                                             .green,
+                                             .lightGreen,
+                                             .lime,
+                                             .lightLime,
+                                             .yellow,
+                                             .lightYellow,
+                                             .amber,
+                                             .lightAmber,
+                                             .orange,
+                                             .lightOrange,
+                                             .deepOrange,
+                                             .lightDeepOrange,
+                                             .brown,
+                                             .lightBrown,
+                                             .blueGray,
+                                             .lightBlueGray]
+    
     static func setUpBlueNavBarFor(_ viewController: UIViewController) {
         let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
         if let navBar = viewController.navigationController?.navigationBar {
