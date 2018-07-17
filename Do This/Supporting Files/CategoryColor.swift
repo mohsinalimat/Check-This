@@ -28,7 +28,7 @@ enum CategoryColor: String {
     case lime = "#cddc39"
     case lightLime = "#e6ee9c"
     case yellow = "#ffeb3b"
-    case lightYellow = "#fff176"
+    case lightYellow = "#fff59d"
     case amber = "#ffc107"
     case lightAmber = "#ffe082"
     case orange = "#ff9800"
