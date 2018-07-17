@@ -32,7 +32,7 @@ class ColorPickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         Utilities.setUpBlueNavBarFor(self)
-        assignBackgroundColorsTo(colorButtons)
+        setBackgroundColorsToColorButtons()
         addCheckmarkToSelectedColorButton()
     }
     
@@ -46,7 +46,7 @@ class ColorPickerViewController: UIViewController {
         addCheckmarkToSelectedColorButton()
     }
     
-    func assignBackgroundColorsTo(_ colorButtons: [ColorButton]) {
+    func setBackgroundColorsToColorButtons() {
         for button in colorButtons {
             ColorPickerUtilities.setBackgroundColorFor(button)
         }
