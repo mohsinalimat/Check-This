@@ -9,7 +9,7 @@
 import Foundation
 
 enum CategoryColorHex: String {
-    case normalRed = "#f44336"
+    case normalRed = "#e53935"
     case lightRed = "#ef9a9a"
     case pink = "#ec407a"
     case lightPink = "#f48fb1"
