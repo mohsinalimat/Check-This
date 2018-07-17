@@ -1,5 +1,5 @@
 //
-//  CategoryColor.swift
+//  CategoryColorHex.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 7/16/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CategoryColor: String {
+enum CategoryColorHex: String {
     case normalRed = "#f44336"
     case lightRed = "#ef9a9a"
     case pink = "#ec407a"
@@ -40,7 +40,7 @@ enum CategoryColor: String {
     case blueGray = "#78909c"
     case lightBlueGray = "#cfd8dc"
     
-    static func random() -> CategoryColor {
+    static func random() -> CategoryColorHex {
         let randomIndex = Int(arc4random_uniform(UInt32(Utilities.allColors.count)))
         return Utilities.allColors[randomIndex]
     }

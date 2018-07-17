@@ -15,7 +15,7 @@ class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
-    var colorPickedByUserForCategory: UIColor?
+    var colorHexPickedByUserForCategory: String?
     
     // MARK: - View Lifecycle Methods
     
@@ -58,21 +58,21 @@ class CategoryViewController: SwipeTableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            switch segue.identifier {
-            case "goToItemsVC":
-                let itemsVC = segue.destination as? ItemViewController
-                itemsVC?.selectedCategory = categories?[indexPath.row]
-            case "goToColorPickerVC":
-                let colorPickerVC = segue.destination as? ColorPickerViewController
-                colorPickerVC?.delegate = self
-                colorPickerVC?.colorPickedHex = categories?[indexPath.row].colorHexValue
-            default:
-                fatalError("Error: No matching segue identifiers found.")
-            }
+        guard let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
+        switch segue.identifier {
+        case "goToItemsVC":
+            let itemsVC = segue.destination as? ItemViewController
+            itemsVC?.selectedCategory = categories?[indexPath.row]
+        case "goToColorPickerVC":
+            guard let navigationController = segue.destination as? UINavigationController else { fatalError() }
+            guard let colorPickerVC = navigationController.viewControllers.first as? ColorPickerViewController else { fatalError() }
+            colorPickerVC.delegate = self
+            colorPickerVC.colorPickedHex = categories?[indexPath.row].colorHexValue
+        default:
+            fatalError("Error: No matching segue identifiers found.")
         }
     }
-    
+
     // MARK: - Add New Categories Methods
 
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
@@ -260,12 +260,12 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - Random Color Method For New Categories
     
-    /// Returns the hex value of a random color from the CategoryColor enum
+    /// Returns the hex value of a random color from the CategoryColorHex enum
     /// that differs from the previos category color
     func differentCategoryColorHex() -> String {
-        var newColorHex = CategoryColor.random().rawValue
+        var newColorHex = CategoryColorHex.random().rawValue
         while categories?.last?.colorHexValue == newColorHex {
-            newColorHex = CategoryColor.random().rawValue
+            newColorHex = CategoryColorHex.random().rawValue
         }
         return newColorHex
     }

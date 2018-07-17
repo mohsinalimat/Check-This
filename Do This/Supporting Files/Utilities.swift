@@ -10,7 +10,7 @@ import UIKit
 
 struct Utilities {
     
-    static let allColors: [CategoryColor] = [.normalRed,
+    static let allColors: [CategoryColorHex] = [.normalRed,
                                              .lightRed,
                                              .pink,
                                              .lightPink,

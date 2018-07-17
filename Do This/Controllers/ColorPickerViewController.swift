@@ -9,13 +9,13 @@
 import UIKit
 
 protocol ColorPickerDelegate: class {
-    func didPickNewColor(color: UIColor)
+    func didPickNewColor(colorHex: String)
 }
 
 class ColorPickerViewController: UIViewController {
 
-    weak var delegate: ColorPickerDelegate?
-    var colorPickedHex: String?
+    weak var delegate: ColorPickerDelegate!
+    var colorPickedHex: String!
     
     override func viewWillAppear(_ animated: Bool) {
         Utilities.setUpBlueNavBarFor(self)
@@ -27,13 +27,11 @@ class ColorPickerViewController: UIViewController {
     }
     
     @IBAction func didSelectColor(_ sender: RoundButtonForColorChoices) {
+        colorPickedHex = sender.backgroundColor?.hexValue()
+        delegate.didPickNewColor(colorHex: colorPickedHex)
         
+        // TODO: Mark selected color and deselect previously selected color
     }
-    
-    //    @IBAction colorPressed(_ sender: AnyObject) {
-    //        TODO: Create real @IBAction to pass on the colorPickedByUserForCategory
-    //        to the CategoryViewController and dismiss the ColorPickerViewController
-    //    }
     
     func assignBackgroundColorsToColorButtons() {
         for verticalStackView in view.subviews {

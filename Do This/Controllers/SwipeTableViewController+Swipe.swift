@@ -22,6 +22,8 @@ extension SwipeTableViewController: SwipeTableViewCellDelegate {
             self.setTableViewBackground()
         }
         let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
+            tableView.cellForRow(at: indexPath)?.selectionStyle = .none
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             self.present(self.editAlertController(for: indexPath), animated: true)
         }
         

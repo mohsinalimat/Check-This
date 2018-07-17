@@ -12,8 +12,8 @@ import UIKit
 
 extension CategoryViewController: ColorPickerDelegate {
     
-    func didPickNewColor(color: UIColor) {
-        print("color.hexValue(): \(color.hexValue())")
+    func didPickNewColor(colorHex: String) {
+        colorHexPickedByUserForCategory = colorHex
     }
 
 }
