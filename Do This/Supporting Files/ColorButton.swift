@@ -1,5 +1,5 @@
 //
-//  RoundButtonForColorChoices.swift
+//  ColorButton.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 7/15/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class RoundButtonForColorChoices: UIButton {
+class ColorButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()

@@ -10,7 +10,7 @@ import UIKit
 
 struct ColorPickerUtilities {
     
-    static func setBackgroundColorFor(_ button: RoundButtonForColorChoices) { // swiftlint:disable:this cyclomatic_complexity function_body_length
+    static func setBackgroundColorFor(_ button: ColorButton) { // swiftlint:disable:this cyclomatic_complexity function_body_length
         switch button.tag {
         case 1:
             button.backgroundColor = UIColor(hexString: CategoryColorHex.normalRed.rawValue)

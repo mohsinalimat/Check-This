@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		210EC58020F016B80000FD85 /* SwipeTableViewController+LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */; };
 		2148875B20D9A0A9000132F0 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148875A20D9A0A9000132F0 /* CategoryViewController.swift */; };
-		2164C2D420FBDDD900E9E053 /* RoundButtonForColorChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164C2D320FBDDD900E9E053 /* RoundButtonForColorChoices.swift */; };
+		2164C2D420FBDDD900E9E053 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164C2D320FBDDD900E9E053 /* ColorButton.swift */; };
 		21902BBE20F4585E00E09741 /* ItemViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBD20F4585E00E09741 /* ItemViewController+SearchBar.swift */; };
 		21902BC020F4762600E09741 /* SwipeTableViewController+Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */; };
 		21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21941B2E20D084E900041A37 /* AppDelegate.swift */; };
@@ -31,7 +31,7 @@
 /* Begin PBXFileReference section */
 		210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeTableViewController+LongPress.swift"; sourceTree = "<group>"; };
 		2148875A20D9A0A9000132F0 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		2164C2D320FBDDD900E9E053 /* RoundButtonForColorChoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonForColorChoices.swift; sourceTree = "<group>"; };
+		2164C2D320FBDDD900E9E053 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		21902BBD20F4585E00E09741 /* ItemViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeTableViewController+Swipe.swift"; sourceTree = "<group>"; };
 		21941B2B20D084E900041A37 /* Do This.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do This.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				21941B2E20D084E900041A37 /* AppDelegate.swift */,
-				2164C2D320FBDDD900E9E053 /* RoundButtonForColorChoices.swift */,
+				2164C2D320FBDDD900E9E053 /* ColorButton.swift */,
 				2198879B20FD96F400115A2A /* ColorPickerUtilities.swift */,
 				21A4F28520FA92BD00FDFB4D /* Utilities.swift */,
 				21FBA2F920FD1D9D003BBDE3 /* CategoryColorHex.swift */,
@@ -299,7 +299,7 @@
 				21A4331A20DB1239004120E1 /* Item.swift in Sources */,
 				2148875B20D9A0A9000132F0 /* CategoryViewController.swift in Sources */,
 				21941B3120D084E900041A37 /* ItemViewController.swift in Sources */,
-				2164C2D420FBDDD900E9E053 /* RoundButtonForColorChoices.swift in Sources */,
+				2164C2D420FBDDD900E9E053 /* ColorButton.swift in Sources */,
 				21A4F28620FA92BD00FDFB4D /* Utilities.swift in Sources */,
 				21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */,
 				21902BBE20F4585E00E09741 /* ItemViewController+SearchBar.swift in Sources */,
