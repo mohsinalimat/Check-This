@@ -16,10 +16,24 @@ class ColorPickerViewController: UIViewController {
 
     weak var delegate: ColorPickerDelegate!
     var colorPickedHex: String!
+    var colorButtons: [RoundButtonForColorChoices] {
+        var buttons: [RoundButtonForColorChoices] = []
+        for verticalStackView in view.subviews {
+            for rowOfButtons in verticalStackView.subviews {
+                for button in rowOfButtons.subviews {
+                    if let button = button as? RoundButtonForColorChoices {
+                        buttons.append(button)
+                    }
+                }
+            }
+        }
+        return buttons
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         Utilities.setUpBlueNavBarFor(self)
-        assignBackgroundColorsToColorButtons()
+        assignBackgroundColorsTo(colorButtons)
+        addCheckmarkToSelectedColorButton()
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
@@ -29,20 +43,17 @@ class ColorPickerViewController: UIViewController {
     @IBAction func didSelectColor(_ sender: RoundButtonForColorChoices) {
         colorPickedHex = sender.backgroundColor?.hexValue()
         delegate.didPickNewColor(colorHex: colorPickedHex)
-        
-        // TODO: Mark selected color and deselect previously selected color
+        addCheckmarkToSelectedColorButton()
     }
     
-    func assignBackgroundColorsToColorButtons() {
-        for verticalStackView in view.subviews {
-            for rowOfButtons in verticalStackView.subviews {
-                for button in rowOfButtons.subviews {
-                    if let button = button as? RoundButtonForColorChoices {
-                        ColorPickerUtilities.setBackgroundColorFor(button)
-                    }
-                }
-            }
+    func assignBackgroundColorsTo(_ colorButtons: [RoundButtonForColorChoices]) {
+        for button in colorButtons {
+            ColorPickerUtilities.setBackgroundColorFor(button)
         }
+    }
+    
+    func addCheckmarkToSelectedColorButton() {
+        // TODO: Implement method
     }
         
 }
