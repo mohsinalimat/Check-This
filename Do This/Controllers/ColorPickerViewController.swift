@@ -26,6 +26,10 @@ class ColorPickerViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func didSelectColor(_ sender: RoundButtonForColorChoices) {
+        
+    }
+    
     //    @IBAction colorPressed(_ sender: AnyObject) {
     //        TODO: Create real @IBAction to pass on the colorPickedByUserForCategory
     //        to the CategoryViewController and dismiss the ColorPickerViewController
