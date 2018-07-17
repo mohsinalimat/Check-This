@@ -15,7 +15,7 @@ protocol ColorPickerDelegate: class {
 class ColorPickerViewController: UIViewController {
 
     weak var delegate: ColorPickerDelegate!
-    var colorPickedHex: String!
+    var selectedColorHex: String!
     var colorButtons: [RoundButtonForColorChoices] {
         var buttons: [RoundButtonForColorChoices] = []
         for verticalStackView in view.subviews {
@@ -41,8 +41,8 @@ class ColorPickerViewController: UIViewController {
     }
     
     @IBAction func didSelectColor(_ sender: RoundButtonForColorChoices) {
-        colorPickedHex = sender.backgroundColor?.hexValue()
-        delegate.didPickNewColor(colorHex: colorPickedHex)
+        selectedColorHex = sender.backgroundColor?.hexValue()
+        delegate.didPickNewColor(colorHex: selectedColorHex)
         addCheckmarkToSelectedColorButton()
     }
     

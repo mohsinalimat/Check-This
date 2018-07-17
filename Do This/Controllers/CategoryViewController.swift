@@ -67,7 +67,7 @@ class CategoryViewController: SwipeTableViewController {
             guard let navigationController = segue.destination as? UINavigationController else { fatalError() }
             guard let colorPickerVC = navigationController.viewControllers.first as? ColorPickerViewController else { fatalError() }
             colorPickerVC.delegate = self
-            colorPickerVC.colorPickedHex = categories?[indexPath.row].colorHexValue
+            colorPickerVC.selectedColorHex = categories?[indexPath.row].colorHexValue
         default:
             fatalError("Error: No matching segue identifiers found.")
         }
