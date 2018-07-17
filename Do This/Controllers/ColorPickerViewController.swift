@@ -19,15 +19,28 @@ class ColorPickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         Utilities.setUpBlueNavBarFor(self)
+        assignBackgroundColorsToColorButtons()
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction colorPressed(_ sender: AnyObject) {
-//        TODO: Create real @IBAction to pass on the colorPickedByUserForCategory
-//        to the CategoryViewController and dismiss the ColorPickerViewController
-//    }
-
+    //    @IBAction colorPressed(_ sender: AnyObject) {
+    //        TODO: Create real @IBAction to pass on the colorPickedByUserForCategory
+    //        to the CategoryViewController and dismiss the ColorPickerViewController
+    //    }
+    
+    func assignBackgroundColorsToColorButtons() {
+        for verticalStackView in view.subviews {
+            for rowOfButtons in verticalStackView.subviews {
+                for button in rowOfButtons.subviews {
+                    if let button = button as? RoundButtonForColorChoices {
+                        ColorPickerUtilities.setBackgroundColorFor(button)
+                    }
+                }
+            }
+        }
+    }
+        
 }
