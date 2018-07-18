@@ -59,15 +59,16 @@ class CategoryViewController: SwipeTableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { fatalError() }
+        guard let selectedCategory = categories?[indexPath.row] else { fatalError() }
         switch segue.identifier {
         case "goToItemsVC":
             let itemsVC = segue.destination as? ItemViewController
-            itemsVC?.selectedCategory = categories?[indexPath.row]
+            itemsVC?.selectedCategory = selectedCategory
         case "goToColorPickerVC":
             guard let navigationController = segue.destination as? UINavigationController else { fatalError() }
             guard let colorPickerVC = navigationController.viewControllers.first as? ColorPickerViewController else { fatalError() }
             colorPickerVC.delegate = self
-            colorPickerVC.selectedColorHex = categories?[indexPath.row].colorHexValue
+            colorPickerVC.selectedCategory = selectedCategory
         default:
             fatalError("Error: No matching segue identifiers found.")
         }
@@ -174,14 +175,14 @@ class CategoryViewController: SwipeTableViewController {
         tableView.reloadData()
     }
     
-    func edit(category: Category, newName: String? = nil, newColor: UIColor? = nil) {
+    func edit(category: Category, newName: String? = nil, newColorHex: String? = nil) {
         do {
             try realm.write {
                 if let newName = newName {
                     category.name = newName
                 }
-                if let newColor = newColor {
-                    category.colorHexValue = newColor.hexValue()
+                if let newColorHex = newColorHex {
+                    category.colorHexValue = newColorHex
                 }
                 realm.add(category)
             }

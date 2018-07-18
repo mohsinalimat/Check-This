@@ -6,14 +6,12 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
-import UIKit
-
 // MARK: - Color Picker Delegate Methods
 
 extension CategoryViewController: ColorPickerDelegate {
     
-    func didPickNewColor(colorHex: String) {
-        colorHexPickedByUserForCategory = colorHex
+    func didPickNewColorFor(_ category: Category, newColorHex: String) {
+        edit(category: category, newName: nil, newColorHex: newColorHex)
     }
 
 }

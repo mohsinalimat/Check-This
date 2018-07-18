@@ -9,12 +9,13 @@
 import UIKit
 
 protocol ColorPickerDelegate: class {
-    func didPickNewColor(colorHex: String)
+    func didPickNewColorFor(_ category: Category, newColorHex: String)
 }
 
 class ColorPickerViewController: UIViewController {
 
     weak var delegate: ColorPickerDelegate!
+    var selectedCategory: Category!
     var selectedColorHex: String!
     var colorButtons: [ColorButton] {
         var buttons: [ColorButton] = []
@@ -35,6 +36,7 @@ class ColorPickerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         Utilities.setUpBlueNavBarFor(self)
         setBackgroundColorsToColorButtons()
+        selectedColorHex = selectedCategory.colorHexValue
         selectCurrentCategoryColorButton()
         addCheckmarkToSelectedColorButton()
     }
@@ -48,10 +50,10 @@ class ColorPickerViewController: UIViewController {
     @IBAction func didSelectColor(_ sender: ColorButton) {
         deselectAllColorButtons()
         removePreviousCheckmarks()
-        selectedColorHex = sender.backgroundColor?.hexValue()
+        selectedColorHex = sender.backgroundColor?.hexValue() ?? UIColor.flatBlue.hexValue()
         sender.isSelected = true
         addCheckmarkToSelectedColorButton()
-        delegate.didPickNewColor(colorHex: selectedColorHex)
+        delegate.didPickNewColorFor(selectedCategory, newColorHex: selectedColorHex)
     }
     
     // MARK: - Adding And Removing Checkmarks Methods
