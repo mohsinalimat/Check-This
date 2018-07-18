@@ -52,6 +52,8 @@ class ColorPickerViewController: UIViewController {
     }
     
     @IBAction func didSelectColor(_ sender: ColorButton) {
+        let hapticGenerator = UISelectionFeedbackGenerator()
+        hapticGenerator.selectionChanged()
         deselectAllColorButtons()
         removePreviousCheckmarks()
         selectedColorHex = sender.backgroundColor?.hexValue() ?? UIColor.flatBlue.hexValue()
