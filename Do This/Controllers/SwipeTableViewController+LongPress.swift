@@ -33,10 +33,14 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
         
         switch gestureRecognizer.state {
         case .began:
+            let hapticGenerator = UINotificationFeedbackGenerator()
+            hapticGenerator.notificationOccurred(.success)
             handleLongPressBegan(currentIndexPath, locationInView)
         case .changed:
             handleLongPressChanged(locationInView, currentIndexPath)
         case .ended:
+            let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
+            hapticGenerator.impactOccurred()
             handleLongPressEnded(locationInView, currentIndexPath)
         default:
             break
