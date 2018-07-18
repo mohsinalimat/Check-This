@@ -110,18 +110,16 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
+        guard let categoryAtIndexPath = self.categories?[indexPath.row] else { fatalError() }
         var textField = UITextField()
-        let alertController = UIAlertController(title: "New Category Name:", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Edit Category Name:", message: nil, preferredStyle: .alert)
         let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-            if textField.text! != "" {
-                guard let category = self.categories?[indexPath.row] else { fatalError() }
-                self.edit(category: category, newName: textField.text!)
-                let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell
-                cell?.hideSwipe(animated: true)
-                // Wait to reload tableView so hiding swipe is visible
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    self.tableView.reloadData()
-                }
+            self.edit(category: categoryAtIndexPath, newName: textField.text!)
+            guard let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+            cell.hideSwipe(animated: true)
+            // Wait to reload tableView so hiding swipe is visible
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                self.tableView.reloadData()
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -129,7 +127,7 @@ class CategoryViewController: SwipeTableViewController {
         alertController.addAction(cancelAction)
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField.placeholder = self.categories?[indexPath.row].name
+            alertTextField.text = categoryAtIndexPath.name
         }
         return alertController
     }

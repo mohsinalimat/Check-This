@@ -103,18 +103,16 @@ class ItemViewController: SwipeTableViewController {
     // MARK: - Edit Item Methods
     
     override func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
+        guard let itemAtIndexPath = self.items?[indexPath.row] else { fatalError() }
         var textField = UITextField()
-        let alertController = UIAlertController(title: "New Item Name:", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Edit Item Name:", message: nil, preferredStyle: .alert)
         let editItemNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-            if textField.text! != "" {
-                guard let item = self.items?[indexPath.row] else { fatalError() }
-                self.edit(item: item, newName: textField.text!)
-                let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell
-                cell?.hideSwipe(animated: true)
-                // Wait to reload tableView so hiding swipe is visible
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    self.tableView.reloadData()
-                }
+            self.edit(item: itemAtIndexPath, newName: textField.text!)
+            guard let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+            cell.hideSwipe(animated: true)
+            // Wait to reload tableView so hiding swipe is visible
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                self.tableView.reloadData()
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -122,7 +120,7 @@ class ItemViewController: SwipeTableViewController {
         alertController.addAction(cancelAction)
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField.placeholder = self.items?[indexPath.row].name
+            alertTextField.text = itemAtIndexPath.name
         }
         return alertController
     }

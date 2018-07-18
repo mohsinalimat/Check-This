@@ -49,7 +49,7 @@ class SwipeTableViewController: UITableViewController {
     
     func editAlertController(for indexPath: IndexPath) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let editNameAction = UIAlertAction(title: "Rename", style: .default) { _ in
+        let editNameAction = UIAlertAction(title: "Edit Name", style: .default) { _ in
             self.present(self.editNameAlertController(at: indexPath), animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
