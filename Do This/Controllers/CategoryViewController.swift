@@ -15,7 +15,6 @@ class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
-    var colorHexPickedByUserForCategory: String?
     
     // MARK: - View Lifecycle Methods
     
