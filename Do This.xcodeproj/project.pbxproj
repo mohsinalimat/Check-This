@@ -71,9 +71,9 @@
 			children = (
 				2148875A20D9A0A9000132F0 /* CategoryViewController.swift */,
 				21DB2E9120F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift */,
+				21DB2E8F20F68B94002BE4B6 /* ColorPickerViewController.swift */,
 				21941B3020D084E900041A37 /* ItemViewController.swift */,
 				21902BBD20F4585E00E09741 /* ItemViewController+SearchBar.swift */,
-				21DB2E8F20F68B94002BE4B6 /* ColorPickerViewController.swift */,
 				21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */,
 				21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */,
 				210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */,
@@ -101,11 +101,11 @@
 		210C5CAF20D0C3C400A7D6AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				21941B2E20D084E900041A37 /* AppDelegate.swift */,
+				21FBA2F920FD1D9D003BBDE3 /* CategoryColorHex.swift */,
 				2164C2D320FBDDD900E9E053 /* ColorButton.swift */,
 				2198879B20FD96F400115A2A /* ColorPickerUtilities.swift */,
 				21A4F28520FA92BD00FDFB4D /* Utilities.swift */,
-				21FBA2F920FD1D9D003BBDE3 /* CategoryColorHex.swift */,
+				21941B2E20D084E900041A37 /* AppDelegate.swift */,
 				21941B3720D084EA00041A37 /* LaunchScreen.storyboard */,
 				21941B3520D084EA00041A37 /* Assets.xcassets */,
 				21941B3A20D084EA00041A37 /* Info.plist */,
