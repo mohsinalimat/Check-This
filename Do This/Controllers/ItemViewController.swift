@@ -15,7 +15,6 @@ class ItemViewController: SwipeTableViewController {
 
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try
-    var searchController: UISearchController?
     var selectedCategory: Category? {
         didSet {
             loadItems()
