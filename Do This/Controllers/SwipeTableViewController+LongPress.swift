@@ -20,6 +20,7 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
     
     func setUpTableViewLongPressGesture() {
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGestureRecognizer.minimumPressDuration = 0.3
         longPressGestureRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressGestureRecognizer)
     }
