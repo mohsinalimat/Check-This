@@ -9,11 +9,11 @@
 import Foundation
 
 enum CategoryColorHex: String {
-    case normalRed = "#e53935"
+    case normalRed = "#d64541"
     case lightRed = "#ef9a9a"
-    case pink = "#ec407a"
+    case pink = "#d2527f"
     case lightPink = "#f48fb1"
-    case purple = "#9c27b0"
+    case purple = "#9b59b6"
     case lightPurple = "#ce93d8"
     case deepPurple = "#7e57c2"
     case lightDeepPurple = "#b39ddb"
@@ -25,7 +25,7 @@ enum CategoryColorHex: String {
     case lightTeal = "#80cbc4"
     case green = "#4caf50"
     case lightGreen = "#aed581"
-    case lime = "#cddc39"
+    case lime = "#3fc380"
     case lightLime = "#e6ee9c"
     case yellow = "#ffeb3b"
     case lightYellow = "#fff59d"
@@ -35,8 +35,8 @@ enum CategoryColorHex: String {
     case lightOrange = "#ffcc80"
     case deepOrange = "#ff5722"
     case lightDeepOrange = "#ffab91"
-    case brown = "#a1887f"
-    case lightBrown = "#d7ccc8"
+    case brown = "#cd853f"
+    case lightBrown = "#f4a460"
     case blueGray = "#78909c"
     case lightBlueGray = "#cfd8dc"
     
