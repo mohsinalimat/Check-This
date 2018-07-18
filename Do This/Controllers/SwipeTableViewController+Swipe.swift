@@ -24,7 +24,11 @@ extension SwipeTableViewController: SwipeTableViewCellDelegate {
         let editAction = SwipeAction(style: .default, title: swipeToEditTextDescription) { _, indexPath in
             tableView.cellForRow(at: indexPath)?.selectionStyle = .none
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-            self.present(self.editAlertController(for: indexPath), animated: true)
+            if let presentedVC = self.presentedViewController {
+                presentedVC.present(self.editAlertController(for: indexPath), animated: true)
+            } else {
+                self.present(self.editAlertController(for: indexPath), animated: true)
+            }
         }
         
         deleteAction.image = UIImage(named: "Delete_Icon")
