@@ -19,9 +19,9 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
     // MARK: - Long Press Setup
     
     func setUpTableViewLongPressGesture() {
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-        longPressGesture.delegate = self
-        tableView.addGestureRecognizer(longPressGesture)
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGestureRecognizer.delegate = self
+        tableView.addGestureRecognizer(longPressGestureRecognizer)
     }
     
     // MARK: - Long Press Gesture Delegate Methods
@@ -35,8 +35,10 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
             handleLongPressBegan(currentIndexPath, locationInView)
         case .changed:
             handleLongPressChanged(locationInView, currentIndexPath)
-        default:
+        case .ended:
             handleLongPressEnded(locationInView, currentIndexPath)
+        default:
+            break
         }
     }
     
