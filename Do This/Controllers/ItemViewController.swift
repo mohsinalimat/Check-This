@@ -27,10 +27,14 @@ class ItemViewController: SwipeTableViewController {
     
     // MARK: - View Lifecycle Methods
     
-    override func viewWillAppear(_ animated: Bool) {
-        setUpNavigationController()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setTableViewBackground()
         setUpSearchBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUpNavigationController()
     }
     
     // MARK: - TableView Data Source Methods

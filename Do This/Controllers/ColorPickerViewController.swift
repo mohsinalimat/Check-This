@@ -33,12 +33,16 @@ class ColorPickerViewController: UIViewController {
     
     // MARK: - Lifecycle Methods
     
-    override func viewWillAppear(_ animated: Bool) {
-        Utilities.setUpBlueNavBarFor(self)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setBackgroundColorsToColorButtons()
         selectedColorHex = selectedCategory.colorHexValue
         selectCurrentCategoryColorButton()
-        addCheckmarkToSelectedColorButton()
+        addCheckmarkToSelectedColorButton()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Utilities.setUpBlueNavBarFor(self)
     }
     
     // MARK: - IBActions

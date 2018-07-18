@@ -18,11 +18,16 @@ class CategoryViewController: SwipeTableViewController {
     
     // MARK: - View Lifecycle Methods
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         loadCategories()
-        Utilities.setUpBlueNavBarFor(self)
         setUpTableViewAppearance()
         setSwipeButtonsTextDescription()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Utilities.setUpBlueNavBarFor(self)
     }
     
     // MARK: - TableView Data Source Methods
