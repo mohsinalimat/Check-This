@@ -17,19 +17,7 @@ class ColorPickerViewController: UIViewController {
     weak var delegate: ColorPickerDelegate!
     var selectedCategory: Category!
     var selectedColorHex: String!
-    var colorButtons: [ColorButton] {
-        var buttons: [ColorButton] = []
-        for verticalStackView in view.subviews {
-            for rowOfButtons in verticalStackView.subviews {
-                for button in rowOfButtons.subviews {
-                    if let button = button as? ColorButton {
-                        buttons.append(button)
-                    }
-                }
-            }
-        }
-        return buttons
-    }
+    @IBOutlet var colorButtons: [ColorButton]!
     
     // MARK: - Lifecycle Methods
     
@@ -38,7 +26,7 @@ class ColorPickerViewController: UIViewController {
         setBackgroundColorsToColorButtons()
         selectedColorHex = selectedCategory.colorHexValue
         selectCurrentCategoryColorButton()
-        addCheckmarkToSelectedColorButton()        
+        addCheckmarkToSelectedColorButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +50,7 @@ class ColorPickerViewController: UIViewController {
         delegate.didPickNewColorFor(selectedCategory, newColorHex: selectedColorHex)
     }
     
-    // MARK: - Adding And Removing Checkmarks Methods
+    // MARK: - Modify User Interface Methods
     
     func removePreviousCheckmarks() {
         if let checkmark = view.viewWithTag(100) {
@@ -80,13 +68,15 @@ class ColorPickerViewController: UIViewController {
         }
     }
     
-    // MARK: - Other Methods
-    
     func setBackgroundColorsToColorButtons() {
+        var index = 0
         for button in colorButtons {
-            ColorPickerUtilities.setBackgroundColorFor(button)
+            button.backgroundColor = UIColor(hexString: Utilities.colorOptions[index])
+            index += 1
         }
     }
+    
+    // MARK: - Selection Of Color Buttons Methods
     
     func selectCurrentCategoryColorButton() {
         for button in colorButtons {

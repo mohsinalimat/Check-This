@@ -17,14 +17,12 @@
 		21941B3420D084E900041A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21941B3220D084E900041A37 /* Main.storyboard */; };
 		21941B3620D084EA00041A37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21941B3520D084EA00041A37 /* Assets.xcassets */; };
 		21941B3920D084EA00041A37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21941B3720D084EA00041A37 /* LaunchScreen.storyboard */; };
-		2198879C20FD96F400115A2A /* ColorPickerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198879B20FD96F400115A2A /* ColorPickerUtilities.swift */; };
 		21A4331A20DB1239004120E1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4331920DB1239004120E1 /* Item.swift */; };
 		21A4331C20DB1393004120E1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4331B20DB1393004120E1 /* Category.swift */; };
 		21A4F28620FA92BD00FDFB4D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4F28520FA92BD00FDFB4D /* Utilities.swift */; };
 		21AA217020E6AA400080EDC2 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */; };
 		21DB2E9020F68B94002BE4B6 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E8F20F68B94002BE4B6 /* ColorPickerViewController.swift */; };
 		21DB2E9220F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E9120F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift */; };
-		21FBA2FA20FD1D9D003BBDE3 /* CategoryColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBA2F920FD1D9D003BBDE3 /* CategoryColorHex.swift */; };
 		A1536C9A72C7B648E5F193B8 /* Pods_Do_This.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10357417EE5BB3E8581C37C /* Pods_Do_This.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,14 +39,12 @@
 		21941B3520D084EA00041A37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21941B3820D084EA00041A37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21941B3A20D084EA00041A37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2198879B20FD96F400115A2A /* ColorPickerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerUtilities.swift; sourceTree = "<group>"; };
 		21A4331920DB1239004120E1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		21A4331B20DB1393004120E1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		21A4F28520FA92BD00FDFB4D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		21DB2E8F20F68B94002BE4B6 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		21DB2E9120F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryViewController+ColorPicker.swift"; sourceTree = "<group>"; };
-		21FBA2F920FD1D9D003BBDE3 /* CategoryColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColorHex.swift; sourceTree = "<group>"; };
 		8B41E396F281A93FABA83CEC /* Pods-Do This.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do This.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Do This/Pods-Do This.debug.xcconfig"; sourceTree = "<group>"; };
 		94B9B7A680BF9BD991D82B97 /* Pods-Do This.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do This.release.xcconfig"; path = "Pods/Target Support Files/Pods-Do This/Pods-Do This.release.xcconfig"; sourceTree = "<group>"; };
 		F10357417EE5BB3E8581C37C /* Pods_Do_This.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Do_This.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,9 +97,7 @@
 		210C5CAF20D0C3C400A7D6AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				21FBA2F920FD1D9D003BBDE3 /* CategoryColorHex.swift */,
 				2164C2D320FBDDD900E9E053 /* ColorButton.swift */,
-				2198879B20FD96F400115A2A /* ColorPickerUtilities.swift */,
 				21A4F28520FA92BD00FDFB4D /* Utilities.swift */,
 				21941B2E20D084E900041A37 /* AppDelegate.swift */,
 				21941B3720D084EA00041A37 /* LaunchScreen.storyboard */,
@@ -294,8 +288,6 @@
 				21DB2E9020F68B94002BE4B6 /* ColorPickerViewController.swift in Sources */,
 				210EC58020F016B80000FD85 /* SwipeTableViewController+LongPress.swift in Sources */,
 				21DB2E9220F68D58002BE4B6 /* CategoryViewController+ColorPicker.swift in Sources */,
-				2198879C20FD96F400115A2A /* ColorPickerUtilities.swift in Sources */,
-				21FBA2FA20FD1D9D003BBDE3 /* CategoryColorHex.swift in Sources */,
 				21A4331A20DB1239004120E1 /* Item.swift in Sources */,
 				2148875B20D9A0A9000132F0 /* CategoryViewController.swift in Sources */,
 				21941B3120D084E900041A37 /* ItemViewController.swift in Sources */,

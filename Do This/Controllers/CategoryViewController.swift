@@ -20,7 +20,6 @@ class CategoryViewController: SwipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCategories()
         setUpTableViewAppearance()
         setSwipeButtonsTextDescription()
     }
@@ -28,6 +27,7 @@ class CategoryViewController: SwipeTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         Utilities.setUpBlueNavBarFor(self)
+        loadCategories()
     }
     
     // MARK: - TableView Data Source Methods
@@ -266,11 +266,16 @@ class CategoryViewController: SwipeTableViewController {
     /// Returns the hex value of a random color from the CategoryColorHex enum
     /// that differs from the previos category color
     func differentCategoryColorHex() -> String {
-        var newColorHex = CategoryColorHex.random().rawValue
-        while categories?.last?.colorHexValue == newColorHex {
-            newColorHex = CategoryColorHex.random().rawValue
+        var newColorHex = randomColorHexFromColorOptions()
+        while categories?.last?.colorHexValue.lowercased() == newColorHex.lowercased() {
+            newColorHex = randomColorHexFromColorOptions()
         }
         return newColorHex
+    }
+    
+    func randomColorHexFromColorOptions() -> String {
+        let randomIndex = Int(arc4random_uniform(UInt32(Utilities.colorOptions.count)))
+        return Utilities.colorOptions[randomIndex]
     }
     
 }

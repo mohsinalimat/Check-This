@@ -442,6 +442,38 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outletCollection property="colorButtons" destination="k3l-5p-jJV" collectionClass="NSMutableArray" id="CEv-v3-l18"/>
+                        <outletCollection property="colorButtons" destination="UOn-gj-jKQ" collectionClass="NSMutableArray" id="itQ-MS-9hQ"/>
+                        <outletCollection property="colorButtons" destination="sUw-EJ-fca" collectionClass="NSMutableArray" id="4XJ-ON-X7a"/>
+                        <outletCollection property="colorButtons" destination="Csh-up-X7V" collectionClass="NSMutableArray" id="F2D-3J-AUa"/>
+                        <outletCollection property="colorButtons" destination="Q0L-fk-oqI" collectionClass="NSMutableArray" id="6jA-2c-cqU"/>
+                        <outletCollection property="colorButtons" destination="fG0-B1-beS" collectionClass="NSMutableArray" id="V6l-vb-apI"/>
+                        <outletCollection property="colorButtons" destination="3ac-cX-PkM" collectionClass="NSMutableArray" id="rvq-ZM-RfB"/>
+                        <outletCollection property="colorButtons" destination="o6q-VG-90n" collectionClass="NSMutableArray" id="Vhb-sF-v1m"/>
+                        <outletCollection property="colorButtons" destination="XAx-Ug-N7N" collectionClass="NSMutableArray" id="Iyy-Vl-R9B"/>
+                        <outletCollection property="colorButtons" destination="Zw1-4i-wLK" collectionClass="NSMutableArray" id="UCL-1r-jhD"/>
+                        <outletCollection property="colorButtons" destination="1Hd-M9-gH0" collectionClass="NSMutableArray" id="MXM-Br-AYW"/>
+                        <outletCollection property="colorButtons" destination="myw-8R-sBY" collectionClass="NSMutableArray" id="qnQ-D1-Ttg"/>
+                        <outletCollection property="colorButtons" destination="OlQ-Wr-nda" collectionClass="NSMutableArray" id="1LX-Hi-kBe"/>
+                        <outletCollection property="colorButtons" destination="lxY-DQ-tR4" collectionClass="NSMutableArray" id="Ch2-pQ-yK7"/>
+                        <outletCollection property="colorButtons" destination="GeQ-JR-QkB" collectionClass="NSMutableArray" id="AIq-EM-8uu"/>
+                        <outletCollection property="colorButtons" destination="94E-2B-i0S" collectionClass="NSMutableArray" id="Lj3-MH-kSR"/>
+                        <outletCollection property="colorButtons" destination="FS2-Ge-Ley" collectionClass="NSMutableArray" id="gEN-Tc-2sk"/>
+                        <outletCollection property="colorButtons" destination="TWa-YR-bgl" collectionClass="NSMutableArray" id="32O-so-Jvx"/>
+                        <outletCollection property="colorButtons" destination="L5M-TZ-3RS" collectionClass="NSMutableArray" id="gMb-cx-vNe"/>
+                        <outletCollection property="colorButtons" destination="ejL-t4-g2x" collectionClass="NSMutableArray" id="ePM-wB-RvJ"/>
+                        <outletCollection property="colorButtons" destination="4h5-7N-uh0" collectionClass="NSMutableArray" id="Unn-kF-Fft"/>
+                        <outletCollection property="colorButtons" destination="lvI-Wg-UqN" collectionClass="NSMutableArray" id="rhn-sS-u66"/>
+                        <outletCollection property="colorButtons" destination="DxC-u4-Lze" collectionClass="NSMutableArray" id="CUF-kl-DGo"/>
+                        <outletCollection property="colorButtons" destination="aRd-7i-naG" collectionClass="NSMutableArray" id="Kng-hz-uHH"/>
+                        <outletCollection property="colorButtons" destination="PiT-jk-5XH" collectionClass="NSMutableArray" id="rjq-fK-pVu"/>
+                        <outletCollection property="colorButtons" destination="O88-ha-S4N" collectionClass="NSMutableArray" id="cfj-H8-jyO"/>
+                        <outletCollection property="colorButtons" destination="sEe-ta-LsS" collectionClass="NSMutableArray" id="Gx7-YM-dyU"/>
+                        <outletCollection property="colorButtons" destination="a7e-cB-G1Z" collectionClass="NSMutableArray" id="ciB-YB-Fbj"/>
+                        <outletCollection property="colorButtons" destination="ldN-lp-RAY" collectionClass="NSMutableArray" id="ZbE-kJ-1EO"/>
+                        <outletCollection property="colorButtons" destination="pWH-27-O9h" collectionClass="NSMutableArray" id="t0R-6a-zFd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7e-dZ-mZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
