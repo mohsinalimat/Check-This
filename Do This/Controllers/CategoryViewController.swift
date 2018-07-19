@@ -21,7 +21,6 @@ class CategoryViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableViewAppearance()
-        setSwipeButtonsTextDescription()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,40 +100,6 @@ class CategoryViewController: SwipeTableViewController {
             alertTextField .placeholder = "Category Name"
         }
         present(alert, animated: true)
-    }
-    
-    // MARK: - Editing Category Methods
-    
-    override func editAlertController(for indexPath: IndexPath) -> UIAlertController {
-        let alertController = super.editAlertController(for: indexPath)
-        let actionToEditColor = UIAlertAction(title: "Change Color", style: .default) { _ in
-            self.performSegue(withIdentifier: "goToColorPickerVC", sender: self)
-        }
-        alertController.addAction(actionToEditColor)
-        return alertController
-    }
-    
-    override func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
-        guard let categoryAtIndexPath = self.categories?[indexPath.row] else { fatalError() }
-        var textField = UITextField()
-        let alertController = UIAlertController(title: "Edit Category Name:", message: nil, preferredStyle: .alert)
-        let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-            self.edit(category: categoryAtIndexPath, newName: textField.text!)
-            guard let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
-            cell.hideSwipe(animated: true)
-            // Wait to reload tableView so hiding swipe is visible
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                self.tableView.reloadData()
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(editCategoryNameAction)
-        alertController.addAction(cancelAction)
-        alertController.addTextField { (alertTextField) in
-            textField = alertTextField
-            alertTextField.text = categoryAtIndexPath.name
-        }
-        return alertController
     }
     
     // MARK: - Data Manipulation Methods
@@ -236,11 +201,6 @@ class CategoryViewController: SwipeTableViewController {
         } else if contrastingCategoryColor.hexValue() == "#262626" {
             return darkChevron
         } else { fatalError() }
-    }
-    
-    func setSwipeButtonsTextDescription() {
-        swipeToDeleteTextDescription = "Delete"
-        swipeToEditTextDescription = "Edit"
     }
     
     // MARK: - Set up Table View Appearance

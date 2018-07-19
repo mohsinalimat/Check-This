@@ -10,10 +10,6 @@ import UIKit
 import SwipeCellKit
 
 class SwipeTableViewController: UITableViewController {
-    
-    // Text descriptions for swipe options to be set by subclasses if needed
-    var swipeToDeleteTextDescription: String?
-    var swipeToEditTextDescription: String?
 
     // MARK: - View Lifecycle Methods
     
@@ -45,21 +41,34 @@ class SwipeTableViewController: UITableViewController {
         return true
     }
     
-    // MARK: - Alert Methods for Editing
+    // MARK: - Alert Methods
     
-    func editAlertController(for indexPath: IndexPath) -> UIAlertController {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let editNameAction = UIAlertAction(title: "Edit Name", style: .default) { _ in
-            if let presentedVC = self.presentedViewController {
-                presentedVC.present(self.editNameAlertController(at: indexPath), animated: true)
-            } else {
-                self.present(self.editNameAlertController(at: indexPath), animated: true)
-            }
+    func editAlertController(at indexPath: IndexPath) -> UIAlertController {
+        var editAlertController = UIAlertController()
+        if let categoryVC = self as? CategoryViewController {
+            editAlertController = CategoryAlerts.editCategoryAlertController(from: categoryVC, at: indexPath)
+        } else if let itemVC = self as? ItemViewController {
+            editAlertController = ItemAlerts.editItemAlertController(from: itemVC, at: indexPath)
+        } else {
+            fatalError()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(editNameAction)
-        alertController.addAction(cancelAction)
-        return alertController
+        return editAlertController
+    }
+    
+    func presentEditAlertController(_ alertController: UIAlertController, at indexPath: IndexPath) {
+        if let categoryVC = self as? CategoryViewController {
+            presentAlertController(CategoryAlerts.editCategoryAlertController(from: categoryVC, at: indexPath))
+        } else if let itemVC = self as? ItemViewController {
+            presentAlertController(ItemAlerts.editItemAlertController(from: itemVC, at: indexPath))
+        }
+    }
+    
+    func presentAlertController(_ alertController: UIAlertController) {
+        if let presentedVC = self.presentedViewController {
+            presentedVC.present(alertController, animated: true)
+        } else {
+            present(alertController, animated: true)
+        }
     }
     
     // MARK: - Label With Instructions Methods

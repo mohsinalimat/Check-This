@@ -29,4 +29,10 @@ struct Utilities {
         }
     }
     
+    static func waitForSwipeAnimationThenReloadTableViewFor(_ tableVC: UITableViewController) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            tableVC.tableView.reloadData()
+        }
+    }
+    
 }

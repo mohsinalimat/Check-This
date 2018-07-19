@@ -103,31 +103,6 @@ class ItemViewController: SwipeTableViewController {
         present(alert, animated: true)
     }
     
-    // MARK: - Edit Item Methods
-    
-    override func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
-        guard let itemAtIndexPath = self.items?[indexPath.row] else { fatalError() }
-        var textField = UITextField()
-        let alertController = UIAlertController(title: "Edit Item Name:", message: nil, preferredStyle: .alert)
-        let editItemNameAction = UIAlertAction(title: "Save", style: .default) { _ in
-            self.edit(item: itemAtIndexPath, newName: textField.text!)
-            guard let cell = self.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
-            cell.hideSwipe(animated: true)
-            // Wait to reload tableView so hiding swipe is visible
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                self.tableView.reloadData()
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(editItemNameAction)
-        alertController.addAction(cancelAction)
-        alertController.addTextField { (alertTextField) in
-            textField = alertTextField
-            alertTextField.text = itemAtIndexPath.name
-        }
-        return alertController
-    }
-    
     // MARK: - Data Manipulation Methods
     
     func save(item: Item) {
