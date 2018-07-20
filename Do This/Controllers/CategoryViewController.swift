@@ -80,26 +80,7 @@ class CategoryViewController: SwipeTableViewController {
     // MARK: - Add New Categories Methods
 
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
-        let addCategoryAction = UIAlertAction(title: "Add", style: .default) { _ in
-            if textField.text! != "" {
-                let newCategory = Category()
-                newCategory.name = textField.text!
-                newCategory.colorHexValue = self.differentCategoryColorHex()
-                self.save(category: newCategory)
-                self.setTableViewBackground()
-                self.tableView.reloadData()
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(addCategoryAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { (alertTextField) in
-            textField = alertTextField
-            alertTextField .placeholder = "Category Name"
-        }
-        present(alert, animated: true)
+        CategoryAlerts.presentAlertToAddNewCategory(from: self)
     }
     
     // MARK: - Data Manipulation Methods

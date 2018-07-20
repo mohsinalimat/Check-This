@@ -81,26 +81,7 @@ class ItemViewController: SwipeTableViewController {
     // MARK: - Add New Items
     
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
-        let addItemAction = UIAlertAction(title: "Add", style: .default) { _ in
-            if textField.text! != "" {
-                let newItem = Item()
-                newItem.name = textField.text!
-                newItem.timeCreated = Date()
-                self.save(item: newItem)
-                self.setTableViewBackground()
-                self.tableView.reloadData()
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(addItemAction)
-        alert.addAction(cancelAction)
-        alert.addTextField { (alertTextField) in
-            textField = alertTextField
-            alertTextField.placeholder = "New Item"
-        }
-        present(alert, animated: true)
+        ItemAlerts.presentAlertToAddNewItem(from: self)
     }
     
     // MARK: - Data Manipulation Methods

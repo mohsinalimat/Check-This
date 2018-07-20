@@ -14,7 +14,29 @@ struct ItemAlerts {
     
     // MARK: - Alerts Methods For ItemViewController
     
-    // Replaces editAlertController from SwipeTableVC for Item
+    static func presentAlertToAddNewItem(from itemVC: ItemViewController) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let addItemAction = UIAlertAction(title: "Add", style: .default) { _ in
+            if textField.text! != "" {
+                let newItem = Item()
+                newItem.name = textField.text!
+                newItem.timeCreated = Date()
+                itemVC.save(item: newItem)
+                itemVC.setTableViewBackground()
+                itemVC.tableView.reloadData()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(addItemAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (alertTextField) in
+            textField = alertTextField
+            alertTextField.placeholder = "New Item"
+        }
+        itemVC.present(alert, animated: true)
+    }
+    
     static func editItemAlertController(from itemVC: ItemViewController, at indexPath: IndexPath) -> UIAlertController {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

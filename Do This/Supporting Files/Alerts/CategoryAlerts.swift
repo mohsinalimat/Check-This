@@ -14,6 +14,29 @@ struct CategoryAlerts {
     
     // MARK: - Alerts Methods For CategoryViewController
     
+    static func presentAlertToAddNewCategory(from categoryVC: CategoryViewController) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        let addCategoryAction = UIAlertAction(title: "Add", style: .default) { _ in
+            if textField.text! != "" {
+                let newCategory = Category()
+                newCategory.name = textField.text!
+                newCategory.colorHexValue = categoryVC.differentCategoryColorHex()
+                categoryVC.save(category: newCategory)
+                categoryVC.setTableViewBackground()
+                categoryVC.tableView.reloadData()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(addCategoryAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (alertTextField) in
+            textField = alertTextField
+            alertTextField .placeholder = "Category Name"
+        }
+        categoryVC.present(alert, animated: true)
+    }
+    
     static func editCategoryAlertController(from categoryVC: CategoryViewController, at indexPath: IndexPath) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
