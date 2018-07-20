@@ -41,8 +41,8 @@ struct ItemAlerts {
         
         let editNameAction = ItemAlerts.editItemNameAction(from: itemVC, at: indexPath)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
-            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell)
+            let cell = itemVC.tableView.cellForRow(at: indexPath)
+            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell!)
         }
         
         alertController.addAction(editNameAction)
@@ -65,17 +65,17 @@ struct ItemAlerts {
 
     static func itemEditNameAlertController(on itemVC: ItemViewController, at indexPath: IndexPath) -> UIAlertController {
         let itemAtIndexPath = itemVC.items![indexPath.row]
-        guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+        let cell = itemVC.tableView.cellForRow(at: indexPath)
         var textField = UITextField()
         
         let alertController = UIAlertController(title: "Edit Item Name:", message: nil, preferredStyle: .alert)
         
         let editItemNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             itemVC.edit(item: itemAtIndexPath, newName: textField.text!)
-            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell)
+            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell!)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell)
+            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell!)
         }
         
         alertController.addAction(editItemNameAction)

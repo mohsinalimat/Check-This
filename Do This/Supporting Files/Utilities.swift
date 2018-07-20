@@ -30,8 +30,9 @@ struct Utilities {
         }
     }
     
-    static func unswipeCellWithAnimationIn(_ tableVC: UITableViewController, swipedCell: SwipeTableViewCell) {
-        swipedCell.hideSwipe(animated: true)
+    static func unswipeCellWithAnimationIn(_ tableVC: UITableViewController, swipedCell: UITableViewCell) {
+        guard let cell = swipedCell as? SwipeTableViewCell else { fatalError() }
+        cell.hideSwipe(animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             tableVC.tableView.reloadData()
         }
