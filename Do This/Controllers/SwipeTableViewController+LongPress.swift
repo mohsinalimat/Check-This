@@ -9,7 +9,7 @@
 import UIKit
 import SwipeCellKit
 
-struct LongPressPersistentValues {
+private struct LongPressPersistentValues {
     static var indexPath: IndexPath?
     static var cellSnapShot: UIView?
 }
