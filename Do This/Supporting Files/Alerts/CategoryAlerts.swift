@@ -40,7 +40,10 @@ struct CategoryAlerts {
         
         let editNameAction = CategoryAlerts.editCategoryNameAction(from: categoryVC, at: indexPath)
         let editColorAction = CategoryAlerts.editCategoryColorAction(from: categoryVC)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+            Utilities.unswipeCellWithAnimationIn(categoryVC, swipedCell: cell)
+        }
         
         alertController.addAction(editNameAction)
         alertController.addAction(editColorAction)
@@ -66,17 +69,18 @@ struct CategoryAlerts {
     
     static func categoryEditNameAlertController(on categoryVC: CategoryViewController, at indexPath: IndexPath) -> UIAlertController {
         let categoryAtIndexPath = categoryVC.categories![indexPath.row]
+        guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError()}
         var textField = UITextField()
         
         let alertController = UIAlertController(title: "Edit Category Name:", message: nil, preferredStyle: .alert)
         
         let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             categoryVC.edit(category: categoryAtIndexPath, newName: textField.text!)
-            guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError()}
-            cell.hideSwipe(animated: true)
-            Utilities.waitForSwipeAnimationThenReloadTableViewFor(categoryVC)
+            Utilities.unswipeCellWithAnimationIn(categoryVC, swipedCell: cell)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            Utilities.unswipeCellWithAnimationIn(categoryVC, swipedCell: cell)
+        }
         
         alertController.addAction(editCategoryNameAction)
         alertController.addAction(cancelAction)

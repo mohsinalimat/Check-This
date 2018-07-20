@@ -40,7 +40,10 @@ struct ItemAlerts {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let editNameAction = ItemAlerts.editItemNameAction(from: itemVC, at: indexPath)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell)
+        }
         
         alertController.addAction(editNameAction)
         alertController.addAction(cancelAction)
@@ -62,17 +65,18 @@ struct ItemAlerts {
 
     static func itemEditNameAlertController(on itemVC: ItemViewController, at indexPath: IndexPath) -> UIAlertController {
         let itemAtIndexPath = itemVC.items![indexPath.row]
+        guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
         var textField = UITextField()
         
         let alertController = UIAlertController(title: "Edit Item Name:", message: nil, preferredStyle: .alert)
         
         let editItemNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             itemVC.edit(item: itemAtIndexPath, newName: textField.text!)
-            guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
-            cell.hideSwipe(animated: true)
-            Utilities.waitForSwipeAnimationThenReloadTableViewFor(itemVC)
+            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell)
+        }
         
         alertController.addAction(editItemNameAction)
         alertController.addAction(cancelAction)

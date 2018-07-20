@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 struct Utilities {
     
@@ -29,7 +30,8 @@ struct Utilities {
         }
     }
     
-    static func waitForSwipeAnimationThenReloadTableViewFor(_ tableVC: UITableViewController) {
+    static func unswipeCellWithAnimationIn(_ tableVC: UITableViewController, swipedCell: SwipeTableViewCell) {
+        swipedCell.hideSwipe(animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             tableVC.tableView.reloadData()
         }
