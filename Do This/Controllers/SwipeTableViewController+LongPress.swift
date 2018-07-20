@@ -33,15 +33,11 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
         
         switch gestureRecognizer.state {
         case .began:
-            let hapticGenerator = UINotificationFeedbackGenerator()
-            hapticGenerator.notificationOccurred(.success)
             handleLongPressBegan(currentIndexPath, locationInView)
         case .changed:
-            handleLongPressChanged(locationInView, currentIndexPath)
+            handleLongPressChanged(currentIndexPath, locationInView)
         case .ended:
-            let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
-            hapticGenerator.impactOccurred()
-            handleLongPressEnded(locationInView, currentIndexPath)
+            handleLongPressEnded(currentIndexPath, locationInView)
         default:
             break
         }
@@ -64,6 +60,8 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
     }
     
     func handleLongPressBegan(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
+        let hapticGenerator = UINotificationFeedbackGenerator()
+        hapticGenerator.notificationOccurred(.success)
         if currentIndexPath != nil {
             LongPressPersistentValues.indexPath = currentIndexPath
             guard let cell = self.tableView.cellForRow(at: currentIndexPath!) as? SwipeTableViewCell else { fatalError() }
@@ -85,7 +83,7 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
         }
     }
     
-    func handleLongPressChanged(_ locationInView: CGPoint, _ currentIndexPath: IndexPath?) {
+    func handleLongPressChanged(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
         var center = LongPressPersistentValues.cellSnapShot?.center
         center?.y = locationInView.y
         LongPressPersistentValues.cellSnapShot?.center = center!
@@ -96,7 +94,9 @@ extension SwipeTableViewController: UIGestureRecognizerDelegate {
         }
     }
     
-    func handleLongPressEnded(_ locationInView: CGPoint, _ currentIndexPath: IndexPath?) {
+    func handleLongPressEnded(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
+        let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
+        hapticGenerator.impactOccurred()
         guard let cell = tableView.cellForRow(at: LongPressPersistentValues.indexPath!) as? SwipeTableViewCell else { fatalError() }
         cell.isHidden = false
         cell.alpha = 0.0
