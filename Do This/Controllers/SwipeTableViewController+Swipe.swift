@@ -23,8 +23,7 @@ extension SwipeTableViewController: SwipeTableViewCellDelegate {
         let editAction = SwipeAction(style: .default, title: swipeToEditDescription) { _, indexPath in
             tableView.cellForRow(at: indexPath)?.selectionStyle = .none
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-            let editController = self.editAlertController(at: indexPath)
-            self.presentEditAlertController(editController, at: indexPath)
+            self.presentEditAlertController(at: indexPath)
         }
         let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteDescription) { _, indexPath in
             self.deleteFromModel(at: indexPath)

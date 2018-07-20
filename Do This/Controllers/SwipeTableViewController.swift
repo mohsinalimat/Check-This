@@ -43,19 +43,7 @@ class SwipeTableViewController: UITableViewController {
     
     // MARK: - Alert Methods
     
-    func editAlertController(at indexPath: IndexPath) -> UIAlertController {
-        var editAlertController = UIAlertController()
-        if let categoryVC = self as? CategoryViewController {
-            editAlertController = CategoryAlerts.editCategoryAlertController(from: categoryVC, at: indexPath)
-        } else if let itemVC = self as? ItemViewController {
-            editAlertController = ItemAlerts.editItemAlertController(from: itemVC, at: indexPath)
-        } else {
-            fatalError()
-        }
-        return editAlertController
-    }
-    
-    func presentEditAlertController(_ alertController: UIAlertController, at indexPath: IndexPath) {
+    func presentEditAlertController(at indexPath: IndexPath) {
         if let categoryVC = self as? CategoryViewController {
             presentAlertController(CategoryAlerts.editCategoryAlertController(from: categoryVC, at: indexPath))
         } else if let itemVC = self as? ItemViewController {
