@@ -6,8 +6,6 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
 import SwipeCellKit
 
 struct CategoryAlerts {
