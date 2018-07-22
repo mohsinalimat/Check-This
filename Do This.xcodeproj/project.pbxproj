@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210EC58020F016B80000FD85 /* SwipeTableViewController+LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */; };
+		210EC58020F016B80000FD85 /* CustomTableVC+LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210EC57F20F016B80000FD85 /* CustomTableVC+LongPress.swift */; };
 		21380BF02100E68C0020A4C9 /* CategoryAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21380BEF2100E68C0020A4C9 /* CategoryAlerts.swift */; };
 		2148875B20D9A0A9000132F0 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2148875A20D9A0A9000132F0 /* CategoryVC.swift */; };
 		2164C2D420FBDDD900E9E053 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164C2D320FBDDD900E9E053 /* ColorButton.swift */; };
 		21902BBE20F4585E00E09741 /* ItemVC+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBD20F4585E00E09741 /* ItemVC+SearchBar.swift */; };
-		21902BC020F4762600E09741 /* SwipeTableViewController+Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */; };
+		21902BC020F4762600E09741 /* CustomTableVC+Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21902BBF20F4762600E09741 /* CustomTableVC+Swipe.swift */; };
 		21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21941B2E20D084E900041A37 /* AppDelegate.swift */; };
 		21941B3120D084E900041A37 /* ItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21941B3020D084E900041A37 /* ItemVC.swift */; };
 		21941B3420D084E900041A37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21941B3220D084E900041A37 /* Main.storyboard */; };
@@ -21,7 +21,7 @@
 		21A4331A20DB1239004120E1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4331920DB1239004120E1 /* Item.swift */; };
 		21A4331C20DB1393004120E1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4331B20DB1393004120E1 /* Category.swift */; };
 		21A4F28620FA92BD00FDFB4D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4F28520FA92BD00FDFB4D /* Utilities.swift */; };
-		21AA217020E6AA400080EDC2 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */; };
+		21AA217020E6AA400080EDC2 /* CustomTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA216F20E6AA400080EDC2 /* CustomTableVC.swift */; };
 		21DB2E9020F68B94002BE4B6 /* ColorPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E8F20F68B94002BE4B6 /* ColorPickerVC.swift */; };
 		21DB2E9220F68D58002BE4B6 /* CategoryVC+ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E9120F68D58002BE4B6 /* CategoryVC+ColorPicker.swift */; };
 		21E919CC210127F200BE1460 /* ItemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E919CB210127F200BE1460 /* ItemAlerts.swift */; };
@@ -29,12 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeTableViewController+LongPress.swift"; sourceTree = "<group>"; };
+		210EC57F20F016B80000FD85 /* CustomTableVC+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTableVC+LongPress.swift"; sourceTree = "<group>"; };
 		21380BEF2100E68C0020A4C9 /* CategoryAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAlerts.swift; sourceTree = "<group>"; };
 		2148875A20D9A0A9000132F0 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		2164C2D320FBDDD900E9E053 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		21902BBD20F4585E00E09741 /* ItemVC+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemVC+SearchBar.swift"; sourceTree = "<group>"; };
-		21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeTableViewController+Swipe.swift"; sourceTree = "<group>"; };
+		21902BBF20F4762600E09741 /* CustomTableVC+Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTableVC+Swipe.swift"; sourceTree = "<group>"; };
 		21941B2B20D084E900041A37 /* Do This.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do This.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21941B2E20D084E900041A37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21941B3020D084E900041A37 /* ItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemVC.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		21A4331920DB1239004120E1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		21A4331B20DB1393004120E1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		21A4F28520FA92BD00FDFB4D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
+		21AA216F20E6AA400080EDC2 /* CustomTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableVC.swift; sourceTree = "<group>"; };
 		21DB2E8F20F68B94002BE4B6 /* ColorPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerVC.swift; sourceTree = "<group>"; };
 		21DB2E9120F68D58002BE4B6 /* CategoryVC+ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+ColorPicker.swift"; sourceTree = "<group>"; };
 		21E919CB210127F200BE1460 /* ItemAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAlerts.swift; sourceTree = "<group>"; };
@@ -74,9 +74,9 @@
 				21941B3020D084E900041A37 /* ItemVC.swift */,
 				21902BBD20F4585E00E09741 /* ItemVC+SearchBar.swift */,
 				21DB2E8F20F68B94002BE4B6 /* ColorPickerVC.swift */,
-				21AA216F20E6AA400080EDC2 /* SwipeTableViewController.swift */,
-				21902BBF20F4762600E09741 /* SwipeTableViewController+Swipe.swift */,
-				210EC57F20F016B80000FD85 /* SwipeTableViewController+LongPress.swift */,
+				21AA216F20E6AA400080EDC2 /* CustomTableVC.swift */,
+				21902BBF20F4762600E09741 /* CustomTableVC+Swipe.swift */,
+				210EC57F20F016B80000FD85 /* CustomTableVC+LongPress.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DB2E9020F68B94002BE4B6 /* ColorPickerVC.swift in Sources */,
-				210EC58020F016B80000FD85 /* SwipeTableViewController+LongPress.swift in Sources */,
+				210EC58020F016B80000FD85 /* CustomTableVC+LongPress.swift in Sources */,
 				21DB2E9220F68D58002BE4B6 /* CategoryVC+ColorPicker.swift in Sources */,
 				21A4331A20DB1239004120E1 /* Item.swift in Sources */,
 				2148875B20D9A0A9000132F0 /* CategoryVC.swift in Sources */,
@@ -311,9 +311,9 @@
 				21A4F28620FA92BD00FDFB4D /* Utilities.swift in Sources */,
 				21941B2F20D084E900041A37 /* AppDelegate.swift in Sources */,
 				21902BBE20F4585E00E09741 /* ItemVC+SearchBar.swift in Sources */,
-				21AA217020E6AA400080EDC2 /* SwipeTableViewController.swift in Sources */,
+				21AA217020E6AA400080EDC2 /* CustomTableVC.swift in Sources */,
 				21A4331C20DB1393004120E1 /* Category.swift in Sources */,
-				21902BC020F4762600E09741 /* SwipeTableViewController+Swipe.swift in Sources */,
+				21902BC020F4762600E09741 /* CustomTableVC+Swipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
