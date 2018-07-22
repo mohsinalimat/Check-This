@@ -11,7 +11,7 @@ import RealmSwift
 import ChameleonFramework
 import SwipeCellKit
 
-class ItemViewController: SwipeTableViewController {
+class ItemViewController: CustomTableVC {
 
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try

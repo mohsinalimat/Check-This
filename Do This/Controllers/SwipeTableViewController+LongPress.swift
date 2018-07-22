@@ -14,7 +14,7 @@ private struct LongPressPersistentValues {
     static var cellSnapShot: UIView?
 }
 
-extension SwipeTableViewController: UIGestureRecognizerDelegate {
+extension CustomTableVC: UIGestureRecognizerDelegate {
 
     // MARK: - Long Press Setup
     

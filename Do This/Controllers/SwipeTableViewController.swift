@@ -1,5 +1,5 @@
 //
-//  SwipeTableViewController.swift
+//  CustomTableVC.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 6/29/18.
@@ -9,7 +9,7 @@
 import UIKit
 import SwipeCellKit
 
-class SwipeTableViewController: UITableViewController {
+class CustomTableVC: UITableViewController {
 
     // MARK: - View Lifecycle Methods
     

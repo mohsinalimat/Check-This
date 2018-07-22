@@ -10,7 +10,7 @@ import SwipeCellKit
 
 // MARK: - SwipeTableViewCell Delegate Methods
 
-extension SwipeTableViewController: SwipeTableViewCellDelegate {
+extension CustomTableVC: SwipeTableViewCellDelegate {
 
     func tableView(_ tableView: UITableView,
                    editActionsForRowAt indexPath: IndexPath,
