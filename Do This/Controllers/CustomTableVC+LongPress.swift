@@ -97,22 +97,23 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
     func handleLongPressEnded(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
         let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
         hapticGenerator.impactOccurred()
-        guard let cell = tableView.cellForRow(at: LongPressPersistentValues.indexPath!) as? SwipeTableViewCell else { fatalError() }
-        cell.isHidden = false
-        cell.alpha = 0.0
-        UIView.animate(withDuration: 0.25, animations: {
-            LongPressPersistentValues.cellSnapShot?.center = cell.center
-            LongPressPersistentValues.cellSnapShot?.transform = .identity
-            LongPressPersistentValues.cellSnapShot?.alpha = 0.0
-            cell.alpha = 1.0
-        }, completion: { (finished) -> Void in
-            if finished {
-                LongPressPersistentValues.indexPath = nil
-                LongPressPersistentValues.cellSnapShot?.removeFromSuperview()
-                LongPressPersistentValues.cellSnapShot = nil
-                self.tableView.reloadData()
-            }
-        })
+        if currentIndexPath != nil {
+            guard let cell = tableView.cellForRow(at: LongPressPersistentValues.indexPath!) as? SwipeTableViewCell else { fatalError() }
+            cell.isHidden = false
+            cell.alpha = 0.0
+            UIView.animate(withDuration: 0.25, animations: {
+                LongPressPersistentValues.cellSnapShot?.center = cell.center
+                LongPressPersistentValues.cellSnapShot?.transform = .identity
+                LongPressPersistentValues.cellSnapShot?.alpha = 0.0
+                cell.alpha = 1.0
+            }, completion: { (finished) -> Void in
+                if finished {
+                    LongPressPersistentValues.indexPath = nil
+                    LongPressPersistentValues.cellSnapShot?.removeFromSuperview()
+                    LongPressPersistentValues.cellSnapShot = nil
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
-    
 }
