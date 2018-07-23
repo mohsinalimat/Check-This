@@ -20,9 +20,18 @@ class CategoryViewController: CustomTableVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        Utilities.setUpBlueNavBarFor(self)
         loadCategories()
         setUpTableViewAppearance()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        /*
+        Set up nav bar colors here since doing it in viewWillAppear creates
+        a bug where the small navigationBar title changes back to black if
+        the ItemVC titles are black, once the user navigates back to CategoryVC.
+        */
+        Utilities.setUpBlueNavBarFor(self)
     }
     
     // MARK: - TableView Data Source Methods
