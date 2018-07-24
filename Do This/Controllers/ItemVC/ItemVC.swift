@@ -32,6 +32,7 @@ class ItemVC: CustomTableVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         setUpNavigationController()
     }
     
