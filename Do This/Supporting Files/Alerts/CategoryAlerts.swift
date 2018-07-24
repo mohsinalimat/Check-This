@@ -10,9 +10,9 @@ import SwipeCellKit
 
 struct CategoryAlerts {
     
-    // MARK: - Alerts Methods For CategoryViewController
+    // MARK: - Alerts Methods For CategoryVC
     
-    static func presentAlertToAddNewCategory(from categoryVC: CategoryViewController) {
+    static func presentAlertToAddNewCategory(from categoryVC: CategoryVC) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         let addCategoryAction = UIAlertAction(title: "Add", style: .default) { _ in
@@ -35,7 +35,7 @@ struct CategoryAlerts {
         categoryVC.present(alert, animated: true)
     }
     
-    static func editCategoryAlertController(from categoryVC: CategoryViewController, at indexPath: IndexPath) -> UIAlertController {
+    static func editCategoryAlertController(from categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let editNameAction = CategoryAlerts.editCategoryNameAction(from: categoryVC, at: indexPath)
@@ -52,7 +52,7 @@ struct CategoryAlerts {
         return alertController
     }
     
-    static func editCategoryNameAction(from categoryVC: CategoryViewController, at indexPath: IndexPath) -> UIAlertAction {
+    static func editCategoryNameAction(from categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertAction {
         let editNameAction = UIAlertAction(title: "Edit Name", style: .default) { (_) in
             let editNameAlertController = CategoryAlerts.categoryEditNameAlertController(on: categoryVC, at: indexPath)
             categoryVC.present(editNameAlertController, animated: true)
@@ -60,14 +60,14 @@ struct CategoryAlerts {
         return editNameAction
     }
     
-    static func editCategoryColorAction(from categoryVC: CategoryViewController) -> UIAlertAction {
+    static func editCategoryColorAction(from categoryVC: CategoryVC) -> UIAlertAction {
         let editColorAction = UIAlertAction(title: "Change Color", style: .default) { (_) in
             categoryVC.performSegue(withIdentifier: "goToColorPickerVC", sender: categoryVC)
         }
         return editColorAction
     }
     
-    static func categoryEditNameAlertController(on categoryVC: CategoryViewController, at indexPath: IndexPath) -> UIAlertController {
+    static func categoryEditNameAlertController(on categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertController {
         let categoryAtIndexPath = categoryVC.categories![indexPath.row]
         let cell = categoryVC.tableView.cellForRow(at: indexPath)
         var textField = UITextField()

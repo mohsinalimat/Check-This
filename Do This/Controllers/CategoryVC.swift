@@ -1,5 +1,5 @@
 //
-//  CategoryViewController.swift
+//  CategoryVC.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 6/19/18.
@@ -11,7 +11,7 @@ import RealmSwift
 import ChameleonFramework
 import SwipeCellKit
 
-class CategoryViewController: CustomTableVC {
+class CategoryVC: CustomTableVC {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
     var categories: Results<Category>?
@@ -26,11 +26,11 @@ class CategoryViewController: CustomTableVC {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        /*
-        Set up nav bar colors here since doing it in viewWillAppear creates
-        a bug where the small navigationBar title changes back to black if
-        the ItemVC titles are black, once the user navigates back to CategoryVC.
-        */
+        
+        /* Set up nav bar colors here since doing it in viewWillAppear
+         creates a bug where the small navigationBar title changes back to black
+         if the ItemVC titles are black, once the user navigates back to
+         CategoryVC. */
         Utilities.setUpBlueNavBarFor(self)
     }
     
@@ -70,7 +70,7 @@ class CategoryViewController: CustomTableVC {
         guard let selectedCategory = categories?[indexPath.row] else { fatalError() }
         switch segue.identifier {
         case "goToItemsVC":
-            let itemsVC = segue.destination as? ItemViewController
+            let itemsVC = segue.destination as? ItemVC
             itemsVC?.selectedCategory = selectedCategory
         case "goToColorPickerVC":
             guard let navigationController = segue.destination as? UINavigationController else { fatalError() }

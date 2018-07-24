@@ -1,5 +1,5 @@
 //
-//  ItemViewController+SearchBar.swift
+//  ItemVC+SearchBar.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 7/9/18.
@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Search Bar Delegate Methods
 
-extension ItemViewController: UISearchBarDelegate {
+extension ItemVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {

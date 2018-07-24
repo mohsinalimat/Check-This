@@ -44,9 +44,9 @@ class CustomTableVC: UITableViewController {
     // MARK: - Alert Methods
     
     func presentEditAlertController(at indexPath: IndexPath) {
-        if let categoryVC = self as? CategoryViewController {
+        if let categoryVC = self as? CategoryVC {
             presentAlertController(CategoryAlerts.editCategoryAlertController(from: categoryVC, at: indexPath))
-        } else if let itemVC = self as? ItemViewController {
+        } else if let itemVC = self as? ItemVC {
             presentAlertController(ItemAlerts.editItemAlertController(from: itemVC, at: indexPath))
         }
     }

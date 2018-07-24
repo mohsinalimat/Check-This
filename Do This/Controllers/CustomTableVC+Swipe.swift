@@ -17,8 +17,8 @@ extension CustomTableVC: SwipeTableViewCellDelegate {
                    for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         var actions = [SwipeAction]()
-        let swipeToEditDescription: String? = self is CategoryViewController ? "Edit" : nil
-        let swipeToDeleteDescription: String? = self is CategoryViewController ? "Delete" : nil
+        let swipeToEditDescription: String? = self is CategoryVC ? "Edit" : nil
+        let swipeToDeleteDescription: String? = self is CategoryVC ? "Delete" : nil
         
         let editAction = SwipeAction(style: .default, title: swipeToEditDescription) { _, indexPath in
             tableView.cellForRow(at: indexPath)?.selectionStyle = .none

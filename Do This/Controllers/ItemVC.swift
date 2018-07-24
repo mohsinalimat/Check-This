@@ -1,5 +1,5 @@
 //
-//  ItemViewController.swift
+//  ItemVC.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 6/12/18.
@@ -11,7 +11,7 @@ import RealmSwift
 import ChameleonFramework
 import SwipeCellKit
 
-class ItemViewController: CustomTableVC {
+class ItemVC: CustomTableVC {
 
     var items: Results<Item>?
     let realm = try! Realm() // swiftlint:disable:this force_try

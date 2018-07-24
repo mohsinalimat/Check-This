@@ -1,5 +1,5 @@
 //
-//  CategoryViewController+ColorPicker.swift
+//  CategoryVC+ColorPicker.swift
 //  Do This
 //
 //  Created by Luis M Gonzalez on 7/11/18.
@@ -8,7 +8,7 @@
 
 // MARK: - Color Picker Delegate Methods
 
-extension CategoryViewController: ColorPickerDelegate {
+extension CategoryVC: ColorPickerDelegate {
     
     func didPickNewColorFor(_ category: Category, newColorHex: String) {
         edit(category: category, newName: nil, newColorHex: newColorHex)
