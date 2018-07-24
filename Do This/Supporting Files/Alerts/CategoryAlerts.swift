@@ -31,7 +31,8 @@ struct CategoryAlerts {
         alert.addAction(cancelAction)
         alert.addTextField { (alertTextField) in
             textField = alertTextField
-            alertTextField .placeholder = "Category Name"
+            alertTextField.placeholder = "Category Name"
+            alertTextField.autocorrectionType = .yes
         }
         categoryVC.present(alert, animated: true)
     }
@@ -91,6 +92,7 @@ struct CategoryAlerts {
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
             alertTextField.text = categoryAtIndexPath.name
+            alertTextField.autocorrectionType = .yes
         }
         
         return alertController

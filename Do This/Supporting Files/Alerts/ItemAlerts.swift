@@ -32,6 +32,7 @@ struct ItemAlerts {
         alert.addTextField { (alertTextField) in
             textField = alertTextField
             alertTextField.placeholder = "New Item"
+            alertTextField.autocorrectionType = .yes
         }
         itemVC.present(alert, animated: true)
     }
@@ -87,6 +88,7 @@ struct ItemAlerts {
         alertController.addTextField { (alertTextField) in
             textField = alertTextField
             alertTextField.text = itemAtIndexPath.name
+            alertTextField.autocorrectionType = .yes
         }
         
         return alertController
