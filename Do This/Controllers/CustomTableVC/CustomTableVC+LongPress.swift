@@ -88,7 +88,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         center?.y = locationInView.y
         LongPressPersistentValues.cellSnapShot?.center = center!
         if (currentIndexPath != nil) && (currentIndexPath != LongPressPersistentValues.indexPath) {
-            move(from: LongPressPersistentValues.indexPath!, to: currentIndexPath!)
+            delegate.moveElement(from: LongPressPersistentValues.indexPath!, to: currentIndexPath!)
             tableView.moveRow(at: LongPressPersistentValues.indexPath!, to: currentIndexPath!)
             LongPressPersistentValues.indexPath = currentIndexPath
         }

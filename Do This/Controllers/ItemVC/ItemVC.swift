@@ -6,10 +6,8 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
-import UIKit
 import RealmSwift
 import ChameleonFramework
-import SwipeCellKit
 
 class ItemVC: CustomTableVC {
 
@@ -21,14 +19,14 @@ class ItemVC: CustomTableVC {
         }
     }
     var categoryColor: UIColor {
-        return UIColor(hexString: selectedCategory!.colorHexValue) ?? FlatSkyBlue()
+        return UIColor(hexString: selectedCategory!.colorHexValue)!
     }
     
     // MARK: - View Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableViewBackground()
+        setTableViewAppearance()
         setUpSearchBar()
     }
     
@@ -59,7 +57,7 @@ class ItemVC: CustomTableVC {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        move(from: sourceIndexPath, to: destinationIndexPath)
+        moveItem(from: sourceIndexPath, to: destinationIndexPath)
     }
     
     // MARK: - TableView Delegate Methods
@@ -84,91 +82,6 @@ class ItemVC: CustomTableVC {
         ItemAlerts.presentAlertToAddNewItem(from: self)
     }
     
-    // MARK: - Data Manipulation Methods
-    
-    func save(item: Item) {
-        do {
-            try realm.write {
-                realm.add(item)
-                if let items = items {
-                    item.indexForSorting = items.count
-                }
-                selectedCategory?.items.append(item)
-            }
-        } catch {
-            fatalError("Error saving item \(error)")
-        }
-
-    }
-    
-    func loadItems() {
-        items = selectedCategory?.items.sorted(byKeyPath: "indexForSorting", ascending: true)
-        tableView.reloadData()
-    }
-    
-    override func move(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        do {
-            try realm.write {
-                let itemBeingMoved = items?[sourceIndexPath.row]
-                if sourceIndexPath.row < destinationIndexPath.row { // If item is moving down in the tableView
-                    for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
-                        let item = items?[index]
-                        item?.indexForSorting -= 1
-                    }
-                } else if sourceIndexPath.row > destinationIndexPath.row { // If item is moving up in the tableView
-                    for index in destinationIndexPath.row..<sourceIndexPath.row {
-                        items?[index].indexForSorting += 1
-                    }
-                }
-                itemBeingMoved?.indexForSorting = destinationIndexPath.row
-            }
-        } catch {
-            fatalError("Error moving item to new indexPath \(error)")
-        }
-    }
-    
-    func edit(item: Item, newName: String? = nil) {
-        do {
-            try realm.write {
-                if let newName = newName {
-                    item.name = newName
-                }
-                realm.add(item)
-            }
-        } catch {
-            fatalError("Error editing item \(error)")
-        }
-    }
-    
-    override func deleteFromModel(at indexPath: IndexPath) {
-        if let item = selectedCategory?.items[indexPath.row] {
-            do {
-                try realm.write {
-                    realm.delete(item)
-                }
-            } catch {
-                fatalError("Error deleting item \(error)")
-            }
-        }
-        resetItemsIndexForSorting()
-    }
-    
-    func resetItemsIndexForSorting() {
-        if let items = items {
-            var indexForSorting = 0
-            for item in items {
-                do {
-                    try realm.write {
-                        item.indexForSorting = indexForSorting
-                    }
-                } catch {
-                    fatalError("Error resetting item indexForSorting \(error)")
-                }
-                indexForSorting += 1
-            }
-        }
-    }
-    
     // MARK: - Navigation Controller Setup
     
     func setUpNavigationController() {
@@ -183,9 +96,9 @@ class ItemVC: CustomTableVC {
         }
     }
     
-    // MARK: - Set Up Table View Appearance
+    // MARK: - Set up Table View Appearance
     
-    override func setTableViewBackground() {
+    func setItemTableViewAppearance() {
         tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
         tableView.backgroundView?.backgroundColor = categoryColor.withAlphaComponent(0.1)
         if let numberOfItems = items?.count {

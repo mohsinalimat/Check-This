@@ -6,6 +6,7 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
+import UIKit
 import SwipeCellKit
 
 struct CategoryAlerts {
@@ -20,8 +21,8 @@ struct CategoryAlerts {
                 let newCategory = Category()
                 newCategory.name = textField.text!
                 newCategory.colorHexValue = categoryVC.differentCategoryColorHex()
-                categoryVC.save(category: newCategory)
-                categoryVC.setTableViewBackground()
+                categoryVC.save(newCategory)
+                categoryVC.setTableViewAppearance()
                 categoryVC.tableView.reloadData()
             }
         }
@@ -41,8 +42,11 @@ struct CategoryAlerts {
         let editNameAction = CategoryAlerts.editCategoryNameAction(from: categoryVC, at: indexPath)
         let editColorAction = CategoryAlerts.editCategoryColorAction(from: categoryVC)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            let cell = categoryVC.tableView.cellForRow(at: indexPath)
-            Utilities.unswipeCellWithAnimationIn(categoryVC, swipedCell: cell!)
+            guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+            cell.hideSwipe(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                categoryVC.tableView.reloadData()
+            }
         }
         
         alertController.addAction(editNameAction)
@@ -69,17 +73,23 @@ struct CategoryAlerts {
     
     static func categoryEditNameAlertController(on categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertController {
         let categoryAtIndexPath = categoryVC.categories![indexPath.row]
-        let cell = categoryVC.tableView.cellForRow(at: indexPath)
+        guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
         var textField = UITextField()
         
         let alertController = UIAlertController(title: "Edit Category Name:", message: nil, preferredStyle: .alert)
         
         let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             categoryVC.edit(category: categoryAtIndexPath, newName: textField.text!)
-            Utilities.unswipeCellWithAnimationIn(categoryVC, swipedCell: cell!)
+            cell.hideSwipe(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                categoryVC.tableView.reloadData()
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            Utilities.unswipeCellWithAnimationIn(categoryVC, swipedCell: cell!)
+            cell.hideSwipe(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                categoryVC.tableView.reloadData()
+            }
         }
         
         alertController.addAction(editCategoryNameAction)

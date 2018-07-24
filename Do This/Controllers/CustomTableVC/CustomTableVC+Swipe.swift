@@ -26,8 +26,8 @@ extension CustomTableVC: SwipeTableViewCellDelegate {
             self.presentEditAlertController(at: indexPath)
         }
         let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteDescription) { _, indexPath in
-            self.deleteFromModel(at: indexPath)
-            self.setTableViewBackground()
+            self.delegate.deleteElement(at: indexPath)
+            self.delegate.setTableViewAppearance()
         }
 
         deleteAction.image = UIImage(named: "Delete_Icon")

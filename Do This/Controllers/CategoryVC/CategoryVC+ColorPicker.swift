@@ -6,8 +6,6 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
-// MARK: - Color Picker Delegate Methods
-
 extension CategoryVC: ColorPickerDelegate {
     
     func didPickNewColorFor(_ category: Category, newColorHex: String) {

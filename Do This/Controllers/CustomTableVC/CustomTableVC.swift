@@ -6,11 +6,18 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
-import UIKit
 import SwipeCellKit
+
+protocol CustomTableDelegate: class {
+    func moveElement(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    func deleteElement(at indexPath: IndexPath)
+    func setTableViewAppearance()
+}
 
 class CustomTableVC: UITableViewController {
 
+    weak var delegate: CustomTableDelegate!
+    
     // MARK: - View Lifecycle Methods
     
     override func viewDidLoad() {
@@ -82,24 +89,6 @@ class CustomTableVC: UITableViewController {
             numberOfLinesCount += 1
         }
         return numberOfLinesCount
-    }
-    
-    // MARK: - Methods to be overwritten by sublasses
-    
-    func deleteFromModel(at indexPath: IndexPath) {
-        fatalError("Subclass must override this method")
-    }
-    
-    func move(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        fatalError("Subclass must override this method")
-    }
-    
-    func editNameAlertController(at indexPath: IndexPath) -> UIAlertController {
-        fatalError("Subclass must override this method")
-    }
-    
-    func setTableViewBackground() {
-        fatalError("Subclass must override this method")
     }
     
 }

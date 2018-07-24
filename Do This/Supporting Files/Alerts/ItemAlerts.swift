@@ -6,6 +6,7 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
+import UIKit
 import SwipeCellKit
 
 struct ItemAlerts {
@@ -20,8 +21,8 @@ struct ItemAlerts {
                 let newItem = Item()
                 newItem.name = textField.text!
                 newItem.timeCreated = Date()
-                itemVC.save(item: newItem)
-                itemVC.setTableViewBackground()
+                itemVC.save(newItem)
+                itemVC.setTableViewAppearance()
                 itemVC.tableView.reloadData()
             }
         }
@@ -41,8 +42,11 @@ struct ItemAlerts {
         
         let editNameAction = ItemAlerts.editItemNameAction(from: itemVC, at: indexPath)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            let cell = itemVC.tableView.cellForRow(at: indexPath)
-            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell!)
+            guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
+            cell.hideSwipe(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                itemVC.tableView.reloadData()
+            }
         }
         
         alertController.addAction(editNameAction)
@@ -65,17 +69,23 @@ struct ItemAlerts {
 
     static func itemEditNameAlertController(on itemVC: ItemVC, at indexPath: IndexPath) -> UIAlertController {
         let itemAtIndexPath = itemVC.items![indexPath.row]
-        let cell = itemVC.tableView.cellForRow(at: indexPath)
+        guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
         var textField = UITextField()
         
         let alertController = UIAlertController(title: "Edit Item Name:", message: nil, preferredStyle: .alert)
         
         let editItemNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             itemVC.edit(item: itemAtIndexPath, newName: textField.text!)
-            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell!)
+            cell.hideSwipe(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                itemVC.tableView.reloadData()
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            Utilities.unswipeCellWithAnimationIn(itemVC, swipedCell: cell!)
+            cell.hideSwipe(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                itemVC.tableView.reloadData()
+            }
         }
         
         alertController.addAction(editItemNameAction)

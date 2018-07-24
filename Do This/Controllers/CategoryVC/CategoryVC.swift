@@ -6,10 +6,8 @@
 //  Copyright © 2018 Luis M Gonzalez. All rights reserved.
 //
 
-import UIKit
 import RealmSwift
 import ChameleonFramework
-import SwipeCellKit
 
 class CategoryVC: CustomTableVC {
     
@@ -21,7 +19,7 @@ class CategoryVC: CustomTableVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadCategories()
-        setUpTableViewAppearance()
+        setTableViewAppearance()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +51,7 @@ class CategoryVC: CustomTableVC {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        move(from: sourceIndexPath, to: destinationIndexPath)
+        moveCategory(from: sourceIndexPath, to: destinationIndexPath)
     }
     
     // MARK: - TableView Delegate Methods
@@ -88,93 +86,6 @@ class CategoryVC: CustomTableVC {
         CategoryAlerts.presentAlertToAddNewCategory(from: self)
     }
     
-    // MARK: - Data Manipulation Methods
-    
-    func save(category: Category) {
-        do {
-            try realm.write {
-                realm.add(category)
-                if let categories = categories {
-                    category.indexForSorting = categories.count - 1
-                }
-            }
-        } catch {
-            fatalError("Error saving category \(error)")
-        }
-    }
-    
-    override func move(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        do {
-            try realm.write {
-                let categoryBeingMoved = categories?[sourceIndexPath.row]
-                if sourceIndexPath.row < destinationIndexPath.row {
-                    for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
-                        categories?[index].indexForSorting -= 1
-                    }
-                } else if sourceIndexPath.row > destinationIndexPath.row {
-                    for index in destinationIndexPath.row..<sourceIndexPath.row {
-                        categories?[index].indexForSorting += 1
-                    }
-                }
-                categoryBeingMoved?.indexForSorting = destinationIndexPath.row
-            }
-        } catch {
-            fatalError("Error moving category to new indexPath \(error)")
-        }
-    }
-    
-    func loadCategories() {
-        categories = realm.objects(Category.self).sorted(byKeyPath: "indexForSorting", ascending: true)
-        tableView.reloadData()
-    }
-    
-    func edit(category: Category, newName: String? = nil, newColorHex: String? = nil) {
-        do {
-            try realm.write {
-                if let newName = newName {
-                    category.name = newName
-                }
-                if let newColorHex = newColorHex {
-                    category.colorHexValue = newColorHex
-                }
-                realm.add(category)
-            }
-        } catch {
-            fatalError("Error editing category \(error)")
-        }
-    }
-    
-    override func deleteFromModel(at indexPath: IndexPath) {
-        if let categoryToBeDeleted = self.categories?[indexPath.row] {
-            do {
-                try realm.write {
-                    realm.delete(categoryToBeDeleted.items)
-                    realm.delete(categoryToBeDeleted)
-                }
-            } catch {
-                fatalError("Error deleting category \(error)")
-            }
-        }
-        resetCategoriesIndexForSorting()
-    }
-    
-    func resetCategoriesIndexForSorting() {
-        if let categories = categories {
-            var indexForSorting = 0
-            for category in categories {
-                do {
-                    try realm.write {
-                        category.indexForSorting = indexForSorting
-                        
-                    }
-                } catch {
-                    fatalError("Error resetting category indexForSorting \(error)")
-                }
-                indexForSorting += 1
-            }
-        }
-    }
-    
     // MARK: - Category Cell Accesory Setup
     
     func matchChevronIconTo(_ contrastingCategoryColor: UIColor) -> UIImageView {
@@ -190,13 +101,9 @@ class CategoryVC: CustomTableVC {
     }
     
     // MARK: - Set up Table View Appearance
-    
-    func setUpTableViewAppearance() {
+
+    func setCategoryTableViewAppearance() {
         tableView.rowHeight = 80
-        setTableViewBackground()
-    }
-    
-    override func setTableViewBackground() {
         tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
         if let numberOfCategories = categories?.count {
             if numberOfCategories == 0 {
