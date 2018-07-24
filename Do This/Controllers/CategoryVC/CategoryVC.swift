@@ -16,6 +16,11 @@ class CategoryVC: CustomTableVC {
     
     // MARK: - View Lifecycle Methods
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = self
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadCategories()

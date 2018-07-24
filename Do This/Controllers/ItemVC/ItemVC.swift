@@ -26,6 +26,7 @@ class ItemVC: CustomTableVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         setTableViewAppearance()
         setUpSearchBar()
     }
