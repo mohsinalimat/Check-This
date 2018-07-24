@@ -44,9 +44,7 @@ struct ItemAlerts {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
             cell.hideSwipe(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                itemVC.tableView.reloadData()
-            }
+            Utilities.reloadTableViewWithDelayIn(itemVC)
         }
         
         alertController.addAction(editNameAction)
@@ -77,15 +75,11 @@ struct ItemAlerts {
         let editItemNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             itemVC.edit(item: itemAtIndexPath, newName: textField.text!)
             cell.hideSwipe(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                itemVC.tableView.reloadData()
-            }
+            Utilities.reloadTableViewWithDelayIn(itemVC)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             cell.hideSwipe(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                itemVC.tableView.reloadData()
-            }
+            Utilities.reloadTableViewWithDelayIn(itemVC)
         }
         
         alertController.addAction(editItemNameAction)

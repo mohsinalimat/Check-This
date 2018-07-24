@@ -11,6 +11,13 @@ import SwipeCellKit
 
 struct Utilities {
     
+    static func reloadTableViewWithDelayIn(_ tableVC: UITableViewController) {
+        let delay = 0.8
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            tableVC.tableView.reloadData()
+        }
+    }
+    
     // The colorOptions array of hex values represent the 6x5 matrix of the
     // colored buttons in the ColorPickerViewController.
     static let colorOptions = ["#d64541", "#d2527f", "#9b59b6", "#7e57c2", "#2196f3",

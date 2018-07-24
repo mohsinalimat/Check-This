@@ -44,9 +44,7 @@ struct CategoryAlerts {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
             cell.hideSwipe(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                categoryVC.tableView.reloadData()
-            }
+            Utilities.reloadTableViewWithDelayIn(categoryVC)
         }
         
         alertController.addAction(editNameAction)
@@ -81,15 +79,11 @@ struct CategoryAlerts {
         let editCategoryNameAction = UIAlertAction(title: "Save", style: .default) { (_) in
             categoryVC.edit(category: categoryAtIndexPath, newName: textField.text!)
             cell.hideSwipe(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                categoryVC.tableView.reloadData()
-            }
+            Utilities.reloadTableViewWithDelayIn(categoryVC)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             cell.hideSwipe(animated: true)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                categoryVC.tableView.reloadData()
-            }
+            Utilities.reloadTableViewWithDelayIn(categoryVC)
         }
         
         alertController.addAction(editCategoryNameAction)
