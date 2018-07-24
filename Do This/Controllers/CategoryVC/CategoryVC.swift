@@ -20,15 +20,18 @@ class CategoryVC: CustomTableVC {
         super.viewWillAppear(true)
         loadCategories()
         setTableViewAppearance()
+        Utilities.setUpBlueNavBarFor(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        /* Set up nav bar colors here since doing it in viewWillAppear
+        /* Calling Utilities.setUpBlueNavBarFor only in viewWillAppear
          creates a bug where the small navigationBar title changes back to black
          if the ItemVC titles are black, once the user navigates back to
-         CategoryVC. */
+         CategoryVC. Calling Utilities.setUpBlueNavBarFor only in viewDidAppear
+         doesn't animate the transition very well going from the ItemVC back
+         to CategoryVC */
         Utilities.setUpBlueNavBarFor(self)
     }
     
