@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				21E919C9210125A100BE1460 /* Alerts */,
-				2164C2D320FBDDD900E9E053 /* ColorButton.swift */,
+				21E895882107D41000354CFD /* Custom Buttons */,
 				21A4F28520FA92BD00FDFB4D /* Utilities.swift */,
 				21941B2E20D084E900041A37 /* AppDelegate.swift */,
 				21941B3720D084EA00041A37 /* LaunchScreen.storyboard */,
@@ -183,6 +183,14 @@
 				210C5CAF20D0C3C400A7D6AD /* Supporting Files */,
 			);
 			path = "Do This";
+			sourceTree = "<group>";
+		};
+		21E895882107D41000354CFD /* Custom Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2164C2D320FBDDD900E9E053 /* ColorButton.swift */,
+			);
+			path = "Custom Buttons";
 			sourceTree = "<group>";
 		};
 		21E919C9210125A100BE1460 /* Alerts */ = {
