@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XJb-V4-yeo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -12,15 +16,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="CategoriesVC" id="GuX-RV-t3l" userLabel="Categories" customClass="CategoryVC" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="15X-Bm-gaV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="rXd-mJ-miy" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rXd-mJ-miy" id="wKx-rH-FJq">
-                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -51,14 +55,14 @@
             <objects>
                 <viewController storyboardIdentifier="ColorPickerVC" title="Category Color" id="Fk3-VZ-k5l" userLabel="Color Picker" customClass="ColorPickerViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5H-9H-nfT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ibb-2h-zsB">
-                                <rect key="frame" x="20" y="84" width="560" height="375"/>
+                                <rect key="frame" x="20" y="84" width="335" height="375"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x8A-it-eFQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-5p-jJV" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -72,7 +76,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOn-gj-jKQ" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="WOk-U8-BRo"/>
@@ -83,7 +87,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUw-EJ-fca" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="IKc-tj-DEH"/>
@@ -94,7 +98,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csh-up-X7V" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="382.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="CgV-4Q-AbE"/>
@@ -105,7 +109,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-fk-oqI" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="5F6-4a-6TR"/>
@@ -118,7 +122,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0Oz-Vt-jVq">
-                                        <rect key="frame" x="0.0" y="65" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="65" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fG0-B1-beS" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -132,7 +136,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ac-cX-PkM" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="XUj-Rs-iqR"/>
@@ -143,7 +147,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6q-VG-90n" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="A31-bb-G9n"/>
@@ -154,7 +158,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-Ug-N7N" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="382.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Vbg-2T-mzn"/>
@@ -165,7 +169,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zw1-4i-wLK" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="jXr-C8-s29"/>
@@ -178,7 +182,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gzU-bA-lBv">
-                                        <rect key="frame" x="0.0" y="130" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="130" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hd-M9-gH0" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -192,7 +196,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myw-8R-sBY" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="P7u-o7-sbA"/>
@@ -203,7 +207,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlQ-Wr-nda" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="70i-vX-xtP"/>
@@ -214,7 +218,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxY-DQ-tR4" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="382.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="GHA-pK-0Jc"/>
@@ -225,7 +229,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeQ-JR-QkB" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="HT3-s0-Qqv"/>
@@ -238,7 +242,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n13-oc-PVF">
-                                        <rect key="frame" x="0.0" y="195" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="195" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94E-2B-i0S" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -252,7 +256,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-Ge-Ley" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="2WE-0w-52C"/>
@@ -263,7 +267,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWa-YR-bgl" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="Vmx-iL-gbe"/>
@@ -274,7 +278,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-TZ-3RS" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="382.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3ve-1k-ZSJ"/>
@@ -285,7 +289,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejL-t4-g2x" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Bps-Pj-GEs"/>
@@ -298,7 +302,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OGN-Cx-TZX">
-                                        <rect key="frame" x="0.0" y="260" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="260" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h5-7N-uh0" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -312,7 +316,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvI-Wg-UqN" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="7S0-qR-31s"/>
@@ -323,7 +327,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxC-u4-Lze" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="2dZ-op-Rmd"/>
@@ -334,7 +338,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRd-7i-naG" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="382.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ZMG-Fq-y2d"/>
@@ -345,7 +349,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiT-jk-5XH" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="jGl-1T-Flo"/>
@@ -358,7 +362,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Gr5-gm-FzQ">
-                                        <rect key="frame" x="0.0" y="325" width="560" height="50"/>
+                                        <rect key="frame" x="0.0" y="325" width="335" height="50"/>
                                         <subviews>
                                             <button opaque="NO" tag="26" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O88-ha-S4N" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -372,7 +376,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="27" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-ta-LsS" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="fN2-wh-II6"/>
@@ -383,7 +387,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7e-cB-G1Z" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="5zH-rA-LS7"/>
@@ -394,7 +398,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-lp-RAY" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="382.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="ekU-5G-GDy"/>
@@ -405,7 +409,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWH-27-O9h" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="510" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="3ah-oF-PPf"/>
@@ -480,15 +484,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="ItemsVC" id="xue-aK-VTX" userLabel="Items" customClass="ItemVC" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfb-5M-O4W">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ul1-2W-Wca" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ul1-2W-Wca" id="LdT-qi-4en">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -500,6 +504,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Category Name" largeTitleDisplayMode="always" id="otq-F7-xfA">
+                        <barButtonItem key="leftBarButtonItem" image="Back_Chevron" id="I5L-Hh-eqS">
+                            <connections>
+                                <action selector="goBack:" destination="xue-aK-VTX" id="EhW-zQ-GcC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r0V-Tk-qeh">
                             <connections>
                                 <action selector="addNewItem:" destination="xue-aK-VTX" id="vnV-wP-TeN"/>
@@ -554,4 +563,7 @@
             <point key="canvasLocation" x="1318" y="940"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back_Chevron" width="17" height="17"/>
+    </resources>
 </document>

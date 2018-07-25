@@ -78,10 +78,14 @@ class ItemVC: CustomTableVC {
         tableView.reloadData()
     }
     
-    // MARK: - Add New Items
+    // MARK: - @IBActions
     
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         ItemAlerts.presentAlertToAddNewItem(from: self)
+    }
+    
+    @IBAction func goBack(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Navigation Controller Setup
