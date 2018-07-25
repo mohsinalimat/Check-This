@@ -496,6 +496,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -506,7 +507,7 @@
                     <navigationItem key="navigationItem" title="Category Name" largeTitleDisplayMode="always" id="otq-F7-xfA">
                         <barButtonItem key="leftBarButtonItem" image="Back_Chevron" id="I5L-Hh-eqS">
                             <connections>
-                                <action selector="goBack:" destination="xue-aK-VTX" id="EhW-zQ-GcC"/>
+                                <action selector="goBack:" destination="xue-aK-VTX" id="eUb-S0-OM7"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="r0V-Tk-qeh">

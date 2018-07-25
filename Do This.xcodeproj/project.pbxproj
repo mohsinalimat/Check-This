@@ -28,6 +28,7 @@
 		21DB2E9020F68B94002BE4B6 /* ColorPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E8F20F68B94002BE4B6 /* ColorPickerVC.swift */; };
 		21DB2E9220F68D58002BE4B6 /* CategoryVC+ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DB2E9120F68D58002BE4B6 /* CategoryVC+ColorPicker.swift */; };
 		21E895942108208500354CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E895932108208500354CFD /* Assets.xcassets */; };
+		21E89596210828C200354CFD /* ItemVC+SwipeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E89595210828C200354CFD /* ItemVC+SwipeBack.swift */; };
 		21E919CC210127F200BE1460 /* ItemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E919CB210127F200BE1460 /* ItemAlerts.swift */; };
 		A1536C9A72C7B648E5F193B8 /* Pods_Do_This.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10357417EE5BB3E8581C37C /* Pods_Do_This.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		21DB2E8F20F68B94002BE4B6 /* ColorPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerVC.swift; sourceTree = "<group>"; };
 		21DB2E9120F68D58002BE4B6 /* CategoryVC+ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+ColorPicker.swift"; sourceTree = "<group>"; };
 		21E895932108208500354CFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21E89595210828C200354CFD /* ItemVC+SwipeBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemVC+SwipeBack.swift"; sourceTree = "<group>"; };
 		21E919CB210127F200BE1460 /* ItemAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAlerts.swift; sourceTree = "<group>"; };
 		8B41E396F281A93FABA83CEC /* Pods-Do This.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do This.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Do This/Pods-Do This.debug.xcconfig"; sourceTree = "<group>"; };
 		94B9B7A680BF9BD991D82B97 /* Pods-Do This.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do This.release.xcconfig"; path = "Pods/Target Support Files/Pods-Do This/Pods-Do This.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				21902BBD20F4585E00E09741 /* ItemVC+SearchBar.swift */,
 				2145717F2106B91A006529FF /* ItemVC+CustomTable.swift */,
 				210847832107A63C0072BA0A /* ItemVC+Data.swift */,
+				21E89595210828C200354CFD /* ItemVC+SwipeBack.swift */,
 			);
 			path = ItemVC;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				214571802106B91A006529FF /* ItemVC+CustomTable.swift in Sources */,
 				21DB2E9220F68D58002BE4B6 /* CategoryVC+ColorPicker.swift in Sources */,
 				21A4331A20DB1239004120E1 /* Item.swift in Sources */,
+				21E89596210828C200354CFD /* ItemVC+SwipeBack.swift in Sources */,
 				2148875B20D9A0A9000132F0 /* CategoryVC.swift in Sources */,
 				21E919CC210127F200BE1460 /* ItemAlerts.swift in Sources */,
 				210847842107A63C0072BA0A /* ItemVC+Data.swift in Sources */,

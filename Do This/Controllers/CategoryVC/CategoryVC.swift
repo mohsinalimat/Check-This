@@ -28,18 +28,6 @@ class CategoryVC: CustomTableVC {
         Utilities.setUpBlueNavBarFor(self)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        /* Calling Utilities.setUpBlueNavBarFor only in viewWillAppear
-         creates a bug where the small navigationBar title changes back to black
-         if the ItemVC titles are black, once the user navigates back to
-         CategoryVC. Calling Utilities.setUpBlueNavBarFor only in viewDidAppear
-         doesn't animate the transition very well going from the ItemVC back
-         to CategoryVC */
-        Utilities.setUpBlueNavBarFor(self)
-    }
-    
     // MARK: - TableView Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -29,6 +29,7 @@ class ItemVC: CustomTableVC {
         delegate = self
         setTableViewAppearance()
         setUpSearchBar()
+        setUpSwipeToNavigateBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
