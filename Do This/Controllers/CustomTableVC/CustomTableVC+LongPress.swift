@@ -37,7 +37,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         case .changed:
             handleLongPressChanged(currentIndexPath, locationInView)
         case .ended:
-            handleLongPressEnded(currentIndexPath, locationInView)
+            handleLongPressEnded()
         default:
             break
         }
@@ -64,7 +64,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         hapticGenerator.notificationOccurred(.success)
         if currentIndexPath != nil {
             LongPressPersistentValues.indexPath = currentIndexPath
-            guard let cell = self.tableView.cellForRow(at: currentIndexPath!) as? SwipeTableViewCell else { fatalError() }
+            guard let cell = tableView.cellForRow(at: currentIndexPath!) else { return }
             LongPressPersistentValues.cellSnapShot = snapshopOfCell(inputView: cell)
             var center = cell.center
             LongPressPersistentValues.cellSnapShot?.center = center
@@ -94,26 +94,25 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         }
     }
     
-    func handleLongPressEnded(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
+    func handleLongPressEnded() {
         let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
         hapticGenerator.impactOccurred()
-        if currentIndexPath != nil {
-            guard let cell = tableView.cellForRow(at: LongPressPersistentValues.indexPath!) as? SwipeTableViewCell else { fatalError() }
-            cell.isHidden = false
-            cell.alpha = 0.0
-            UIView.animate(withDuration: 0.25, animations: {
-                LongPressPersistentValues.cellSnapShot?.center = cell.center
-                LongPressPersistentValues.cellSnapShot?.transform = .identity
-                LongPressPersistentValues.cellSnapShot?.alpha = 0.0
-                cell.alpha = 1.0
-            }, completion: { (finished) -> Void in
-                if finished {
-                    LongPressPersistentValues.indexPath = nil
-                    LongPressPersistentValues.cellSnapShot?.removeFromSuperview()
-                    LongPressPersistentValues.cellSnapShot = nil
-                    self.tableView.reloadData()
-                }
-            })
-        }
+        guard let cell = tableView.cellForRow(at: LongPressPersistentValues.indexPath!) else { return }
+        cell.isHidden = false
+        cell.alpha = 0.0
+        UIView.animate(withDuration: 0.25, animations: {
+            LongPressPersistentValues.cellSnapShot?.center = cell.center
+            LongPressPersistentValues.cellSnapShot?.transform = .identity
+            LongPressPersistentValues.cellSnapShot?.alpha = 0.0
+            cell.alpha = 1.0
+        }, completion: { (finished) -> Void in
+            if finished {
+                LongPressPersistentValues.indexPath = nil
+                LongPressPersistentValues.cellSnapShot?.removeFromSuperview()
+                LongPressPersistentValues.cellSnapShot = nil
+                self.tableView.reloadData()
+            }
+        })
     }
+    
 }
