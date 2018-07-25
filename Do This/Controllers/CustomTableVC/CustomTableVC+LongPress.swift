@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwipeCellKit
 
 private struct LongPressPersistentValues {
     static var indexPath: IndexPath?
