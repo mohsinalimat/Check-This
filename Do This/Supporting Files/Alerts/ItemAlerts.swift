@@ -51,6 +51,12 @@ struct ItemAlerts {
         alertController.addAction(editNameAction)
         alertController.addAction(cancelAction)
         
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = itemVC.view
+            popoverController.sourceRect = CGRect(x: itemVC.view.bounds.midX, y: itemVC.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
         return alertController
     }
     

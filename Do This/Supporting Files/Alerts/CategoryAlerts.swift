@@ -52,6 +52,12 @@ struct CategoryAlerts {
         alertController.addAction(editColorAction)
         alertController.addAction(cancelAction)
         
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = categoryVC.view
+            popoverController.sourceRect = CGRect(x: categoryVC.view.bounds.midX, y: categoryVC.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
         return alertController
     }
     
