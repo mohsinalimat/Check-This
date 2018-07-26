@@ -25,12 +25,14 @@ class ColorPickerViewController: UIViewController {
         super.viewDidLoad()
         setBackgroundColorsToColorButtons()
         selectedColorHex = selectedCategory.colorHexValue
-        selectCurrentCategoryColorButton()
-        addCheckmarkToSelectedColorButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        view.layoutIfNeeded()
         Utilities.setUpBlueNavBarFor(self)
+        selectCurrentCategoryColorButton()
+        addCheckmarkToSelectedColorButton()
     }
     
     // MARK: - IBActions

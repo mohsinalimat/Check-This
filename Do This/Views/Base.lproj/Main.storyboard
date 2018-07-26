@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XJb-V4-yeo">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,15 +17,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="CategoriesVC" id="GuX-RV-t3l" userLabel="Categories" customClass="CategoryVC" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="15X-Bm-gaV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="rXd-mJ-miy" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rXd-mJ-miy" id="wKx-rH-FJq">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -55,366 +56,246 @@
             <objects>
                 <viewController storyboardIdentifier="ColorPickerVC" title="Category Color" id="Fk3-VZ-k5l" userLabel="Color Picker" customClass="ColorPickerViewController" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5H-9H-nfT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ibb-2h-zsB">
-                                <rect key="frame" x="20" y="84" width="335" height="375"/>
+                                <rect key="frame" x="20" y="84" width="280" height="375"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x8A-it-eFQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8A-it-eFQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-5p-jJV" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3l-5p-jJV" userLabel="ColorButton at (1,1)" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="5Y1-7M-ei1"/>
-                                                    <constraint firstAttribute="width" constant="50" id="Z2l-jg-jFP"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="Z9s-ct-3Lv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOn-gj-jKQ" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOn-gj-jKQ" userLabel="ColorButton at (1,2)" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
+                                                <rect key="frame" x="57.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="WOk-U8-BRo"/>
-                                                    <constraint firstAttribute="width" constant="50" id="d7q-LD-hoW"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="ukA-Tg-yrd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUw-EJ-fca" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUw-EJ-fca" userLabel="ColorButton at (1,3)" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="IKc-tj-DEH"/>
-                                                    <constraint firstAttribute="width" constant="50" id="igS-jX-1ZS"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="dVX-Jz-KNB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csh-up-X7V" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csh-up-X7V" userLabel="ColorButton at (1,4)" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
+                                                <rect key="frame" x="173" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="CgV-4Q-AbE"/>
-                                                    <constraint firstAttribute="height" constant="50" id="STF-cE-fQ1"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="FoH-hG-tR7"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-fk-oqI" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-fk-oqI" userLabel="ColorButton at (1,5)" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
+                                                <rect key="frame" x="230.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="5F6-4a-6TR"/>
-                                                    <constraint firstAttribute="width" constant="50" id="qH7-cU-URB"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="h8c-Nd-faX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0Oz-Vt-jVq">
-                                        <rect key="frame" x="0.0" y="65" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0Oz-Vt-jVq">
+                                        <rect key="frame" x="0.0" y="68" width="280" height="34"/>
                                         <subviews>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fG0-B1-beS" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="eT0-2b-EPH"/>
-                                                    <constraint firstAttribute="height" constant="50" id="rbF-Cr-fJO"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="3iM-uY-DC8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ac-cX-PkM" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="57.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="XUj-Rs-iqR"/>
-                                                    <constraint firstAttribute="height" constant="50" id="gS6-R6-j2E"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="MSX-ws-aQn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6q-VG-90n" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="A31-bb-G9n"/>
-                                                    <constraint firstAttribute="width" constant="50" id="twh-NX-fTk"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="kLR-BL-719"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-Ug-N7N" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="173" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Vbg-2T-mzn"/>
-                                                    <constraint firstAttribute="width" constant="50" id="p9z-eO-zri"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="h7Q-uz-MBQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zw1-4i-wLK" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="230.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="jXr-C8-s29"/>
-                                                    <constraint firstAttribute="height" constant="50" id="o1S-rR-gQP"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="tJQ-E2-KCz"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gzU-bA-lBv">
-                                        <rect key="frame" x="0.0" y="130" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gzU-bA-lBv">
+                                        <rect key="frame" x="0.0" y="136.5" width="280" height="34"/>
                                         <subviews>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hd-M9-gH0" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="144-di-ZHY"/>
-                                                    <constraint firstAttribute="width" constant="50" id="tgv-j2-Chn"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="JZa-2l-9QT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myw-8R-sBY" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="57.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="P7u-o7-sbA"/>
-                                                    <constraint firstAttribute="width" constant="50" id="W3b-UM-lPd"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="lxk-HU-MEb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlQ-Wr-nda" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="70i-vX-xtP"/>
-                                                    <constraint firstAttribute="width" constant="50" id="7Mk-6g-yxr"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="1BC-8j-lwo"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxY-DQ-tR4" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="173" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="GHA-pK-0Jc"/>
-                                                    <constraint firstAttribute="width" constant="50" id="XAl-18-Sk6"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="P8Q-j7-Sx4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeQ-JR-QkB" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="230.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="HT3-s0-Qqv"/>
-                                                    <constraint firstAttribute="height" constant="50" id="en1-Bj-NCa"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="ENR-8E-FpL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n13-oc-PVF">
-                                        <rect key="frame" x="0.0" y="195" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n13-oc-PVF">
+                                        <rect key="frame" x="0.0" y="204.5" width="280" height="34"/>
                                         <subviews>
                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94E-2B-i0S" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="HGA-qw-VwR"/>
-                                                    <constraint firstAttribute="width" constant="50" id="Zti-OY-O9A"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="ROO-6O-Viv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FS2-Ge-Ley" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="57.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="2WE-0w-52C"/>
-                                                    <constraint firstAttribute="height" constant="50" id="8Yi-uN-8nf"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="Xcy-d6-cNG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWa-YR-bgl" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="Vmx-iL-gbe"/>
-                                                    <constraint firstAttribute="height" constant="50" id="aIF-wQ-lTf"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="Sba-tH-PyH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-TZ-3RS" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="173" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="3ve-1k-ZSJ"/>
-                                                    <constraint firstAttribute="width" constant="50" id="5J4-es-gZQ"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="P0y-cX-eGB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejL-t4-g2x" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="230.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Bps-Pj-GEs"/>
-                                                    <constraint firstAttribute="width" constant="50" id="DdV-ve-KBi"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="BbC-SF-1gX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OGN-Cx-TZX">
-                                        <rect key="frame" x="0.0" y="260" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OGN-Cx-TZX">
+                                        <rect key="frame" x="0.0" y="273" width="280" height="34"/>
                                         <subviews>
                                             <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h5-7N-uh0" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="6kn-Fz-2wo"/>
-                                                    <constraint firstAttribute="height" constant="50" id="AGr-eF-cAc"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="wjv-hI-TNc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvI-Wg-UqN" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="57.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="7S0-qR-31s"/>
-                                                    <constraint firstAttribute="height" constant="50" id="kt1-FD-dpX"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="GOT-i7-Jl6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxC-u4-Lze" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="2dZ-op-Rmd"/>
-                                                    <constraint firstAttribute="width" constant="50" id="bdO-sp-72Z"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="0V4-rk-0uY"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRd-7i-naG" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="173" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="ZMG-Fq-y2d"/>
-                                                    <constraint firstAttribute="width" constant="50" id="gGK-jH-chR"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="Bjz-QT-jd7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiT-jk-5XH" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="230.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="jGl-1T-Flo"/>
-                                                    <constraint firstAttribute="width" constant="50" id="wCo-2E-Hoz"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="xk1-Fn-Xaj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Gr5-gm-FzQ">
-                                        <rect key="frame" x="0.0" y="325" width="335" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Gr5-gm-FzQ">
+                                        <rect key="frame" x="0.0" y="341" width="280" height="34"/>
                                         <subviews>
                                             <button opaque="NO" tag="26" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O88-ha-S4N" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="I2g-b2-O17"/>
-                                                    <constraint firstAttribute="width" constant="50" id="ovM-PV-uA3"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="IML-3k-zaJ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="27" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-ta-LsS" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="71.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="57.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="fN2-wh-II6"/>
-                                                    <constraint firstAttribute="height" constant="50" id="n9F-3t-tpa"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="hzs-jj-rbv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7e-cB-G1Z" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="142.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="115" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="5zH-rA-LS7"/>
-                                                    <constraint firstAttribute="width" constant="50" id="Ddz-17-aSM"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="Yef-Va-ZIq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-lp-RAY" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="214" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="173" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="ekU-5G-GDy"/>
-                                                    <constraint firstAttribute="height" constant="50" id="rEM-db-wQ6"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="FoN-0a-Ct1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWH-27-O9h" customClass="ColorButton" customModule="Do_This" customModuleProvider="target">
-                                                <rect key="frame" x="285" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="230.5" y="0.0" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.46274509800000002" green="0.83921568629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="3ah-oF-PPf"/>
-                                                    <constraint firstAttribute="height" constant="50" id="Xo7-iT-7oy"/>
-                                                </constraints>
                                                 <connections>
                                                     <action selector="didSelectColor:" destination="Fk3-VZ-k5l" eventType="touchUpInside" id="OIP-Lo-ww9"/>
                                                 </connections>
@@ -423,17 +304,17 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="XzI-uS-iDb"/>
+                                    <constraint firstAttribute="height" constant="375" id="ovK-Gx-hCb"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ibb-2h-zsB" firstAttribute="leading" secondItem="qJ8-xl-k01" secondAttribute="leading" constant="20" id="8lo-B2-ARj"/>
-                            <constraint firstItem="qJ8-xl-k01" firstAttribute="trailing" secondItem="Ibb-2h-zsB" secondAttribute="trailing" constant="20" id="Per-t6-aSG"/>
-                            <constraint firstItem="Ibb-2h-zsB" firstAttribute="top" secondItem="qJ8-xl-k01" secondAttribute="top" constant="20" id="YRR-uv-d5r"/>
+                            <constraint firstItem="Ibb-2h-zsB" firstAttribute="leading" secondItem="k5H-9H-nfT" secondAttribute="leading" constant="20" id="8lo-B2-ARj"/>
+                            <constraint firstItem="Ibb-2h-zsB" firstAttribute="trailing" secondItem="k5H-9H-nfT" secondAttribute="trailing" constant="-20" id="Per-t6-aSG"/>
+                            <constraint firstItem="Ibb-2h-zsB" firstAttribute="top" secondItem="k5H-9H-nfT" secondAttribute="topMargin" constant="20" id="YRR-uv-d5r"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="qJ8-xl-k01"/>
+                        <viewLayoutGuide key="safeArea" id="ycN-wS-Lmb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Category Color" id="46E-9P-UGD">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="k48-Jx-pWc">
@@ -484,15 +365,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="ItemsVC" id="xue-aK-VTX" userLabel="Items" customClass="ItemVC" customModule="Do_This" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yfb-5M-O4W">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ul1-2W-Wca" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ul1-2W-Wca" id="LdT-qi-4en">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -527,7 +408,7 @@
                 <navigationController storyboardIdentifier="InitialNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="XJb-V4-yeo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2tt-e9-3kp">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="93"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
@@ -551,7 +432,7 @@
                 <navigationController storyboardIdentifier="ColorPickerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DwT-1P-jkp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J7f-uF-i3Y">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

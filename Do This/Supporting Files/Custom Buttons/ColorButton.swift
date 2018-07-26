@@ -13,8 +13,8 @@ class ColorButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = frame.size.height / 2
         frame.size = CGSize(width: 50, height: 50)
+        layer.cornerRadius = frame.size.height / 2
     }
 
 }
