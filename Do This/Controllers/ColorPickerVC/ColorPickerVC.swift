@@ -17,7 +17,7 @@ class ColorPickerViewController: UIViewController {
     weak var delegate: ColorPickerDelegate!
     var selectedCategory: Category!
     var selectedColorHex: String!
-    @IBOutlet var colorButtons: [ColorButton]!
+    @IBOutlet var colorButtons: [ColorPickerScreenColorButton]!
     
     // MARK: - Lifecycle Methods
     
@@ -61,7 +61,7 @@ class ColorPickerViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func didSelectColor(_ sender: ColorButton) {
+    @IBAction func didSelectColor(_ sender: ColorPickerScreenColorButton) {
         let hapticGenerator = UISelectionFeedbackGenerator()
         hapticGenerator.selectionChanged()
         deselectAllColorButtons()
