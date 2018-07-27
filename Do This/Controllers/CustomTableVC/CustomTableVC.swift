@@ -49,6 +49,10 @@ class CustomTableVC: UITableViewController {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        delegate.moveElement(from: sourceIndexPath, to: destinationIndexPath)
+    }
+    
     // MARK: - Alert Methods
     
     func presentEditAlertController(at indexPath: IndexPath) {

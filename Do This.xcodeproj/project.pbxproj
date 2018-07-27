@@ -122,9 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				2148875A20D9A0A9000132F0 /* CategoryVC.swift */,
-				21DB2E9120F68D58002BE4B6 /* CategoryVC+ColorPicker.swift */,
 				2145717D2106B8ED006529FF /* CategoryVC+CustomTable.swift */,
 				218E334A21079EB700898909 /* CategoryVC+Data.swift */,
+				21DB2E9120F68D58002BE4B6 /* CategoryVC+ColorPicker.swift */,
 			);
 			path = CategoryVC;
 			sourceTree = "<group>";
@@ -133,9 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				21941B3020D084E900041A37 /* ItemVC.swift */,
-				21902BBD20F4585E00E09741 /* ItemVC+SearchBar.swift */,
 				2145717F2106B91A006529FF /* ItemVC+CustomTable.swift */,
 				210847832107A63C0072BA0A /* ItemVC+Data.swift */,
+				21902BBD20F4585E00E09741 /* ItemVC+SearchBar.swift */,
 				21E89595210828C200354CFD /* ItemVC+SwipeBack.swift */,
 			);
 			path = ItemVC;

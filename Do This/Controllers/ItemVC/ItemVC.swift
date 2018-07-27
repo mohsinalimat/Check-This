@@ -59,10 +59,6 @@ class ItemVC: CustomTableVC {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        moveItem(from: sourceIndexPath, to: destinationIndexPath)
-    }
-    
     // MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

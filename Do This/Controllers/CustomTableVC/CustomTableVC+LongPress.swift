@@ -14,7 +14,7 @@ private struct LongPressPersistentValues {
 }
 
 extension CustomTableVC: UIGestureRecognizerDelegate {
-
+    
     // MARK: - Long Press Setup
     
     func setUpTableViewLongPressGesture() {
@@ -73,8 +73,8 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
             UIView.animate(withDuration: 0.25, animations: {
                 center.y = locationInView.y
                 LongPressPersistentValues.cellSnapShot?.center = center
-                LongPressPersistentValues.cellSnapShot?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-                LongPressPersistentValues.cellSnapShot?.alpha = 0.98
+                LongPressPersistentValues.cellSnapShot?.transform = CGAffineTransform(scaleX: 1.06, y: 1.06)
+                LongPressPersistentValues.cellSnapShot?.alpha = 0.9
                 cell.alpha = 0.0
             }, completion: { _ in
                 cell.isHidden = true
