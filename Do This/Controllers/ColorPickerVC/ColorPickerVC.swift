@@ -40,7 +40,7 @@ class ColorPickerViewController: UIViewController {
          ColorPickerVC, the checkmark on the selected color has the wrong
          dimensions. This implementation will change the checkmark dimensions
          visibly to the user. */
-        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+        if UIDevice.current.orientation.isLandscape {
             removePreviousCheckmarks()
             addCheckmarkToSelectedColorButton()
         }
