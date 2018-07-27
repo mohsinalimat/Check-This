@@ -113,7 +113,6 @@
 				21941B2E20D084E900041A37 /* AppDelegate.swift */,
 				21941B3720D084EA00041A37 /* LaunchScreen.storyboard */,
 				21E895932108208500354CFD /* Assets.xcassets */,
-				21941B3A20D084EA00041A37 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,6 +183,7 @@
 				210C5CAE20D0C36900A7D6AD /* Views */,
 				210C5CAC20D0C35600A7D6AD /* Controllers */,
 				210C5CAF20D0C3C400A7D6AD /* Supporting Files */,
+				21941B3A20D084EA00041A37 /* Info.plist */,
 			);
 			path = "Do This";
 			sourceTree = "<group>";
@@ -520,7 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6342KE2Y4P;
-				INFOPLIST_FILE = "Do This/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Do This/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6342KE2Y4P;
-				INFOPLIST_FILE = "Do This/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Do This/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

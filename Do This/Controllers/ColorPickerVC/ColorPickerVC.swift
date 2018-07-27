@@ -35,6 +35,26 @@ class ColorPickerViewController: UIViewController {
         addCheckmarkToSelectedColorButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        /* If device is in landscape when the user navigates to the
+         ColorPickerVC, the checkmark on the selected color has the wrong
+         dimensions. This implementation will change the checkmark dimensions
+         visibly to the user. */
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            removePreviousCheckmarks()
+            addCheckmarkToSelectedColorButton()
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { (_) in
+            // Updates checkmark when user changes device orientation.
+            self.removePreviousCheckmarks()
+            self.addCheckmarkToSelectedColorButton()
+        }, completion: nil)
+    }
+    
     // MARK: - IBActions
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
@@ -61,10 +81,10 @@ class ColorPickerViewController: UIViewController {
     }
     
     func addCheckmarkToSelectedColorButton() {
-        let checkmark = UIImageView(image: UIImage(named: "Checkmark"))
-        checkmark.frame.size = CGSize(width: 25, height: 25)
-        checkmark.tag = 100
         for button in colorButtons where button.isSelected {
+            let checkmark = UIImageView(image: UIImage(named: "Checkmark"))
+            checkmark.tag = 100
+            checkmark.frame.size = CGSize(width: button.frame.width/2, height: button.frame.height/2)
             checkmark.center = button.convert(button.center, from: button.superview)
             button.addSubview(checkmark)
         }
