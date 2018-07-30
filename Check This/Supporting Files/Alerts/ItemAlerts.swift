@@ -17,7 +17,7 @@ struct ItemAlerts {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         let addItemAction = UIAlertAction(title: "Add", style: .default) { _ in
-            if textField.text! != "" {
+            if !textField.text!.isEmpty {
                 let newItem = Item()
                 newItem.name = textField.text!
                 newItem.timeCreated = Date()

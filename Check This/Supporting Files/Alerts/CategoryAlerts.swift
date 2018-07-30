@@ -17,7 +17,7 @@ struct CategoryAlerts {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         let addCategoryAction = UIAlertAction(title: "Add", style: .default) { _ in
-            if textField.text! != "" {
+            if !textField.text!.isEmpty {
                 let newCategory = Category()
                 newCategory.name = textField.text!
                 newCategory.colorHexValue = categoryVC.differentCategoryColorHex()
