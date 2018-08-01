@@ -73,7 +73,6 @@ class ItemVC: CustomTableVC {
             } catch {
                 fatalError("Error changing item done property \(error)")
             }
-            print("DIDSELECTROWAT name: \(item.name), persistedIndexRow: \(item.persistedIndexRow)")
         }
         tableView.reloadData()
     }
