@@ -82,7 +82,7 @@ extension ItemVC {
     }
     
     func deleteItem(at indexPath: IndexPath) {
-        if let item = selectedCategory?.items[indexPath.row] {
+        if let item = selectedCategory?.items.sorted(byKeyPath: "persistedIndexRow")[indexPath.row] {
             do {
                 try realm.write {
                     realm.delete(item)
