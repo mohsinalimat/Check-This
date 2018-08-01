@@ -131,6 +131,8 @@ class ItemVC: CustomTableVC {
         let searchBar = searchController.searchBar
         searchBar.delegate = self
         searchBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
+        // Set cursor color in search bar to gray
+        UITextField.appearanceWhenContained(within: [type(of: searchController.searchBar)]).tintColor = .gray
         searchBar.placeholder = "Search"
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             if let backgroundview = textfield.subviews.first {
