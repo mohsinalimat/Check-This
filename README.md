@@ -9,7 +9,7 @@ Colorful iOS to-do list app.
 ## Demo
 
 <p align="left">
-  <img src="https://dl.dropboxusercontent.com/s/ystmx8ygo9h33ln/Check%20This%20App%20Preview%20-%20200x433%4024fps.gif?dl=0" alt="Check This Demo Gif" width = 200/>
+  <img src="https://dl.dropboxusercontent.com/s/n12c77x2cwkq2ns/Check%20This%20App%20Preview%20-%20175x379%4015fps.gif?dl=0" alt="Check This Demo Gif" width = 200/>
 </p>
 
 ## Features
