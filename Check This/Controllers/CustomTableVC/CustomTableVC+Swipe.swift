@@ -47,7 +47,11 @@ extension CustomTableVC: SwipeTableViewCellDelegate {
             return actions
             
         case .left:
-            navigationController?.popViewController(animated: true)
+            // Pops view controller if user swipes from the left edge of the
+            // cell only if user is not using the search bar.
+            if presentedViewController == nil {
+                navigationController?.popViewController(animated: true)
+            }
             return nil
         }
     }

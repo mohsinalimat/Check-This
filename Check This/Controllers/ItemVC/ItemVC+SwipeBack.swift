@@ -16,8 +16,11 @@ extension ItemVC {
         view.addGestureRecognizer(screenEdgePanGesture)
     }
 
+    /// Pops view controller if user swipes from the left edge of the view
+    /// only if user is not using the search bar. (swiping a table view cell
+    /// handled by CustomTableVC+Swipe.swift)
     @objc func handleScreenEdgePanGesture(_ recognizer: UIScreenEdgePanGestureRecognizer) {
-        if recognizer.state == .recognized {
+        if recognizer.state == .recognized && presentedViewController == nil {
             navigationController?.popViewController(animated: true)
         }
     }
