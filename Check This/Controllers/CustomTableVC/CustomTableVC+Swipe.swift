@@ -19,6 +19,11 @@ extension CustomTableVC: SwipeTableViewCellDelegate {
         switch orientation {
         case .right:
             
+            // If the user is searching for an item, they can cross it out, but
+            // can't open the swipe menu to edit or delete. Deleting while
+            // searching deletes the wrong item.
+            if presentedViewController != nil { return nil }
+            
             var actions = [SwipeAction]()
             let swipeToEditDescription: String? = self is CategoryVC ? "Edit" : nil
             let swipeToDeleteDescription: String? = self is CategoryVC ? "Delete" : nil
