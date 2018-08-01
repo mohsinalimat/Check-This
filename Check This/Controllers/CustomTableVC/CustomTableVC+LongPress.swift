@@ -59,27 +59,28 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
     }
     
     func handleLongPressBegan(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
+        guard let currentIndexPath = currentIndexPath else { return }
+        guard let cell = tableView.cellForRow(at: currentIndexPath) else { return }
+        
         let hapticGenerator = UINotificationFeedbackGenerator()
         hapticGenerator.notificationOccurred(.success)
-        if currentIndexPath != nil {
-            LongPressPersistentValues.indexPath = currentIndexPath
-            guard let cell = tableView.cellForRow(at: currentIndexPath!) else { return }
-            LongPressPersistentValues.cellSnapShot = snapshopOfCell(inputView: cell)
-            var center = cell.center
+        
+        LongPressPersistentValues.indexPath = currentIndexPath
+        LongPressPersistentValues.cellSnapShot = snapshopOfCell(inputView: cell)
+        var center = cell.center
+        LongPressPersistentValues.cellSnapShot?.center = center
+        LongPressPersistentValues.cellSnapShot?.alpha = 0.0
+        tableView.addSubview(LongPressPersistentValues.cellSnapShot!)
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            center.y = locationInView.y
             LongPressPersistentValues.cellSnapShot?.center = center
-            LongPressPersistentValues.cellSnapShot?.alpha = 0.0
-            tableView.addSubview(LongPressPersistentValues.cellSnapShot!)
-            
-            UIView.animate(withDuration: 0.25, animations: {
-                center.y = locationInView.y
-                LongPressPersistentValues.cellSnapShot?.center = center
-                LongPressPersistentValues.cellSnapShot?.transform = CGAffineTransform(scaleX: 1.06, y: 1.06)
-                LongPressPersistentValues.cellSnapShot?.alpha = 0.9
-                cell.alpha = 0.0
-            }, completion: { _ in
-                cell.isHidden = true
-            })
-        }
+            LongPressPersistentValues.cellSnapShot?.transform = CGAffineTransform(scaleX: 1.06, y: 1.06)
+            LongPressPersistentValues.cellSnapShot?.alpha = 0.9
+            cell.alpha = 0.0
+        }, completion: { _ in
+            cell.isHidden = true
+        })
     }
     
     func handleLongPressChanged(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
@@ -94,9 +95,10 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
     }
     
     func handleLongPressEnded() {
+        guard let persistedIndexPath = LongPressPersistentValues.indexPath else { return }
+        guard let cell = tableView.cellForRow(at: persistedIndexPath) else { fatalError() }
         let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
         hapticGenerator.impactOccurred()
-        guard let cell = tableView.cellForRow(at: LongPressPersistentValues.indexPath!) else { return }
         cell.isHidden = false
         cell.alpha = 0.0
         UIView.animate(withDuration: 0.25, animations: {

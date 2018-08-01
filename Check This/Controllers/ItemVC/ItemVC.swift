@@ -73,6 +73,7 @@ class ItemVC: CustomTableVC {
             } catch {
                 fatalError("Error changing item done property \(error)")
             }
+            print("DIDSELECTROWAT name: \(item.name), persistedIndexRow: \(item.persistedIndexRow)")
         }
         tableView.reloadData()
     }
@@ -103,14 +104,19 @@ class ItemVC: CustomTableVC {
     
     // MARK: - Set up Table View Appearance
     
+    /// Sets a background displaying instructions on how to add items if the
+    /// tableView is empty.
     func setItemTableViewAppearance() {
-        tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
-        tableView.backgroundView?.backgroundColor = categoryColor.withAlphaComponent(0.1)
-        if let numberOfItems = items?.count {
-            if numberOfItems == 0 {
-                let instructions = "Add a new item to\nyour to-do list using\nthe + button."
-                let instructionsLabel = labelWith(instructions)
-                tableView.backgroundView?.addSubview(instructionsLabel)
+        // If user is searching, the background instructions will not display.
+        if presentedViewController == nil {
+            tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
+            tableView.backgroundView?.backgroundColor = categoryColor.withAlphaComponent(0.1)
+            if let numberOfItems = items?.count {
+                if numberOfItems == 0 {
+                    let instructions = "Add a new item to\nyour to-do list using\nthe + button."
+                    let instructionsLabel = labelWith(instructions)
+                    tableView.backgroundView?.addSubview(instructionsLabel)
+                }
             }
         }
     }

@@ -13,6 +13,6 @@ class Item: Object {
     @objc dynamic var name = ""
     @objc dynamic var done = false
     @objc dynamic var timeCreated = Date()
-    @objc dynamic var indexForSorting = 0
+    @objc dynamic var persistedIndexRow = 0
     var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }

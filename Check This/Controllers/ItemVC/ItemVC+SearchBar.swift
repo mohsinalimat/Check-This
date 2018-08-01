@@ -16,13 +16,14 @@ extension ItemVC: UISearchBarDelegate {
         if searchText.isEmpty {
             loadItems()
         } else {
-            items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchText)
+            items = selectedCategory?.items.filter("name CONTAINS[cd] %@", searchText).sorted(byKeyPath: "persistedIndexRow")
             tableView.reloadData()
         }
     }
         
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         loadItems()
+        resetItemsPersistedIndexRow()
     }
     
 }

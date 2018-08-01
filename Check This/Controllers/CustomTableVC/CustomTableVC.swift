@@ -11,6 +11,7 @@ import SwipeCellKit
 protocol CustomTableDelegate: class {
     func moveElement(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
     func deleteElement(at indexPath: IndexPath)
+    func resetIndexes()
     func setTableViewAppearance()
 }
 

@@ -18,6 +18,7 @@ extension CustomTableVC: SwipeTableViewCellDelegate {
         
         switch orientation {
         case .right:
+            
             var actions = [SwipeAction]()
             let swipeToEditDescription: String? = self is CategoryVC ? "Edit" : nil
             let swipeToDeleteDescription: String? = self is CategoryVC ? "Delete" : nil
@@ -27,8 +28,10 @@ extension CustomTableVC: SwipeTableViewCellDelegate {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
                 self.presentEditAlertController(at: indexPath)
             }
+            
             let deleteAction = SwipeAction(style: .destructive, title: swipeToDeleteDescription) { _, indexPath in
                 self.delegate.deleteElement(at: indexPath)
+                self.delegate.resetIndexes()
                 self.delegate.setTableViewAppearance()
             }
             

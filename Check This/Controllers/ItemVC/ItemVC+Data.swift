@@ -17,7 +17,7 @@ extension ItemVC {
             try realm.write {
                 realm.add(item)
                 if let items = items {
-                    item.indexForSorting = items.count
+                    item.persistedIndexRow = items.count
                 }
                 selectedCategory?.items.append(item)
             }
@@ -27,7 +27,7 @@ extension ItemVC {
     }
     
     func loadItems() {
-        items = selectedCategory?.items.sorted(byKeyPath: "indexForSorting", ascending: true)
+        items = selectedCategory?.items.sorted(byKeyPath: "persistedIndexRow", ascending: true)
         tableView.reloadData()
     }
     
@@ -51,32 +51,32 @@ extension ItemVC {
                 if sourceIndexPath.row < destinationIndexPath.row {
                     for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
                         let item = items?[index]
-                        item?.indexForSorting -= 1
+                        item?.persistedIndexRow -= 1
                     }
                 } else if sourceIndexPath.row > destinationIndexPath.row {
                     for index in destinationIndexPath.row..<sourceIndexPath.row {
-                        items?[index].indexForSorting += 1
+                        items?[index].persistedIndexRow += 1
                     }
                 }
-                itemBeingMoved?.indexForSorting = destinationIndexPath.row
+                itemBeingMoved?.persistedIndexRow = destinationIndexPath.row
             }
         } catch {
             fatalError("Error moving item to new indexPath \(error)")
         }
     }
     
-    func resetItemsIndexForSorting() {
+    func resetItemsPersistedIndexRow() {
         if let items = items {
-            var indexForSorting = 0
+            var index = 0
             for item in items {
                 do {
                     try realm.write {
-                        item.indexForSorting = indexForSorting
+                        item.persistedIndexRow = index
                     }
                 } catch {
-                    fatalError("Error resetting item indexForSorting \(error)")
+                    fatalError("Error resetting item persistedIndexRow \(error)")
                 }
-                indexForSorting += 1
+                index += 1
             }
         }
     }
@@ -91,7 +91,6 @@ extension ItemVC {
                 fatalError("Error deleting item \(error)")
             }
         }
-        resetItemsIndexForSorting()
     }
     
 }

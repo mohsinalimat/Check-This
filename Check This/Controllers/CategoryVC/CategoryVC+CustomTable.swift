@@ -18,6 +18,10 @@ extension CategoryVC: CustomTableDelegate {
         deleteCategory(at: indexPath)
     }
     
+    func resetIndexes() {
+        resetCategoriesPersistedIndexRow()
+    }
+    
     func setTableViewAppearance() {
         setCategoryTableViewAppearance()
     }

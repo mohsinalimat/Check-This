@@ -17,7 +17,7 @@ extension CategoryVC {
             try realm.write {
                 realm.add(category)
                 if let categories = categories {
-                    category.indexForSorting = categories.count - 1
+                    category.persistedIndexRow = categories.count - 1
                 }
             }
         } catch {
@@ -26,7 +26,7 @@ extension CategoryVC {
     }
     
     func loadCategories() {
-        categories = realm.objects(Category.self).sorted(byKeyPath: "indexForSorting", ascending: true)
+        categories = realm.objects(Category.self).sorted(byKeyPath: "persistedIndexRow", ascending: true)
         tableView.reloadData()
     }
     
@@ -52,33 +52,33 @@ extension CategoryVC {
                 let categoryBeingMoved = categories?[sourceIndexPath.row]
                 if sourceIndexPath.row < destinationIndexPath.row {
                     for index in (sourceIndexPath.row + 1)...destinationIndexPath.row {
-                        categories?[index].indexForSorting -= 1
+                        categories?[index].persistedIndexRow -= 1
                     }
                 } else if sourceIndexPath.row > destinationIndexPath.row {
                     for index in destinationIndexPath.row..<sourceIndexPath.row {
-                        categories?[index].indexForSorting += 1
+                        categories?[index].persistedIndexRow += 1
                     }
                 }
-                categoryBeingMoved?.indexForSorting = destinationIndexPath.row
+                categoryBeingMoved?.persistedIndexRow = destinationIndexPath.row
             }
         } catch {
             fatalError("Error moving category to new indexPath \(error)")
         }
     }
     
-    func resetCategoriesIndexForSorting() {
+    func resetCategoriesPersistedIndexRow() {
         if let categories = categories {
-            var indexForSorting = 0
+            var index = 0
             for category in categories {
                 do {
                     try realm.write {
-                        category.indexForSorting = indexForSorting
+                        category.persistedIndexRow = index
                         
                     }
                 } catch {
-                    fatalError("Error resetting category indexForSorting \(error)")
+                    fatalError("Error resetting category persistedIndexRow \(error)")
                 }
-                indexForSorting += 1
+                index += 1
             }
         }
     }
@@ -94,7 +94,6 @@ extension CategoryVC {
                 fatalError("Error deleting category \(error)")
             }
         }
-        resetCategoriesIndexForSorting()
     }
     
 }
