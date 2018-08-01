@@ -1,10 +1,18 @@
-<p align="center"><img src="https://dl.dropboxusercontent.com/s/qedprrmi7k640k7/Check%20This%20Icon-180.png?dl=0" alt="Check This Icon"/></p>
+<p align="center">
+  <img src="https://dl.dropboxusercontent.com/s/qedprrmi7k640k7/Check%20This%20Icon-180.png?dl=0" alt="Check This Icon"/>
+</p>
 
 # Check This
 
 Colorful iOS to-do list app.
 
-## Details:
+## Demo
+
+<p align="left">
+  <img src="https://dl.dropboxusercontent.com/s/62wcskn6bylvd7f/Check%20This%20App%20Preview%20%28886%20x%201920%29.gif?dl=0" alt="Check This Demo Gif" width = 200/>
+</p>
+
+## Features
 
 -Create new category or item by touching the + button
 
@@ -25,6 +33,6 @@ effect using the category color
 
 -Persists data using Realm
 
-## Author:
+## Author
 
 Luis M Gonzalez
