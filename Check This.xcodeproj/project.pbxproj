@@ -30,10 +30,12 @@
 		21E895942108208500354CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E895932108208500354CFD /* Assets.xcassets */; };
 		21E89596210828C200354CFD /* ItemVC+SwipeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E89595210828C200354CFD /* ItemVC+SwipeBack.swift */; };
 		21E919CC210127F200BE1460 /* ItemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E919CB210127F200BE1460 /* ItemAlerts.swift */; };
+		6E765D1EC88A0A77692FC905 /* Pods_Check_This.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56AF449AB7C2994F775C0C2 /* Pods_Check_This.framework */; };
 		A1536C9A72C7B648E5F193B8 /* Pods_Do_This.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10357417EE5BB3E8581C37C /* Pods_Do_This.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B1EB04DC212216D6D584CF0 /* Pods-Check This.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check This.release.xcconfig"; path = "Pods/Target Support Files/Pods-Check This/Pods-Check This.release.xcconfig"; sourceTree = "<group>"; };
 		210847832107A63C0072BA0A /* ItemVC+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemVC+Data.swift"; sourceTree = "<group>"; };
 		210EC57F20F016B80000FD85 /* CustomTableVC+LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTableVC+LongPress.swift"; sourceTree = "<group>"; };
 		21380BEF2100E68C0020A4C9 /* CategoryAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAlerts.swift; sourceTree = "<group>"; };
@@ -59,9 +61,11 @@
 		21E895932108208500354CFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21E89595210828C200354CFD /* ItemVC+SwipeBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemVC+SwipeBack.swift"; sourceTree = "<group>"; };
 		21E919CB210127F200BE1460 /* ItemAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAlerts.swift; sourceTree = "<group>"; };
+		4C426250E7BC59860F7B6AF9 /* Pods-Check This.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check This.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Check This/Pods-Check This.debug.xcconfig"; sourceTree = "<group>"; };
 		8B41E396F281A93FABA83CEC /* Pods-Do This.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do This.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Do This/Pods-Do This.debug.xcconfig"; sourceTree = "<group>"; };
 		94B9B7A680BF9BD991D82B97 /* Pods-Do This.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do This.release.xcconfig"; path = "Pods/Target Support Files/Pods-Do This/Pods-Do This.release.xcconfig"; sourceTree = "<group>"; };
 		F10357417EE5BB3E8581C37C /* Pods_Do_This.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Do_This.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F56AF449AB7C2994F775C0C2 /* Pods_Check_This.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_This.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1536C9A72C7B648E5F193B8 /* Pods_Do_This.framework in Frameworks */,
+				6E765D1EC88A0A77692FC905 /* Pods_Check_This.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +207,8 @@
 			children = (
 				8B41E396F281A93FABA83CEC /* Pods-Do This.debug.xcconfig */,
 				94B9B7A680BF9BD991D82B97 /* Pods-Do This.release.xcconfig */,
+				4C426250E7BC59860F7B6AF9 /* Pods-Check This.debug.xcconfig */,
+				0B1EB04DC212216D6D584CF0 /* Pods-Check This.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				F10357417EE5BB3E8581C37C /* Pods_Do_This.framework */,
+				F56AF449AB7C2994F775C0C2 /* Pods_Check_This.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -308,7 +316,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Do This-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Check This-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -321,7 +329,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Do This/Pods-Do This-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Check This/Pods-Check This-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -336,7 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Do This/Pods-Do This-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Check This/Pods-Check This-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -507,7 +515,7 @@
 		};
 		21941B3E20D084EA00041A37 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B41E396F281A93FABA83CEC /* Pods-Do This.debug.xcconfig */;
+			baseConfigurationReference = 4C426250E7BC59860F7B6AF9 /* Pods-Check This.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -528,7 +536,7 @@
 		};
 		21941B3F20D084EA00041A37 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94B9B7A680BF9BD991D82B97 /* Pods-Do This.release.xcconfig */;
+			baseConfigurationReference = 0B1EB04DC212216D6D584CF0 /* Pods-Check This.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

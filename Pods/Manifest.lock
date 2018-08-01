@@ -2,12 +2,12 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Realm (3.7.4):
-    - Realm/Headers (= 3.7.4)
-  - Realm/Headers (3.7.4)
-  - RealmSwift (3.7.4):
-    - Realm (= 3.7.4)
-  - SwiftLint (0.26.0)
+  - Realm (3.7.5):
+    - Realm/Headers (= 3.7.5)
+  - Realm/Headers (3.7.5)
+  - RealmSwift (3.7.5):
+    - Realm (= 3.7.5)
+  - SwiftLint (0.27.0)
   - SwipeCellKit (2.4.3)
 
 DEPENDENCIES:
@@ -34,11 +34,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
-  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
-  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
+  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
-PODFILE CHECKSUM: a232ff31e2cc2ae15b5c586dbb50693cf845fa91
+PODFILE CHECKSUM: 7e3e57b85a4c4a15ee29e733c135bbd2ca432536
 
 COCOAPODS: 1.5.3
