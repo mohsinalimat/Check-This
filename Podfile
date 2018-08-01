@@ -5,7 +5,7 @@ target 'Check This' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Do This
+  # Pods for Check This
   pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'SwipeCellKit'
