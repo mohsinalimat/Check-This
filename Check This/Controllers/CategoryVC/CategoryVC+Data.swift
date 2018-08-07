@@ -10,7 +10,7 @@ import RealmSwift
 
 extension CategoryVC {
     
-    // MARK: - Data Methods
+    // MARK: - Create Data Methods
     
     func save(_ category: Category) {
         do {
@@ -25,24 +25,34 @@ extension CategoryVC {
         }
     }
     
+    // MARK: - Read Data Methods
+    
     func loadCategories() {
         categories = realm.objects(Category.self).sorted(byKeyPath: "persistedIndexRow", ascending: true)
         tableView.reloadData()
     }
     
-    func edit(category: Category, newName: String? = nil, newColorHex: String? = nil) {
+    // MARK: - Update Data Methods
+    
+    /// Edit the provided category's name.
+    func edit(category: Category, newName: String) {
         do {
             try realm.write {
-                if let newName = newName {
-                    category.name = newName
-                }
-                if let newColorHex = newColorHex {
-                    category.colorHexValue = newColorHex
-                }
-                realm.add(category)
+                category.name = newName
             }
         } catch {
-            fatalError("Error editing category \(error)")
+            fatalError("Error editing category name \(error)")
+        }
+    }
+    
+    /// Edit the provided category's colorHexValue.
+    func edit(category: Category, newColorHex: String) {
+        do {
+            try realm.write {
+                category.colorHexValue = newColorHex
+            }
+        } catch {
+            fatalError("Error editing category colorHexValue \(error)")
         }
     }
     
@@ -82,6 +92,8 @@ extension CategoryVC {
             }
         }
     }
+    
+    // MARK: - Delete Data Methods
     
     func deleteCategory(at indexPath: IndexPath) {
         if let categoryToBeDeleted = self.categories?[indexPath.row] {

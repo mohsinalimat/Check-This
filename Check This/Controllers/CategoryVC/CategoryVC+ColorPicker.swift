@@ -9,7 +9,7 @@
 extension CategoryVC: ColorPickerDelegate {
     
     func didPickNewColorFor(_ category: Category, newColorHex: String) {
-        edit(category: category, newName: nil, newColorHex: newColorHex)
+        edit(category: category, newColorHex: newColorHex)
     }
 
 }
