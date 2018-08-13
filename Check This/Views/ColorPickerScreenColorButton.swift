@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// This is a round button used to display the color options the users can pick
+/// in the ColorPicker screen for categories.
 @IBDesignable
 class ColorPickerScreenColorButton: UIButton {
 
