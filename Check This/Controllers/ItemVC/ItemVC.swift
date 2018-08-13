@@ -53,7 +53,8 @@ class ItemVC: CustomTableVC {
         } else {
             cell.imageView?.image = UIImage(named: "Unchecked_Checkbox_Icon")
         }
-        cell.backgroundColor = categoryColor.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(items!.count))
+        let percentageToDarkenCellBackground = CGFloat(indexPath.row) / CGFloat(items!.count + 5)
+        cell.backgroundColor = categoryColor.darken(byPercentage: percentageToDarkenCellBackground)
         cell.textLabel?.attributedText = cellTitle
         cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
         return cell
