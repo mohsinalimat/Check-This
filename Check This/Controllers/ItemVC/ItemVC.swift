@@ -10,14 +10,21 @@ import RealmSwift
 import ChameleonFramework
 
 class ItemVC: CustomTableVC {
-
-    var items: Results<Item>?
+    
+    /// Realm database instance.
     let realm = try! Realm() // swiftlint:disable:this force_try
+    
+    /// Realm container of the user created items in the selected category.
+    var items: Results<Item>?
+    
+    /// Category the user selected to navigate to the Item screen.
     var selectedCategory: Category? {
         didSet {
             loadItems()
         }
     }
+    
+    /// Color of the selectedCategory.
     var categoryColor: UIColor {
         return UIColor(hexString: selectedCategory!.colorHexValue)!
     }
@@ -80,16 +87,21 @@ class ItemVC: CustomTableVC {
     
     // MARK: - @IBActions
     
+    /// Called when user touches the + button to add a new item. Presents alert
+    /// for user to provide new item name.
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         ItemAlerts.presentAlertToAddNewItem(from: self)
     }
     
+    /// Called when user touches the back button in the navigation bar.
+    /// Pops the Item screen.
     @IBAction func goBack(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Navigation Controller Setup
     
+    /// Sets up the navigation controller properties.
     func setUpNavigationController() {
         title = selectedCategory?.name
         let contrastingColor = ContrastColorOf(categoryColor, returnFlat: true)
@@ -123,6 +135,7 @@ class ItemVC: CustomTableVC {
     
     // MARK: - Set Up Search Bar
     
+    /// Sets up the search bar properties.
     func setUpSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
@@ -131,6 +144,7 @@ class ItemVC: CustomTableVC {
         let searchBar = searchController.searchBar
         searchBar.delegate = self
         searchBar.tintColor = ContrastColorOf(categoryColor, returnFlat: true)
+        
         // Set cursor color in search bar to gray
         UITextField.appearanceWhenContained(within: [type(of: searchController.searchBar)]).tintColor = .gray
         searchBar.placeholder = "Search"
@@ -141,5 +155,5 @@ class ItemVC: CustomTableVC {
             }
         }
     }
-
+    
 }
