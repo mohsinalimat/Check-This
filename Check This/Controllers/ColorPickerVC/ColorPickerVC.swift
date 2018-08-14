@@ -9,14 +9,24 @@
 import UIKit
 
 protocol ColorPickerDelegate: class {
+    
+    /// Assigns the newColorHex of the color the user selects to the given
+    /// category.
     func didPickNewColorFor(_ category: Category, newColorHex: String)
+    
 }
 
 class ColorPickerViewController: UIViewController {
-
+    
     weak var delegate: ColorPickerDelegate!
+    
+    /// The category that the user selected to edit its color.
     var selectedCategory: Category!
+    
+    /// Color hex of the selected category color.
     var selectedColorHex: String!
+    
+    /// Array of all the color buttons that a user can pick from for the category.
     @IBOutlet var colorButtons: [ColorPickerScreenColorButton]!
     
     // MARK: - Lifecycle Methods
@@ -48,8 +58,9 @@ class ColorPickerViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        /* Animates the selected color button's checkmark so that it has the right
+         dimensions and location when the user changes the device orientation. */
         coordinator.animate(alongsideTransition: { (_) in
-            // Updates checkmark when user changes device orientation.
             self.removePreviousCheckmarks()
             self.addCheckmarkToSelectedColorButton()
         }, completion: nil)
@@ -57,10 +68,13 @@ class ColorPickerViewController: UIViewController {
     
     // MARK: - IBActions
     
+    /// Called when user taps the done button. Dismisses Color Picker screen.
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    /// Called when user touches a color button. Gives user haptic feedback and
+    /// assigns the color that user selects to selected category.
     @IBAction func didSelectColor(_ sender: ColorPickerScreenColorButton) {
         let hapticGenerator = UISelectionFeedbackGenerator()
         hapticGenerator.selectionChanged()
@@ -74,12 +88,14 @@ class ColorPickerViewController: UIViewController {
     
     // MARK: - Modify User Interface Methods
     
+    /// Removes all checkmarks from the superview.
     func removePreviousCheckmarks() {
         if let checkmark = view.viewWithTag(100) {
             checkmark.removeFromSuperview()
         }
     }
     
+    /// Adds a checkmark to the center of the selected color button.
     func addCheckmarkToSelectedColorButton() {
         for button in colorButtons where button.isSelected {
             let checkmark = UIImageView(image: UIImage(named: "Checkmark"))
@@ -90,6 +106,8 @@ class ColorPickerViewController: UIViewController {
         }
     }
     
+    /// Sets the background color to all the color buttons in the ColorPicker
+    /// screen.
     func setBackgroundColorsToColorButtons() {
         var index = 0
         for button in colorButtons {
@@ -100,6 +118,8 @@ class ColorPickerViewController: UIViewController {
     
     // MARK: - Selection Of Color Buttons Methods
     
+    /// Selects the color button that has a background color that matches the
+    /// selected category color.
     func selectCurrentCategoryColorButton() {
         for button in colorButtons {
             if button.backgroundColor?.hexValue().lowercased() == selectedColorHex.lowercased() {
@@ -109,6 +129,7 @@ class ColorPickerViewController: UIViewController {
         }
     }
     
+    /// Deselects all color buttons.
     func deselectAllColorButtons() {
         for button in colorButtons {
             button.isSelected = false
