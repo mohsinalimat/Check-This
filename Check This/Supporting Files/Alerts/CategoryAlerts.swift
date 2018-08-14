@@ -13,6 +13,7 @@ struct CategoryAlerts {
     
     // MARK: - Alerts Methods For CategoryVC
     
+    /// Presents an alert to add a new category.
     static func presentAlertToAddNewCategory(from categoryVC: CategoryVC) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
@@ -37,6 +38,7 @@ struct CategoryAlerts {
         categoryVC.present(alert, animated: true)
     }
     
+    /// Returns an UIAlertController to edit a category.
     static func editCategoryAlertController(from categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -61,6 +63,7 @@ struct CategoryAlerts {
         return alertController
     }
     
+    /// Returns a UIAlertAction to edit a categorie's name.
     static func editCategoryNameAction(from categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertAction {
         let editNameAction = UIAlertAction(title: "Edit Name", style: .default) { (_) in
             let editNameAlertController = CategoryAlerts.categoryEditNameAlertController(on: categoryVC, at: indexPath)
@@ -69,6 +72,7 @@ struct CategoryAlerts {
         return editNameAction
     }
     
+    /// Returns a UIAlertAction to edit a categorie's color.
     static func editCategoryColorAction(from categoryVC: CategoryVC) -> UIAlertAction {
         let editColorAction = UIAlertAction(title: "Change Color", style: .default) { (_) in
             categoryVC.performSegue(withIdentifier: "goToColorPickerVC", sender: categoryVC)
@@ -76,6 +80,7 @@ struct CategoryAlerts {
         return editColorAction
     }
     
+    /// Returns a UIAlertController used to edit a categorie's name.
     static func categoryEditNameAlertController(on categoryVC: CategoryVC, at indexPath: IndexPath) -> UIAlertController {
         let categoryAtIndexPath = categoryVC.categories![indexPath.row]
         guard let cell = categoryVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }

@@ -13,6 +13,7 @@ struct ItemAlerts {
     
     // MARK: - Alerts Methods For ItemVC
     
+    /// Presents an alert to add a new Item.
     static func presentAlertToAddNewItem(from itemVC: ItemVC) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
@@ -37,6 +38,7 @@ struct ItemAlerts {
         itemVC.present(alert, animated: true)
     }
     
+    /// Returns an UIAlertController to edit an Item.
     static func editItemAlertController(from itemVC: ItemVC, at indexPath: IndexPath) -> UIAlertController {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -60,6 +62,7 @@ struct ItemAlerts {
         return alertController
     }
     
+    /// Returns a UIAlertAction to edit an Item's name.
     static func editItemNameAction(from itemVC: ItemVC, at indexPath: IndexPath) -> UIAlertAction {
         let editNameAction = UIAlertAction(title: "Edit Name", style: .default) { (_) in
             let editNameAlertController = ItemAlerts.itemEditNameAlertController(on: itemVC, at: indexPath)
@@ -72,6 +75,7 @@ struct ItemAlerts {
         return editNameAction
     }
 
+    /// Returns a UIAlertController used to edit an Item's name.
     static func itemEditNameAlertController(on itemVC: ItemVC, at indexPath: IndexPath) -> UIAlertController {
         let itemAtIndexPath = itemVC.items![indexPath.row]
         guard let cell = itemVC.tableView.cellForRow(at: indexPath) as? SwipeTableViewCell else { fatalError() }
