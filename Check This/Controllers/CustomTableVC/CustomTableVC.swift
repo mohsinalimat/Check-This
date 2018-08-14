@@ -56,6 +56,7 @@ class CustomTableVC: UITableViewController {
     
     // MARK: - Alert Methods
     
+    /// Presents alert to edit item or category.
     func presentEditAlertController(at indexPath: IndexPath) {
         if let categoryVC = self as? CategoryVC {
             presentAlertController(CategoryAlerts.editCategoryAlertController(from: categoryVC, at: indexPath))
@@ -64,6 +65,8 @@ class CustomTableVC: UITableViewController {
         }
     }
     
+    /// Presents alert controller from either self or from the presented view
+    /// controller, if user is using search bar.
     func presentAlertController(_ alertController: UIAlertController) {
         if let presentedVC = self.presentedViewController {
             presentedVC.present(alertController, animated: true)
@@ -89,6 +92,7 @@ class CustomTableVC: UITableViewController {
         return instructionsLabel
     }
     
+    /// Returns the number of lines there are in the given string.
     func numberOfLines(in string: String) -> Int {
         var numberOfLinesCount = 0
         string.enumerateLines { (_, _) in
