@@ -9,9 +9,17 @@
 import SwipeCellKit
 
 protocol CustomTableDelegate: class {
+    
+    /// Moves an element from the sourceIndexPath to the destinationIndexPath.
     func moveElement(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    
+    /// Deletes element at indexPath
     func deleteElement(at indexPath: IndexPath)
+    
+    /// Resets the persisted indexes of the elements in the table view.
     func resetIndexes()
+    
+    /// Sets the table view appearance properties.
     func setTableViewAppearance()
 }
 
