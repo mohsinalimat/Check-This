@@ -10,8 +10,8 @@ import Foundation
 
 extension ItemVC: CustomTableDelegate {
 
-    /// Moves element only if user is not performing a search.
     func moveElement(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // Moves element only if user is not performing a search.
         if presentedViewController == nil {
             moveItem(from: sourceIndexPath, to: destinationIndexPath)
         }
