@@ -12,6 +12,7 @@ extension CategoryVC {
     
     // MARK: - Create Data Methods
     
+    /// Saves a new category to the database.
     func save(_ category: Category) {
         do {
             try realm.write {
@@ -27,6 +28,7 @@ extension CategoryVC {
     
     // MARK: - Read Data Methods
     
+    /// Loads all of the user's categories in the table view.
     func loadCategories() {
         categories = realm.objects(Category.self).sorted(byKeyPath: "persistedIndexRow", ascending: true)
         tableView.reloadData()
@@ -45,7 +47,7 @@ extension CategoryVC {
         }
     }
     
-    /// Edit the provided category's colorHexValue.
+    /// Edits the provided category's colorHexValue.
     func edit(category: Category, newColorHex: String) {
         do {
             try realm.write {
@@ -56,6 +58,7 @@ extension CategoryVC {
         }
     }
     
+    /// Moves a category from the sourceIndexPath to the destinationIndexPath.
     func moveCategory(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         do {
             try realm.write {
@@ -76,6 +79,8 @@ extension CategoryVC {
         }
     }
     
+    /// Resets the persistedIndexRow property of the categories to match the
+    /// index in the table view.
     func resetCategoriesPersistedIndexRow() {
         if let categories = categories {
             var index = 0
@@ -95,6 +100,7 @@ extension CategoryVC {
     
     // MARK: - Delete Data Methods
     
+    /// Deletes the category at the given indexPath.
     func deleteCategory(at indexPath: IndexPath) {
         if let categoryToBeDeleted = self.categories?[indexPath.row] {
             do {
