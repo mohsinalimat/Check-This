@@ -12,6 +12,7 @@ extension ItemVC {
     
     // MARK: - Data Methods
     
+    /// Saves a new item to the database.
     func save(_ item: Item) {
         do {
             try realm.write {
@@ -26,11 +27,18 @@ extension ItemVC {
         }
     }
     
+    // MARK: - Read Data Methods
+    
+    /// Loads all of the items in the selectedCategory sorted by the
+    /// persistedIndexRow item property.
     func loadItems() {
         items = selectedCategory?.items.sorted(byKeyPath: "persistedIndexRow", ascending: true)
         tableView.reloadData()
     }
     
+    // MARK: - Update Data Methods
+    
+    /// Edit the provided item's name.
     func edit(item: Item, newName: String? = nil) {
         do {
             try realm.write {
@@ -44,6 +52,7 @@ extension ItemVC {
         }
     }
     
+    /// Moves an item from the sourceIndexPath to the destinationIndexPath.
     func moveItem(from sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         do {
             try realm.write {
@@ -65,6 +74,8 @@ extension ItemVC {
         }
     }
     
+    /// Resets the persistedindexRox property of the items to match the index
+    /// in the table view.
     func resetItemsPersistedIndexRow() {
         if let items = items {
             var index = 0
@@ -81,6 +92,9 @@ extension ItemVC {
         }
     }
     
+    // MARK: - Delete Data Methods
+    
+    /// Deletes the Item at the given indexPath.
     func deleteItem(at indexPath: IndexPath) {
         if let item = selectedCategory?.items.sorted(byKeyPath: "persistedIndexRow")[indexPath.row] {
             do {
