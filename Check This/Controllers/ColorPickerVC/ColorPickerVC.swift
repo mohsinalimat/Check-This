@@ -48,8 +48,8 @@ class ColorPickerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         /* If device is in landscape when the user navigates to the
          ColorPickerVC, the checkmark on the selected color has the wrong
-         dimensions. This implementation will change the checkmark dimensions
-         visibly to the user. */
+         dimensions and location. This implementation will change the checkmark
+         dimensions and location visibly to the user. */
         if UIDevice.current.orientation.isLandscape {
             removePreviousCheckmarks()
             addCheckmarkToSelectedColorButton()

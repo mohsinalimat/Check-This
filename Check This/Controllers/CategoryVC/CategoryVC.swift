@@ -11,6 +11,7 @@ import ChameleonFramework
 
 class CategoryVC: CustomTableVC {
     
+    /// Realm database instance.
     let realm = try! Realm() // swiftlint:disable:this force_try
     
     /// A Realm container of all user created categories in the database.
