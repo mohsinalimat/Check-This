@@ -10,6 +10,7 @@ import UIKit
 
 extension ItemVC {
     
+    /// Sets up gesture when swiping from left edge of the device screen.
     func setUpSwipeToNavigateBack() {
         let screenEdgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePanGesture))
         screenEdgePanGesture.edges = .left
@@ -17,8 +18,9 @@ extension ItemVC {
     }
 
     /// Pops view controller if user swipes from the left edge of the view
-    /// only if user is not using the search bar. (swiping a table view cell
-    /// handled by CustomTableVC+Swipe.swift)
+    /// only if user is not using the search bar (making the
+    /// presentedViewController != nil). Swiping a table view cell
+    /// handled by CustomTableVC+Swipe.swift
     @objc func handleScreenEdgePanGesture(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized && presentedViewController == nil {
             navigationController?.popViewController(animated: true)
