@@ -12,6 +12,8 @@ import ChameleonFramework
 class CategoryVC: CustomTableVC {
     
     let realm = try! Realm() // swiftlint:disable:this force_try
+    
+    /// A Realm container of all user created categories in the database.
     var categories: Results<Category>?
     
     // MARK: - View Lifecycle Methods
@@ -74,12 +76,14 @@ class CategoryVC: CustomTableVC {
 
     // MARK: - Add New Categories Methods
 
+    /// Called when user pushes the + button to add a new category.
     @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
         CategoryAlerts.presentAlertToAddNewCategory(from: self)
     }
     
     // MARK: - Category Cell Accesory Setup
     
+    /// Returns a chevron icon that is has a contrasting color to the category.
     func matchChevronIconTo(_ contrastingCategoryColor: UIColor) -> UIImageView {
         let darkChevron = UIImageView(image: UIImage(named: "Dark_Chevron_Icon"))
         let lightChevron = UIImageView(image: UIImage(named: "Light_Chevron_Icon"))
@@ -94,6 +98,9 @@ class CategoryVC: CustomTableVC {
     
     // MARK: - Set up Table View Appearance
 
+    /// Sets the table view row appearance including height and background. The
+    /// background will display instructions on adding new categories if the
+    /// has not created one yet.
     func setCategoryTableViewAppearance() {
         tableView.rowHeight = 80
         tableView.backgroundView = UIView(frame: UIScreen.main.bounds)
@@ -118,6 +125,8 @@ class CategoryVC: CustomTableVC {
         return newColorHex
     }
     
+    /// Returns the hex value of a random color chosen from all the colors
+    /// available for categories.
     func randomColorHexFromColorOptions() -> String {
         let randomIndex = Int(arc4random_uniform(UInt32(Utilities.colorOptions.count)))
         return Utilities.colorOptions[randomIndex]
