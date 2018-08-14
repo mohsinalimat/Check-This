@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Used to persist the previous indexPath and cellSnapShot values.
 private struct LongPressPersistentValues {
     static var indexPath: IndexPath?
     static var cellSnapShot: UIView?
@@ -17,6 +18,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
     
     // MARK: - Long Press Setup
     
+    /// Sets up a UILongPressGestureRecognizer for the table view.
     func setUpTableViewLongPressGesture() {
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressGestureRecognizer.minimumPressDuration = 0.3
@@ -26,6 +28,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
     
     // MARK: - Long Press Gesture Delegate Methods
     
+    /// Called when a long press is registered on the table view.
     @objc func handleLongPress(_ gestureRecognizer: UIGestureRecognizer) {
         let locationInView = gestureRecognizer.location(in: self.tableView)
         let currentIndexPath = tableView.indexPathForRow(at: locationInView)
@@ -44,6 +47,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
     
     // MARK: - Long Press Gesture Other Methods
     
+    /// Returns a snapshot of the cell that is being dragged.
     func snapshopOfCell(inputView: UIView) -> UIView {
         UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
         inputView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -58,6 +62,9 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         return cellSnapshot
     }
     
+    /// Handles the beggining of a long press by user. If long press happens
+    /// on the table view, it will animate a snapshot of the cell that is being
+    /// held.
     func handleLongPressBegan(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
         guard let currentIndexPath = currentIndexPath else { return }
         guard let cell = tableView.cellForRow(at: currentIndexPath) else { return }
@@ -83,6 +90,8 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         })
     }
     
+    /// Handles the movement of the cell and element in cell that are being
+    /// dragged after being long pressed.
     func handleLongPressChanged(_ currentIndexPath: IndexPath?, _ locationInView: CGPoint) {
         var center = LongPressPersistentValues.cellSnapShot?.center
         center?.y = locationInView.y
@@ -94,6 +103,7 @@ extension CustomTableVC: UIGestureRecognizerDelegate {
         }
     }
     
+    /// Handles the end of a long press by user.
     func handleLongPressEnded() {
         guard let persistedIndexPath = LongPressPersistentValues.indexPath else { return }
         guard let cell = tableView.cellForRow(at: persistedIndexPath) else { fatalError() }
