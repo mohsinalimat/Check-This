@@ -9,5 +9,5 @@ target 'Check This' do
   pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'SwipeCellKit'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/mapierce/Chameleon.git'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/luismgb/Chameleon.git'
 end
