@@ -55,7 +55,7 @@ class ItemVC: CustomTableVC {
         guard let item = items?[indexPath.row] else { fatalError() }
         let cellTitle = NSMutableAttributedString(string: item.name)
         if item.done {
-            cellTitle.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSRange(location: 0, length: cellTitle.length))
+            cellTitle.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: cellTitle.length))
             cell.imageView?.image = UIImage(named: "Checked_Checkbox_Icon")
         } else {
             cell.imageView?.image = UIImage(named: "Unchecked_Checkbox_Icon")
@@ -105,7 +105,7 @@ class ItemVC: CustomTableVC {
     func setUpNavigationController() {
         title = selectedCategory?.name
         let contrastingColor = ContrastColorOf(categoryColor, returnFlat: true)
-        let contrastingColorAttribute = [NSAttributedStringKey.foregroundColor: contrastingColor]
+        let contrastingColorAttribute = [NSAttributedString.Key.foregroundColor: contrastingColor]
         if let navBar = navigationController?.navigationBar {
             navBar.barTintColor = categoryColor
             navBar.tintColor = contrastingColor

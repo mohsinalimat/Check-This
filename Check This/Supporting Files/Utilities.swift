@@ -23,7 +23,7 @@ struct Utilities {
     /// Sets up the navigation bar for the viewController passed in so it has a
     /// blue background with white components.
     static func setUpBlueNavBarFor(_ viewController: UIViewController) {
-        let whiteAttribute = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        let whiteAttribute = [NSAttributedString.Key.foregroundColor: UIColor.white]
         if let navBar = viewController.navigationController?.navigationBar {
             navBar.barTintColor = UIColor(hexString: "0096FF")!
             navBar.tintColor = UIColor.white
